@@ -16,7 +16,7 @@ myapp.run(function ($ionicPlatform, urlHelper, $rootScope) {
     document.addEventListener("online", onOnline, false);
     function onOnline() {
         urlHelper.openHome();
-        console.log("hello2");
+        console.log("hello2");  
         //  window.plugins.toast.showShortBottom('You Are Online Now');
     }
     urlHelper.openHome();
@@ -189,7 +189,7 @@ myapp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider)
             });
 
 
-//     $urlRouterProvider.otherwise('/priceGenie/home');
+           $urlRouterProvider.otherwise('/priceGenie/home');
 
 });
 
