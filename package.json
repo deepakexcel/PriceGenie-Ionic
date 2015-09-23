@@ -27,10 +27,6 @@
     {
       "locator": "https://github.com/apache/cordova-plugin-network-information.git",
       "id": "cordova-plugin-network-information"
-    },
-    {
-      "locator": "https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git",
-      "id": "nl.x-services.plugins.toast"
     }
   ],
   "cordovaPlatforms": [
