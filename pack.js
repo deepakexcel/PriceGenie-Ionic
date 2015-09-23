@@ -6,7 +6,7 @@
 
 var command = process.argv[2] || 'add';
 
-var packageJson = require('./package.json');
+var packageJson = require('./geniepackage.json');
 
 var fs = require('fs');
 var path = require('path');
