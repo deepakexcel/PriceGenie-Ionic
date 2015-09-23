@@ -3,17 +3,13 @@
         "source": {
             "type": "registry",
             "id": "org.apache.cordova.dialogs"
-        },
-        "is_top_level": true,
-        "variables": {}
+        }
     },
     "org.apache.cordova.globalization": {
         "source": {
             "type": "registry",
             "id": "org.apache.cordova.globalization"
-        },
-        "is_top_level": true,
-        "variables": {}
+        }
     },
     "org.apache.cordova.inappbrowser": {
         "source": {
@@ -76,47 +72,34 @@
             "type": "git",
             "url": "https://github.com/katzer/cordova-plugin-email-composer.git",
             "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
+        }
     },
     "cordova-plugin-x-socialsharing": {
         "source": {
             "type": "git",
             "url": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
             "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
+        }
     },
     "org.pushandplay.cordova.apprate": {
         "source": {
             "type": "git",
             "url": "https://github.com/pushandplay/cordova-plugin-apprate.git",
             "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
+        }
     },
     "uk.co.whiteoctober.cordova.appversion": {
         "source": {
             "type": "git",
             "url": "https://github.com/whiteoctober/cordova-plugin-app-version.git",
             "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
+        }
     },
     "com.phonegap.plugins.facebookconnect": {
         "source": {
             "type": "git",
             "url": "https://github.com/Wizcorp/phonegap-facebook-plugin.git",
             "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {
-            "APP_ID": "467986553238213",
-            "APP_NAME": "PriceGenie"
         }
     },
     "com.phonegap.plugins.PushPlugin": {
@@ -124,17 +107,13 @@
             "type": "git",
             "url": "https://github.com/phonegap-build/PushPlugin.git",
             "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
+        }
     },
     "cordova-plugin-x-toast": {
         "source": {
             "type": "git",
             "url": "https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git",
             "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
+        }
     }
 }
