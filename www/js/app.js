@@ -19,6 +19,7 @@ myapp.run(function ($ionicPlatform, urlHelper, $rootScope) {
         console.log("hello2");
         //  window.plugins.toast.showShortBottom('You Are Online Now');
     }
+    urlHelper.openHome();
 
 
 // this is for front view of app 

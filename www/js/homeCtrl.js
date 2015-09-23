@@ -118,24 +118,7 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
         });
     };
 
-    try {
-        var notificationArray = []
-
-        var notificationObj = {
-            id: String(1),
-            text: 'todoObj.title',
-            title: "hellp",
-//                                                icon: 'ion-android-notifications',
-//                                                icon: 'ion-android-notifications',
-            at: new Date()
-        };
-        notificationArray.push(notificationObj)
-        window.plugin.notification.local.schedule(notificationArray);
-        console.log('okkk')
-    }
-    catch (e) {
-        console.log(e + 'error');
-    }
+ 
     //vaibhav: initializing default category to load in popular items
     var cat;
     var category;
