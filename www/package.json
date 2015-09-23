@@ -1,0 +1,49 @@
+
+{
+  "name": "Pricegenie",
+  "version": "0.0.1",
+  "description": "PriceGenie App",
+  "main": "js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Excellence Technologies",
+  "license": "",
+  "platforms": [
+    "ios",
+    "android",
+    "browser"
+  ],
+  "plugins": [
+    "https://github.com/phonegap-build/PushPlugin.git",
+    "cordova-plugin-console",
+    "cordova-plugin-device",
+    "cordova-plugin-inappbrowser",
+    "cordova-plugin-network-information",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-whitelist",
+    "https://github.com/katzer/cordova-plugin-email-composer.git",
+    "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
+    "https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git",
+    "org.apache.cordova.dialogs",
+    "org.apache.cordova.globalization",
+    "https://github.com/pushandplay/cordova-plugin-apprate.git",
+    "https://github.com/whiteoctober/cordova-plugin-app-version.git",
+     {
+      "locator": " https://github.com/Wizcorp/phonegap-facebook-plugin.git",
+      "variables": {
+          "APP_ID": "467986553238213",
+          "APP_NAME": "PriceGenie"
+      }
+  }
+
+  ],
+  "devDependencies": {
+    "load-grunt-tasks": "~0.4.0",
+    "time-grunt": "~0.3.1",
+    "grunt": "~0.4.4",
+    "grunt-shell": "~0.6.4"
+  },
+  "dependencies": {}
+}
+
