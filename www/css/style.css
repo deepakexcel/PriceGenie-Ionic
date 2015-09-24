@@ -44,7 +44,14 @@
     padding: 16px 5px 15px 2px;
     margin: 3px 0 10px 0;
 }
-
+.conatiner{
+    width:90%;
+    margin:0 auto;
+    margin-top:20px;
+}
+ul.logout_ui.myui {
+    margin-bottom: 50px !important;
+}
 .mychart2 {
     padding: 16px 5px 15px 2px;
     margin: 3px 0 10px 0;
@@ -180,12 +187,22 @@ img.myitemimg {
 }*/
 
 .searchbox{
-    padding: 15px 5px 10px 5px;
-    box-shadow: -2px 2px 2px #bbbbbb;
+    /*padding: 15px 5px 10px 5px;*/
+    /*    box-shadow: -2px 2px 2px #bbbbbb;*/
+    width:100%;
+    height:45px;
+    background-color: #fff;
+    margin-bottom:5px;
+}
+.textbox {
+    width: 80%;
+    /* padding: 0 0 0 0; */
+    height: 45px !important;
+    color: #707070 !important;
 }
 .search{
 
-    border: 1px solid #e3ae22;
+    /*border: 1px solid #e3ae22;*/
     border-radius: 3px;
 
     padding: 0px 0px 3px 0px;
@@ -202,10 +219,12 @@ img.myitemimg {
     font-weight: 500;
     color: #555;
     font-size: 0.89em;
+    padding: 5px 0px 0px 0px;
 
 }
 .searchgimg{
     float:left;
+    padding: 5px 14px 0 4px;
 }
 
 .all{
@@ -216,7 +235,7 @@ img.myitemimg {
     color:#666;
     font-weight: 600;
     margin-top: 2px;
-    text-transform: uppercase;
+    /*    text-transform: uppercase;*/
     padding: 10px 0px 0px 5px;
     font-size: .88em;
     width: 98%;
@@ -373,7 +392,10 @@ img.myitemimg {
     /*    max-height: 90px;     */
     padding: 7px 0 0 0;
 }
-
+img.imgdivsearch {
+    float: left;
+    padding: 16px 12px 0 10px;
+}
 .fullnamecol {
     line-height: 18px;
     /* font-weight: 500; */
@@ -456,4 +478,31 @@ span.mygenie {
     list-style: none outside none;
     padding-bottom: 0.5em;
     padding-top: 0.5em;
+}
+.textbox::-webkit-input-placeholder{
+    color:#707070;
+    opacity: 2;
+    font-size:0.9em;
+}
+.textbox:-moz-placeholder {
+    color:#707070;
+    opacity: 2;
+    font-size:0.9em;
+}
+.textbox:-moz-placeholder { /* Firefox 18- */
+    color: #707070;  
+    opacity: 2;
+    font-size:0.9em;
+}
+
+.textbox::-moz-placeholder {  /* Firefox 19+ */
+    color: #707070;  
+    opacity: 2;
+    font-size:0.9em;
+}
+
+.textbox:-ms-input-placeholder {  
+    color: #707070;  
+    opacity: 2;
+    font-size:0.9em;
 }

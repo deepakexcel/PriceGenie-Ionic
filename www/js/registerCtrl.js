@@ -1,7 +1,7 @@
 //search controller @siddharth-->
 
 
-myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading, $log, googleLogin, $rootScope,urlHelper, timeStorage, $timeout, ajaxRequest) {
+myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading, $log, googleLogin, $rootScope, urlHelper, timeStorage, $timeout, ajaxRequest) {
     $scope.model = {
         reg_firstname: '',
         reg_email: '',
@@ -18,7 +18,7 @@ myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading,
     $scope.closePodcastsLoader = function() {
         $ionicLoading.hide();
     };
-    $rootScope.defaultButton = true;
+//    $rootScope.defaultButton = true;
     try {                                      //for getting devce id and platform 
         $scope.uuid = device.uuid;
         console.log($scope.uuid);
@@ -84,6 +84,7 @@ myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading,
                 $scope.response = data;
                 console.log(data.registration);
                 if (data.registration == true) {
+
                     $ionicLoading.hide();
                     urlHelper.openLogin();
                 }
@@ -121,13 +122,14 @@ myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading,
     $scope.gogleLogin = function() {
         $ionicLoading.show({
             templateUrl: 'partials/modals/productPage/loading.html',
-            scope: $scope
+            scope: $scope,
+            noBackdrop: false
         });
         var loginGoogle = googleLogin.authorize(opt);
         loginGoogle.then(function(res) {
             console.log(res);
             if (res.google_id != '') {
-                $ionicLoading.hide();
+                // $ionicLoading.hide();
 
                 api1 = 'facebook.php?type=mobile_google&id=' + res.google_id + '&name=' + res.name + '&email=' + res.email + '&gender=' + res.gender + '&device_id=' + $scope.uuid;
                 ;
@@ -135,10 +137,12 @@ myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading,
                 var promise = ajaxRequest.send(api1);
                 promise.then(function(data) {
                     $scope.response = data;
-                    var name = 'googleLogin'
+
+                    var name = 'googleLogin';
                     timeStorage.set(name, data, 48);
                     urlHelper.openHome();
-                    $ionicLoading.hide();
+                    window.plugins.toast.showShortTop('Hi ' + data.firstname);
+
                     console.log(data);
 
                 });
@@ -175,6 +179,11 @@ myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading,
         }
     }, 1000);
     $scope.facebookLogin = function() {
+        $ionicLoading.show({
+            templateUrl: 'partials/modals/productPage/loading.html',
+            scope: $scope,
+            noBackdrop: false
+        });
 
         console.log("yes");
         facebookConnectPlugin.login(['public_profile'], function(data) {
@@ -184,6 +193,7 @@ myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading,
 
         }, function(data) {
             $log.warn(data);
+            $ionicLoading.hide();
         });
     };
 //
@@ -195,16 +205,18 @@ myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading,
 
             $scope.$apply(function() {
                 $scope.fb_data = data;
-                console.log($scope.fb_data);
-
             });
             api1 = 'facebook.php?type=mobile_facebook&id=' + data.id + '&name=' + data.name + '&email=' + data.email + '&gender=' + data.gender + '&device_id=' + $scope.uuid;
             var promise = ajaxRequest.send(api1);
             promise.then(function(data1) {
                 $scope.response = data;
+
                 var name = 'fbLogin';
                 timeStorage.set(name, data1, 48);
                 urlHelper.openHome();
+                window.plugins.toast.showShortTop('Hi ' + data1.firstname);
+//                $ionicLoading.hide();
+
             });
             console.log('fb login=' + data.id + ',' + data.name + ',' + data.email);
         });

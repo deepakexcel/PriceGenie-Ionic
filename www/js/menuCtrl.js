@@ -3,7 +3,7 @@ var myappc = angular.module('startercc', ['ionic', 'starter', 'starterss', 'ngSt
 
 
 myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope,$ionicLoading, $ionicPlatform, $ionicHistory, urlHelper, timeStorage) {
-
+    
     var count = 0;
     try {
         $scope.uuid = device.uuid;   //getting device id
@@ -315,6 +315,9 @@ function successHandler(result) {
     var y = timeStorage.get("login")
 
     $scope.logout = function() {
+        $scope.shadow={
+            'box-shadow':'0px 0px 0px 0px'
+        };
         var api = 'mobile_api/api.php?action=logout_notify&user_key=' + y.user_key + '&device_id=' + $scope.uuid;
         timeStorage.remove("login");
         timeStorage.remove("googleLogin");

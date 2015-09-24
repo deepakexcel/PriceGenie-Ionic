@@ -8,7 +8,6 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
     var userid;
 
 
-
     //retrieving user data from local sorage if logged in
     if (timeStorage.get('login').email)
     {
@@ -25,7 +24,6 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
         email = timeStorage.get('fbLogin').email;
         userid = timeStorage.get('fbLogin').userid;
     }
-
 
 //getting device id
     try {
@@ -83,12 +81,21 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
         }
     };
     self.caller();
-
+//   $scope.shadow=function(){                        //for home page search active
+//       $scope.boxShadow={
+//       'box-shadow': '0px 0px 1px 2px #e3ae22'
+//   };
+//   };
+//   $scope.shadow1=function(){
+//       $scope.boxShadow={
+//       'box-shadow': '0px 0px 0px 0px '
+//   };
+//   };
     //event when modal closes
     $scope.$on('modal.hidden', function() {
         $ionicScrollDelegate.scrollTop();
     });
-
+    $ionicLoading.hide();
 //function for ion refresh
 //    $scope.doRefresh = function () {
 //        cate = category.replace(/[^a-zA-Z0-9]/gi, '');  //changing pattern for the categories
@@ -97,7 +104,7 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
 //        $ionicLoading.hide();             //hiding the loading icon
 //    };
 
-    $rootScope.defaultButton = true;      //showing the common button in menu
+//    $rootScope.defaultButton = true;      //showing the common button in menu
 
     var self = this;
 
@@ -118,7 +125,7 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
         });
     };
 
- 
+
     //vaibhav: initializing default category to load in popular items
     var cat;
     var category;

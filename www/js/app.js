@@ -6,7 +6,7 @@
 var myapp = angular.module('starter', ['ionic', 'startercc', 'angular-chartist']);
 
 
-myapp.run(function ($ionicPlatform, urlHelper, $rootScope) {
+myapp.run(function($ionicPlatform, urlHelper, $rootScope) {
     document.addEventListener("offline", onOffline, false);
     function onOffline() {
         console.log('hello1');
@@ -16,12 +16,18 @@ myapp.run(function ($ionicPlatform, urlHelper, $rootScope) {
     document.addEventListener("online", onOnline, false);
     function onOnline() {
         urlHelper.openHome();
-        console.log("hello2");  
+        console.log("hello2");
         //  window.plugins.toast.showShortBottom('You Are Online Now');
     }
-    urlHelper.openHome();
 
+    $ionicPlatform.ready(function() {
+        var isWebView = ionic.Platform.isWebView();
+        console.log(isWebView);
+        if (!isWebView) {
+            urlHelper.openHome();
+        }
 
+    });
 // this is for front view of app 
 //        if (!timeStorage.get("login") && !timeStorage.get("googleLogin") && !timeStorage.get("fbLogin")) {
 //
@@ -42,7 +48,7 @@ myapp.run(function ($ionicPlatform, urlHelper, $rootScope) {
 
 
 });
-myapp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+myapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 // if (ionic.Platform.isAndroid()) {
 //      $ionicConfigProvider.scrolling.jsScrolling(false);
 //    }
@@ -189,15 +195,15 @@ myapp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider)
             });
 
 
-           $urlRouterProvider.otherwise('/priceGenie/home');
+    // $urlRouterProvider.otherwise('/priceGenie/home');
 
 });
 
-myapp.directive('menuCloseKeepHistory', ['$ionicHistory', function ($ionicHistory) {
+myapp.directive('menuCloseKeepHistory', ['$ionicHistory', function($ionicHistory) {
         return {
             restrict: 'AC',
-            link: function ($scope, $element) {
-                $element.bind('click', function () {
+            link: function($scope, $element) {
+                $element.bind('click', function() {
                     var sideMenuCtrl = $element.inheritedData('$ionSideMenusController');
                     if (sideMenuCtrl) {
                         $ionicHistory.nextViewOptions({

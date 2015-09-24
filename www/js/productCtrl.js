@@ -64,7 +64,7 @@ console.log($stateParams);
     $scope.$on('modal.hidden', function() {
         $ionicScrollDelegate.scrollTop();
     });
-    $rootScope.defaultButton = false;
+//    $rootScope.defaultButton = false;
     //vaibhav url1 for getting clicked product detail 
     var url1 = 'mobile_api/api.php?action=product&query_id=' + qid;
 //    var url1 = 'find.php?q=' + pro_name + '&cat=' + catId + '&cache=1&subcat=' + subId + '&product=&ip_addr=&login=0&recent_key=&isbn=&author=';

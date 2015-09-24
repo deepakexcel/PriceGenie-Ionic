@@ -1,8 +1,7 @@
 //siddharth category controller
 myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicScrollDelegate, $ionicPopup, $rootScope, $ionicLoading, ajaxRequest, urlHelper, $stateParams, timeStorage) {
     var filters = [];
-
-    $rootScope.defaultButton = true;
+    
     var self = this;
     var bigdata = [];
     console.log($stateParams);
@@ -558,9 +557,9 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
 
     $scope.loadMore();
     $scope.query_id = function(id) {
-        $rootScope.defaultButton = false;
+        
         console.log(id);
-        var ID = id.split('/')[7];
+        var ID = id.split('/')[6];
         console.log(ID);
         urlHelper.openProduct({query_id: ID});
 
@@ -580,7 +579,7 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
     var qid1;
     $scope.priceAlert = function(query) {
          $scope.change12=query;
-        var query_id = query.split('/')[7];
+        var query_id = query.split('/')[6];
         qid1 = query_id;
         $ionicLoading.show({
             templateUrl: 'partials/modals/productPage/loading.html',

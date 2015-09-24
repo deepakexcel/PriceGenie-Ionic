@@ -56,7 +56,7 @@ myapps.factory('ajaxRequest',
                     },
                     url: function(api) {
 
-                        return 'http://pricegenie.co/dev/' + api;
+                        return 'http://pricegenie.co/' + api;
 
                     },
                     send: function(api, data, method) {

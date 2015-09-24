@@ -1,5 +1,5 @@
 myappc.controller('recentSearches', function($scope, $rootScope,timeStorage){
-    $rootScope.defaultButton = true;
+//    $rootScope.defaultButton = true;
     var data1;
 
     if (timeStorage.get('myRecentSearch'))
