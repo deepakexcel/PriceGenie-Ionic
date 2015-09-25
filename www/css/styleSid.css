@@ -322,13 +322,19 @@ ion-item.all_data1.item {
 ion-item :hover .filterS1.item{
     text-decoration: underline;
 }
+.buttonsS > img {
+    padding: 0 0 0 4px;
+}
 .search_in.ng-binding {
+    color: #e3ae22 !important;
+    font-size: 0.9em;
     position: absolute;
     right: 7px;
     top: 41px;
     z-index: 999;
-    color:  #e3ae22 !important;
-    font-size: 0.9em;
+    width: 50%;
+    float: right;
+    text-align: right;
 }
 .border {
     border-bottom: 1px solid #cccccc;
@@ -408,6 +414,18 @@ ion-item :hover .filterS1.item{
 .bt1:hover{
     color:#fff !important;
 
+}
+.bt1.activated{
+    background: none repeat scroll 0 0 #dd4627 !important;
+    border: 1px solid #564C4C !important;
+}
+.bt2.activated{
+    background: none repeat scroll 0 0 #3b5998!important;
+    border: 1px solid #564C4C !important;
+}
+.bt3.activated{
+    background: none repeat scroll 0 0 #cb3f32 !important;
+    border: 1px solid #564C4C !important;
 }
 .taC{
     color: #085394
@@ -886,9 +904,9 @@ p {
     width: 209px;
     background-color: #3e454d;
 }
-.Home {
+/*.Home {
     box-shadow: 0px -1px 0px 0px #5b656f;
-}
+}*/
 .sidem li {
     color: #a1a1a1;
     cursor: pointer;
@@ -896,11 +914,10 @@ p {
     font-size: 83%;
     font-style: normal;
     opacity: 1.5;
-    /*    margin-bottom: 4px;
-        margin-top: 4px;*/
-    padding-bottom: 5px;
+    margin-top: 2px;
+    padding-bottom: 0px;
     padding-right: 5%;
-    padding-top: 0.7em;
+    padding-top: 15px;
     text-align: right;
     text-transform: uppercase;
     padding-left: 35px;
@@ -1221,7 +1238,7 @@ a {
 }
 .linkholder {
     color: #085394;
-    font-size: 1.2em;
+    font-size: 1.1em;
     padding: 25px 0 0;
 }
 .lowerextraimg1 {

@@ -187,7 +187,7 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
             scope: $scope
 
         });
-        br = 0
+        br = 0;
         console.log(val);
         if (val == 0) {
             sort = "pricelth";
@@ -575,7 +575,7 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
         $scope.followModal.hide();
         $scope.change12='query1';
     };
-
+   
     var qid1;
     $scope.priceAlert = function(query) {
          $scope.change12=query;

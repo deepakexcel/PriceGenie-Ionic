@@ -1,4 +1,4 @@
-myappc.controller('star', function($scope, $ionicNavBarDelegate, ajaxRequest, $rootScope,urlHelper, timeStorage, $ionicLoading) {
+myappc.controller('star', function($scope, $ionicNavBarDelegate, ajaxRequest, $rootScope, urlHelper, timeStorage, $ionicLoading) {
 //    $rootScope.defaultButton = false;
 
     var e = $ionicNavBarDelegate.showBar(false);

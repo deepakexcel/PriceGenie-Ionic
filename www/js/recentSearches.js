@@ -1,4 +1,4 @@
-myappc.controller('recentSearches', function($scope, $rootScope,timeStorage){
+myappc.controller('recentSearches', function($scope, $rootScope, timeStorage) {
 //    $rootScope.defaultButton = true;
     var data1;
 

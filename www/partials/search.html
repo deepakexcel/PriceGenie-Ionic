@@ -3,14 +3,14 @@
     <ion-header-bar  class="search-bar " >
 
         <div class="buttonsS ">
-            <i class="ion-arrow-left-c backB" ng-click="myGoBack()"></i>
+            <i class="icon ion-android-arrow-back backB" ng-click="myGoBack()"></i>
 
             <img src="img/genie-logo-g.png" alt="Side Navigation" ng-click="home()">
         </div>
         <div side="left" resizable>
             <input type="text" id="q" placeholder="Search for your Product to get lowest prices.." 
                    class="textb"
-                   ng-keypress="keypress()"    tabindex="1" autocomplete="off" ng-model="textSearch" style="width: {{windowWidth}}px">
+                   ng-keypress="keypress()"  onfocus="this.placeholder = ''" onblur="this.placeholder ='Search for your Product to get lowest prices..'"  ng-model="textSearch" style="width: {{windowWidth}}px">
         </div>
 
     </ion-header-bar>
@@ -89,7 +89,7 @@
                 </div>
             </ion-list>
             <ion-list ng-repeat='res in response.bestMatch track by $index'>
-                <div class="border" ng-click="gotoProduct(res.url, res.text)">
+                <div class="border" ng-click="gotoProduct(res.url, res.text,res.product_id)">
                     <div class="ioitem1">
                         <span>{{res.text}}</span>
 

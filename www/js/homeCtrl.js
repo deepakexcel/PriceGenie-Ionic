@@ -63,6 +63,9 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
             console.log("show1");
             $rootScope.show1 = true;
             $rootScope.show = false;
+            $rootScope.shadow = {
+                'box-shadow': '0px -1px 0px 0px #5b656f'
+            };
         } else if (timeStorage.get("fbLogin") != '') {
             var x = timeStorage.get("fbLogin");
             console.log(x);
@@ -70,6 +73,9 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
             console.log("show12");
             $rootScope.show1 = true;
             $rootScope.show = false;
+            $rootScope.shadow = {
+                'box-shadow': '0px -1px 0px 0px #5b656f'
+            };
         }
         else {
             var x = timeStorage.get("googleLogin");
@@ -78,6 +84,9 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
             console.log("show13");
             $rootScope.show1 = true;
             $rootScope.show = false;
+            $rootScope.shadow = {
+                'box-shadow': '0px -1px 0px 0px #5b656f'
+            };
         }
     };
     self.caller();

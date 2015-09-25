@@ -2,8 +2,8 @@
 var myappc = angular.module('startercc', ['ionic', 'starter', 'starterss', 'ngStorage', 'angular-chartist']);
 
 
-myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope,$ionicLoading, $ionicPlatform, $ionicHistory, urlHelper, timeStorage) {
-    
+myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope, $ionicLoading, $ionicPlatform, $ionicHistory, urlHelper, timeStorage) {
+
     var count = 0;
     try {
         $scope.uuid = device.uuid;   //getting device id
@@ -15,84 +15,84 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
     catch (e) {
         console.log(e);
     }
-document.addEventListener("deviceready", function() {
-var pushNotification = window.plugins.pushNotification;
-console.log('push='+pushNotification);
-if(device.platform=='Android')
-{
-pushNotification.register(
-    successHandler, 
-    errorHandler, 
-    {
-        'senderID':'117380048302',
-        'ecb':"window.onNotification" // callback function
-    }
-);
-}
-function errorHandler(error) {
-    console.log('Error: '+ error);
-}
-function successHandler(result) {
-    console.log('Success: '+ result);
-}
+    document.addEventListener("deviceready", function() {
+        var pushNotification = window.plugins.pushNotification;
+        console.log('push=' + pushNotification);
+        if (device.platform == 'Android')
+        {
+            pushNotification.register(
+                    successHandler,
+                    errorHandler,
+                    {
+                        'senderID': '117380048302',
+                        'ecb': "window.onNotification" // callback function
+                    }
+            );
+        }
+        function errorHandler(error) {
+            console.log('Error: ' + error);
+        }
+        function successHandler(result) {
+            console.log('Success: ' + result);
+        }
 
 
- window.onNotification= function(e) {
-   console.log("i am in notification function");
-    switch(e.event){
-        case 'registered':
-            if (e.regid.length > 0){
-              //  deviceRegistered(e.regid);
-                var x=e.regid;
-              console.log(x);
-               timeStorage.set("Noti_reg_id",x,100);
-               var action="add_mobile";
-                var params = 'device_id=' + encodeURIComponent(device.uuid) + '&user_key='+''+'&gcm_reg_id=' + encodeURIComponent(x);
-           
-           var api= 'mobile_api/api.php?action='+action+'&'+params;
-            console.log(api);
-           var promise=ajaxRequest.send(api);
-           promise.then(function(data){
-              console.log(data); 
-           });
-             }
-        break;
+        window.onNotification = function(e) {
+            console.log("i am in notification function");
+            switch (e.event) {
+                case 'registered':
+                    if (e.regid.length > 0) {
+                        //  deviceRegistered(e.regid);
+                        var x = e.regid;
+                        console.log(x);
+                        timeStorage.set("Noti_reg_id", x, 100);
+                        var action = "add_mobile";
+                        var params = 'device_id=' + encodeURIComponent(device.uuid) + '&user_key=' + '' + '&gcm_reg_id=' + encodeURIComponent(x);
 
-        case 'message':
-            if (e.foreground){
-            	// When the app is running foreground. 
-                console.log('foreground');
-                  alert(e.payload.message);
+                        var api = 'mobile_api/api.php?action=' + action + '&' + params;
+                        console.log(api);
+                        var promise = ajaxRequest.send(api);
+                        promise.then(function(data) {
+                            console.log(data);
+                        });
+                    }
+                    break;
 
-            }
-             else if (e.background)
-                {
-             
-                    console.log('--INLINE NOTIFICATION--' + '');
-                
-                }
-                else
-                {
-                    // otherwise we were launched because the user touched a notification in the notification tray.
-                    if (e.coldstart)
-                        console.log('--COLDSTART NOTIFICATION--' + '');
+                case 'message':
+                    if (e.foreground) {
+                        // When the app is running foreground. 
+                        console.log('foreground');
+                        alert(e.payload.message);
+
+                    }
+                    else if (e.background)
+                    {
+
+                        console.log('--INLINE NOTIFICATION--' + '');
+
+                    }
                     else
-                        console.log('--BACKGROUND NOTIFICATION--' + '');
-                    // direct user here:
-                }
+                    {
+                        // otherwise we were launched because the user touched a notification in the notification tray.
+                        if (e.coldstart)
+                            console.log('--COLDSTART NOTIFICATION--' + '');
+                        else
+                            console.log('--BACKGROUND NOTIFICATION--' + '');
+                        // direct user here:
+                    }
 
-        break;
+                    break;
 
-        case 'error':
-            console.log('Error: ' + e.msg);
-        break;
+                case 'error':
+                    console.log('Error: ' + e.msg);
+                    break;
 
-        default:
-         console.log('An unknown event was received');
-          break;
-    }
-};
-});
+                default:
+                    console.log('An unknown event was received');
+                    break;
+            }
+        };
+    });
     var self = this;
 
     $rootScope.home = function() {
@@ -103,6 +103,7 @@ function successHandler(result) {
     self.caller = function() {
         if (!timeStorage.get("login") && !timeStorage.get("googleLogin") && !timeStorage.get("fbLogin")) {
             console.log("show");
+
             $rootScope.show = true;
             $rootScope.show1 = false;
         }
@@ -153,7 +154,7 @@ function successHandler(result) {
         }
         else
         {
-
+            $ionicLoading.hide();
             $ionicHistory.goBack();
             count = 0;
         }
@@ -315,8 +316,8 @@ function successHandler(result) {
     var y = timeStorage.get("login")
 
     $scope.logout = function() {
-        $scope.shadow={
-            'box-shadow':'0px 0px 0px 0px'
+        $scope.shadow = {
+            'box-shadow': '0px 0px 0px 0px'
         };
         var api = 'mobile_api/api.php?action=logout_notify&user_key=' + y.user_key + '&device_id=' + $scope.uuid;
         timeStorage.remove("login");

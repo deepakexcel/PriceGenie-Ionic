@@ -1,57 +1,57 @@
-myapps.factory('urlHelper', function ($state) {
+myapps.factory('urlHelper', function($state) {
     var goview = {};
-    goview.openHome = function () {
+    goview.openHome = function() {
         $state.go("menu.home");
     };
-    goview.openCategory = function (data) {
-        $state.go("menu.category",data);
+    goview.openCategory = function(data) {
+        $state.go("menu.category", data);
     };
-    goview.openSearch = function () {
+    goview.openSearch = function() {
         $state.go('menu.search');
     };
-    goview.openProduct = function (data) {
-        $state.go('menu.product',data);
+    goview.openProduct = function(data) {
+        $state.go('menu.product', data);
     };
-    goview.openRegister = function () {
+    goview.openRegister = function() {
         $state.go('menu.register');
     };
-    goview.openLogin = function () {
+    goview.openLogin = function() {
         $state.go('menu.login');
     };
-    goview.openSetting = function () {
+    goview.openSetting = function() {
         $state.go('menu.setting');
     };
-    goview.openFeedback = function () {
+    goview.openFeedback = function() {
         $state.go('menu.feedback');
     };
-    goview.openRecent = function () {
+    goview.openRecent = function() {
         $state.go('menu.recentSearches');
     };
-    goview.openAboutus = function () {
+    goview.openAboutus = function() {
         $state.go('menu.Aboutus');
     };
-    goview.openStar = function () {
+    goview.openStar = function() {
         $state.go('menu.star');
     };
-     goview.openNotification = function () {
+    goview.openNotification = function() {
         $state.go('menu.notification');
     };
-     goview.openContactus = function () {
+    goview.openContactus = function() {
         $state.go('menu.Contactus');
     };
-     goview.openYouralert = function () {
+    goview.openYouralert = function() {
         $state.go('menu.YourAlert');
     };
-     goview.openWebsite = function () {
+    goview.openWebsite = function() {
         $state.go('menu.website');
     };
-     goview.openNotifytext = function () {
+    goview.openNotifytext = function() {
         $state.go('menu.notifytext');
     };
-     goview.openSuccess = function () {
+    goview.openSuccess = function() {
         $state.go('menu.success');
     };
-     goview.openOffline = function () {
+    goview.openOffline = function() {
         $state.go('menu.offline');
     };
     return goview;

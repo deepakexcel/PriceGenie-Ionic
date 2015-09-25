@@ -5,7 +5,7 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper, $ionicScrollDe
         templateUrl: 'partials/modals/productPage/loading.html',
         scope: $scope
     });
-console.log($stateParams);
+    console.log($stateParams);
     var catId = $stateParams.a;            //vaibhav category id
     var subId = $stateParams.b;            //vaibhav sub category id
     var pro_name = $stateParams.name;         //vaibhav product name
@@ -170,7 +170,7 @@ console.log($stateParams);
     });
     $scope.followModalClose = function() {
         $scope.followModal.hide();
-        $scope.change12='query1';
+        $scope.change12 = 'query1';
     };
 //vaibhav function for functionality of follow also in home Ctrl
 //    $scope.unfollow = function (i, j, query_id) {
@@ -184,7 +184,7 @@ console.log($stateParams);
 
 //function for follow
     $scope.follow = function(i, j, query_id) {
-         $scope.change12=query_id;
+        $scope.change12 = query_id;
         $ionicLoading.show({
             templateUrl: 'partials/modals/productPage/loading.html',
             scope: $scope
@@ -239,10 +239,10 @@ console.log($stateParams);
     //function o set product alert
     $scope.processFollow = function() {
         $ionicLoading.show({
-        templateUrl: 'partials/modals/productPage/loading.html',
-        scope: $scope
-    
-    });
+            templateUrl: 'partials/modals/productPage/loading.html',
+            scope: $scope
+
+        });
         if (webObj.length == 0)
         {
             $ionicLoading.hide();
@@ -274,9 +274,9 @@ console.log($stateParams);
                 promise.then(function(data) {
                     webObj = [];
                     console.log(data);
-                     $ionicLoading.hide();
+                    $ionicLoading.hide();
                     $scope.followModal.hide();
-                    $scope.change12='query1';
+                    $scope.change12 = 'query1';
                     if (data.error == 1)
                     {
                         window.plugins.toast.showShortTop('please login to start alert');
@@ -292,7 +292,7 @@ console.log($stateParams);
 
                     console.log(data);
                     $scope.followModal.hide();
-                    $scope.change12='query1';
+                    $scope.change12 = 'query1';
                 });
             }
             else
@@ -301,7 +301,7 @@ console.log($stateParams);
 
                 urlHelper.openLogin();
 
-                $scope.change12='query1';
+                $scope.change12 = 'query1';
 
                 console.log('please login to start alert');
                 window.plugins.toast.showShortTop('please login to start alert');
@@ -339,11 +339,11 @@ console.log($stateParams);
 //    });
 //function  for product trend 
 
-    $scope.productTrend = function () {
+    $scope.productTrend = function() {
 
 
         var promise = ajaxRequest.send('price_history_graph.php?work=productgraph&action=dailylowest&query_id=' + qid + '&resource=mobile_api&result_show=json');
-        promise.then(function (data) {
+        promise.then(function(data) {
 
             $ionicLoading.hide();
             console.log(data);
@@ -437,7 +437,7 @@ console.log($stateParams);
                     ['screen and (max-width: 640px)', {
                             showLine: false,
                             axisX: {
-                                labelInterpolationFnc: function (value) {
+                                labelInterpolationFnc: function(value) {
                                     return value[0];
                                 }
                             }
@@ -453,7 +453,7 @@ console.log($stateParams);
 //            $scope.productTrendModal.show();
 
         });
-        promise.catch(function () {
+        promise.catch(function() {
             console.log('error');
         });
     };
@@ -476,10 +476,10 @@ console.log($stateParams);
 //    });
 
 //    function for full chart
-    $scope.fullChart = function () {
+    $scope.fullChart = function() {
 
         var promise = ajaxRequest.send('price_history_graph.php?work=productgraph&action=fullchart&query_id=' + qid + '&resource=mobile_api&result_show=json');
-        promise.then(function (data) {
+        promise.then(function(data) {
 
             console.log(data);
             $scope.tableEmptyFull = data.status;
@@ -557,7 +557,7 @@ console.log($stateParams);
                     ['screen and (max-width: 640px)', {
                             showLine: false,
                             axisX: {
-                                labelInterpolationFnc: function (value) {
+                                labelInterpolationFnc: function(value) {
                                     return value[0];
                                 }
                             }
@@ -568,7 +568,7 @@ console.log($stateParams);
                 $scope.tableEmptyFull = false;
 //            $scope.productFullChart.show();
         });
-        promise.catch(function () {
+        promise.catch(function() {
             console.log('error');
         });
     };

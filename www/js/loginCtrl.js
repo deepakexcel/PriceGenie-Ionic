@@ -58,9 +58,10 @@ myappc.controller('loginCtrl', function($scope, $log, ajaxRequest, $ionicHistory
                 if (data.login == true) {
                     var name = 'login';
                     $ionicLoading.hide();
-                    window.plugins.toast.showShortTop('Hi ' + data.firstname);
+
                     timeStorage.set(name, data, 48);
                     urlHelper.openHome();
+                    window.plugins.toast.showShortTop('Hi ' + data.firstname);
 
                     //   self.caller();
                 }

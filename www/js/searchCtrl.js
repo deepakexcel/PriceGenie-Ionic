@@ -197,15 +197,14 @@ myappc.controller('searchCtrl', function($scope, urlHelper, $ionicLoading, timeS
         urlHelper.openCategory({category: id, subCategory: sub_id, name: name, brand: brand});
     };
 
-    $scope.gotoProduct = function(uri, val) {
+    $scope.gotoProduct = function(uri, val,product) {
         timeStorage.set(name, '', 48);
         console.log(val);
         previous.push(val);
-
         timeStorage.set(name, previous, 48);
         var url = encodeURI(uri);
         console.log(url);
-        var ID = url.split('/')[6];
+        var ID = url.split('/')[5];
         console.log(ID);
         urlHelper.openProduct({query_id: ID});
 

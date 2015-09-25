@@ -1,13 +1,14 @@
-myappc.controller('YourAlertCtrl', function($scope, ajaxRequest, timeStorage) {
+myappc.controller('YourAlertCtrl', function($scope, ajaxRequest, timeStorage, $ionicLoading) {
     var self = this;
     self.AllData = function(api) {
         var promise = ajaxRequest.send(api);
         promise.then(function(data) {
             $scope.response = data;
             console.log($scope.response);
-
+            $ionicLoading.hide();
             if (data.data == '') {
                 $scope.yes = true;
+
             } else {
                 $scope.yes = false;
             }
@@ -71,7 +72,11 @@ myappc.controller('YourAlertCtrl', function($scope, ajaxRequest, timeStorage) {
         window.open(url, '_system', 'location=yes');
     };
     self.main = function() {
+        $ionicLoading.show({
+            templateUrl: 'partials/modals/productPage/loading.html',
+            scope: $scope
 
+        });
         var api = 'mobile_api/api.php?action=notify&type=account&device_id=' + $scope.uuid + '&user_id=' + userid + '&email=' + email;
         self.AllData(api);
     };
@@ -105,13 +110,13 @@ myappc.controller('YourAlertCtrl', function($scope, ajaxRequest, timeStorage) {
             });
         }
     };
-    
-    $scope.price=function(id){
-       var api= 'mobile_api/api.php?action=notify&type=watch_history&id='+id+'&device_id='+$scope.uuid+'&user_id=' + userid + '&email=' + email;
-    var promise = ajaxRequest.send(api);
-            promise.then(function(data) {
-                $scope.response1 = data;
-                console.log(data);
-            });
+
+    $scope.price = function(id) {
+        var api = 'mobile_api/api.php?action=notify&type=watch_history&id=' + id + '&device_id=' + $scope.uuid + '&user_id=' + userid + '&email=' + email;
+        var promise = ajaxRequest.send(api);
+        promise.then(function(data) {
+            $scope.response1 = data;
+            console.log(data);
+        });
     };
 });
