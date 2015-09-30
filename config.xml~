@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.pricegenie508011" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>priceGenie</name>
+<widget id="com.ionicframework.pricegenie508011" version="1.0.21" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>PriceGenie</name>
   <description>
         An Ionic Framework and Cordova project.
     </description>
@@ -33,9 +33,9 @@
     <splash src="resources/android/splash/drawable-port-mdpi-screen.png" density="port-mdpi"/>
     <splash src="resources/android/splash/drawable-port-hdpi-screen.png" density="port-hdpi"/>
   </platform>
-<<<<<<< HEAD
+
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
-=======
+
   <platform name="ios">
     <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
     <icon src="resources/ios/icon/icon-40.png" width="40" height="40"/>
@@ -47,5 +47,5 @@
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
   </platform>
   <icon src="resources/ios/icon/icon-72.png"/>
->>>>>>> edb25698391dad16dc8ecc7afa083e516a639c0e
+
 </widget>

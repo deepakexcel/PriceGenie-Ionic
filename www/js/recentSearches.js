@@ -77,5 +77,8 @@ myappc.controller('recentSearches', function($scope, $rootScope, timeStorage) {
         data1 = [{msg: 'No Recently Viewed Products Yet!'}];
         $scope.recentData = data1;
     }
+    $scope.closePodcastsLoader = function() {
+        $ionicLoading.hide();
+    };
 
 });

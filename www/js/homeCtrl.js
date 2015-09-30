@@ -35,7 +35,9 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
     catch (e) {
         console.log(e);
     }
-
+    $scope.closePodcastsLoader = function() {
+        $ionicLoading.hide();
+    };
     //function to call toast
     self.toast = function(msg) {
         window.plugins.toast.showWithOptions(

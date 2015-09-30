@@ -1,24 +1,25 @@
 <ion-view cache-view="false" style="background-color: #e3e0e0;" can-swipe-back="false">
+    
     <ion-nav-buttons side="right" cache-view='false' >
         <button  class="button button-clear button-large  mybuttonnav" ui-sref="menu.YourAlert"> <i class='icon ion-ios-bell colorCH'></i></button>  
     </ion-nav-buttons>
     <ion-content  overflow-scroll="true" class="has-header">
         <div class="conatiner">
-            <div class="searchbox" ng-style='boxShadow'>
-                <!--                <img src='img/search1.png' class='imgdivsearch'>-->
-                <div class="list  search ">
-                    <div class="row searchrow" >
-                        <div class="col" ui-sref="menu.search">
-                            <!--<img src="img/search1.png" class='searchgimg' alt=""/>-->
-                            <i class="icon ion-search searchgimg "></i>
-                            <p>  Search product to get lowest prize
-                            </p>
-                        </div>
-                    </div> 
-                </div>
-                <!--            <input type="text" class="textbox" placeholder="Search product to get lowest price" 
-                              ng-keypress="keypress()"  on-tap='shadow()' ng-blur='shadow1()'  ng-model="textSearch" >-->
-            </div>
+
+             <div class="searchbox" ng-style='boxShadow'>
+                <ul  style="margin-top: 0px;margin-bottom: 0px" >
+                                    <li class="myitemli xy"  ui-sref="menu.search" >
+                                        <div class="imgdiv">
+                                           <i class="icon ion-search searchgimg "></i>
+                                            <!--<i class="icon myicon ion-iphone " style="color:green" ></i>-->
+                                        </div>
+                                        <div class="myitemh2div searchrow">
+                                            <p class="myp">Search product to get lowest prize</p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </li>
+                                    </ul>
+             </div>
             <div style='clear:both'></div>
             <div class="all">
 

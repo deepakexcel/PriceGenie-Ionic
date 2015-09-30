@@ -71,6 +71,9 @@ myappc.controller('YourAlertCtrl', function($scope, ajaxRequest, timeStorage, $i
         console.log(url);
         window.open(url, '_system', 'location=yes');
     };
+    $scope.closePodcastsLoader = function() {
+        $ionicLoading.hide();
+    };
     self.main = function() {
         $ionicLoading.show({
             templateUrl: 'partials/modals/productPage/loading.html',

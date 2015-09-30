@@ -28,7 +28,7 @@ myappc.controller('searchCtrl', function($scope, urlHelper, $ionicLoading, timeS
     $scope.myGoBack = function() {  // for back button
         $ionicHistory.goBack();
     };
-   
+
     sea = 0;
 
     select = 0;
@@ -197,7 +197,7 @@ myappc.controller('searchCtrl', function($scope, urlHelper, $ionicLoading, timeS
         urlHelper.openCategory({category: id, subCategory: sub_id, name: name, brand: brand});
     };
 
-    $scope.gotoProduct = function(uri, val,product) {
+    $scope.gotoProduct = function(uri, val, product) {
         timeStorage.set(name, '', 48);
         console.log(val);
         previous.push(val);
@@ -227,6 +227,23 @@ myappc.controller('searchCtrl', function($scope, urlHelper, $ionicLoading, timeS
         });
         scope.width();
     };
+}).directive('focus', function($timeout) {
+
+    return {
+        scope: {
+            trigger: '@focus'
+        },
+        link: function(scope, element) {
+            scope.$watch('trigger', function(value) {
+                if (value === "true") {
+                    $timeout(function() {
+                        element[0].focus();
+                    });
+                }
+            });
+        }
+    };
 });
+
 
         

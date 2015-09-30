@@ -3,14 +3,14 @@
     <ion-header-bar  class="search-bar " >
 
         <div class="buttonsS ">
-            <i class="icon ion-android-arrow-back backB" ng-click="myGoBack()"></i>
+            <i class="icon ion-chevron-left backB" ng-click="myGoBack()"></i>
 
             <img src="img/genie-logo-g.png" alt="Side Navigation" ng-click="home()">
         </div>
         <div side="left" resizable>
             <input type="text" id="q" placeholder="Search for your Product to get lowest prices.." 
-                   class="textb"
-                   ng-keypress="keypress()"  onfocus="this.placeholder = ''" onblur="this.placeholder ='Search for your Product to get lowest prices..'"  ng-model="textSearch" style="width: {{windowWidth}}px">
+                   class="textb" focus="true"
+                   ng-keypress="keypress()"  onfocus="this.placeholder = ''" onblur="this.placeholder ='Search for your Product to get lowest prices..'"  ng-model="textSearch" style="width: {{windowWidth}}px" >
         </div>
 
     </ion-header-bar>

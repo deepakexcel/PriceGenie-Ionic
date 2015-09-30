@@ -137,7 +137,7 @@ li.myitemli2 {
     background: none;
 }
 
-p.myp {
+p.myp {    padding-right: 12%;
     padding: 8px 0 0 40px;
 }
 
@@ -188,7 +188,7 @@ img.myitemimg {
 
 .searchbox{
     /*padding: 15px 5px 10px 5px;*/
-    box-shadow: 0px 2px 0px #e2dbcb;
+    /*    box-shadow: 0px 2px 0px #e2dbcb;*/
     width:100%;
     height:45px;
     background-color: #fff;
@@ -208,23 +208,27 @@ img.myitemimg {
     padding: 0px 0px 3px 0px;
 
 }
-
+li.myitemli.xy {
+    background-image: none;
+}
 .searchrow {
     font-weight: 500;
     color: #555;
     height:35px;
     padding: 5px 5px 5px 2px;
+    width: 100%;
 }
-.searchrow p{
+.searchrow p {
     font-weight: 500;
     color: #555;
     font-size: 0.89em;
-    padding: 5px 0px 0px 0px;
-
+    padding: 8px 8px 2px 2px;
+    margin-left: 38px !important;
 }
+
 .searchgimg {
     float: left;
-    padding: 4px 14px 0 4px;
+       padding: 11px 15px 0 8px;
     color: black;
     font-size: 20px;
 }
@@ -235,7 +239,7 @@ img.myitemimg {
 
 .Heading{
     color:#666;
-    font-weight: 600;
+    font-weight: 900;
     margin-top: 2px;
     /*    text-transform: uppercase;*/
     padding: 10px 0px 0px 0px;
@@ -348,7 +352,7 @@ img.myitemimg {
 }
 .mybuttonnav{
     padding: 22px 24px 32px 34px;
-    margin: 3px 10px 0px 5px;
+    margin: 0px 4px 0px 3px;
 }
 .row style {
     padding-bottom:0; 
@@ -437,7 +441,7 @@ span.mygenie {
 .ptext{
     font-size: 16px;
     margin: 0px;
-    padding-right: 7%;
+    padding-right: 12%;
 }
 .notifycol {
     color: #666;

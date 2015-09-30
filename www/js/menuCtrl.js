@@ -15,6 +15,9 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
     catch (e) {
         console.log(e);
     }
+    $scope.closePodcastsLoader = function() {
+        $ionicLoading.hide();
+    };
     document.addEventListener("deviceready", function() {
         var pushNotification = window.plugins.pushNotification;
         console.log('push=' + pushNotification);
@@ -91,6 +94,11 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
                     console.log('An unknown event was received');
                     break;
             }
+            $scope.showMenu = function() {
+                console.log("yes i am ready");
+                $scope.showMenu1 = true;
+
+            };
         };
     });
     var self = this;
@@ -98,6 +106,30 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
     $rootScope.home = function() {
         console.log('welcome to home');
         urlHelper.openHome();
+    };
+    var menushow = 0;
+    $scope.showMenu = function() {
+        console.log("yes i am ready");
+        if (menushow == 0) {
+            $scope.showMenu1 = true;
+            menushow=1;
+        }
+        else {
+            $scope.showMenu1 = false;
+            menushow = 0;
+        }
+
+    };
+    $scope.goto = function() {
+        $scope.showMenu1 = false;
+        menushow = 0;
+    };
+     $scope.hidemenu = function() {
+         if( $scope.showMenu1 === false){
+             menushow=0;
+         }else{
+        $scope.showMenu1 = false;
+         }
     };
 
     self.caller = function() {
@@ -167,10 +199,7 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
         return name1;
     };
 
-//    $scope.goto = function(state) {
-//        gorouter.gostate(state);
-//
-//    };
+
     $scope.isMobile = false;
     if (window.cordova && window.cordova.plugins) {
         $scope.isMobile = true;
@@ -178,6 +207,8 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
     //This is for share app
     $scope.share = function() {
         console.log('share me');
+        $scope.showMenu1 = false;
+        menushow = 0;
         if ($scope.isMobile) {
             console.log('true');
             window.plugins.socialsharing.share('Checkout this App!', 'Use it to before buying anything online, it will show you better prices.', null, 'http://goo.gl/G1rgUz');
@@ -198,6 +229,8 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
         });
     }
     $rootScope.feedback = function() {
+        $scope.showMenu1 = false;
+        menushow = 0;
         if ($scope.isMobile && $scope.Email) {
             console.log("true");
             cordova.plugins.email.open({// for opening gmail app
@@ -239,6 +272,8 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
 
     $scope.rateApp = function() {
         console.log('rateApp');
+        $scope.showMenu1 = false;
+        menushow = 0;
         var customLocale = {};
         customLocale.title = "Rate PriceGenie";
         customLocale.message = "If you enjoy using PriceGenie, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!";
@@ -319,6 +354,8 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
         $scope.shadow = {
             'box-shadow': '0px 0px 0px 0px'
         };
+        $scope.showMenu1 = false;
+        menushow = 0;
         var api = 'mobile_api/api.php?action=logout_notify&user_key=' + y.user_key + '&device_id=' + $scope.uuid;
         timeStorage.remove("login");
         timeStorage.remove("googleLogin");
