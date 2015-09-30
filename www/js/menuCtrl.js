@@ -168,19 +168,22 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
 //        event.preventDefault();
 //        event.stopPropagation();
         $ionicLoading.hide();
+        
         view = $ionicHistory.currentView();
         console.log(view.stateId);
         if (view.stateId == 'menu.home' && count == 0 || view.stateId == 'menu.offline' && count == 0)
         {
+             $ionicLoading.hide();
             window.plugins.toast.showShortBottom('Press Back Button Again To Exit The App!');
             count++;
+            
             $timeout(function() {
                 count = 0;
             }, 3000);
         }
         else if (view.stateId == 'menu.home' && count == 1 || view.stateId == 'menu.offline' && count == 1)
         {
-
+             $ionicLoading.hide();
             navigator.app.exitApp();
             count = 0;
         }

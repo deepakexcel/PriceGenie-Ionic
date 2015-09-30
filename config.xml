@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.pricegenie508011" version="1.0.21" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.excellence.PriceGenie" version="1.0.21" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>PriceGenie</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Compare Online Prices Get Deals  Offers Set Price Alerts
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="manish@excellencetechnologies.in" href="http://excellencetechnologies.in">
+      Manish Prakash
     </author>
   <content src="index.html"/>
   <access origin="*"/>

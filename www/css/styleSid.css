@@ -76,7 +76,7 @@ li.sort1 {
     float: left;
     height: 22px;
     overflow: hidden;
-    padding-left: 1%;
+/*    padding-left: 1%;*/
     width: 60%;
 }
 .sortFilter {
@@ -200,12 +200,15 @@ ion-item.all_data1.item {
     float: left;
     height: 91px;
     margin-bottom: 5px;
-    margin-left: 3%;
+    margin-left: 5%;
     margin-right: 0;
-    width: 94%;
+    width: 90%;
 
 }
-
+/*.centerede{
+    width:90%;
+    margin:0 auto;
+}*/
 .prod_name.ng-binding {
     color: #36393b;
     max-height: 36px;
@@ -252,8 +255,8 @@ ion-item.all_data1.item {
     margin: 34px 0 0;
     padding: 6px 0px 8px 0px;
     text-transform: capitalize;
-    width: 94%;
-    margin-left: 3%;
+    width: 90%;
+    margin-left: 5%;
 }
 .clearF{
     float: right;

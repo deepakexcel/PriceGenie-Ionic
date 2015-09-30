@@ -2,10 +2,7 @@
 <ion-modal-view>
     <div class="header_sign_in">
         <div class="cross" ng-click="hide()">
-           <button class="button button-clear"> 
-                    <i class="icon icon-right ion-android-close">
-                    </i>
-           </button>
+            <span><img alt="back" src="img/cross.png" /></span>
         </div>
         <div class="title1">
             <span>Sign in to PriceGenie</span>
