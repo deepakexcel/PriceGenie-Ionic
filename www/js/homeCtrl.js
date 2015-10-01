@@ -119,22 +119,42 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
 
     var self = this;
 
-    //vaibhav: function to fire ajaxRequest to load home page popular items
-    self.ajax = function(cat) {
-        url2 = 'mobile_api/api.php?action=home_products_v1&size=10&device=tablet&swipe=1&key=' + cat;
-        var promise = ajaxRequest.send(url2);
+self.ajax1 = function() {
+      var  urlmain = 'mobile_api/api.php?action=category_tree';
+        var promise = ajaxRequest.send(urlmain);
         promise.then(function(data) {
-            var data = data.data;
+           
             console.log(data);
+            
             //vaibhav :setting data in localstorage
-            timeStorage.set(cat, data, 168)
-            $scope.catItems1 = data;
+            timeStorage.set('subcategory', data, 168);
+           // $scope.catItems1 = data;
 //            self.status();
             $ionicLoading.hide();
             $ionicScrollDelegate.resize();
 //            $scope.$broadcast('scroll.refreshComplete');
         });
     };
+  
+    if (!timeStorage.get('subcategory')) {
+        self.ajax1();
+    }
+    //vaibhav: function to fire ajaxRequest to load home page popular items
+//    self.ajax = function(cat) {
+//        url2 = 'mobile_api/api.php?action=home_products_v1&size=10&device=tablet&swipe=1&key=' + cat;
+//        var promise = ajaxRequest.send(url2);
+//        promise.then(function(data) {
+//            var data = data.data;
+//            console.log(data);
+//            //vaibhav :setting data in localstorage
+//            timeStorage.set(cat, data, 168);
+//            $scope.catItems1 = data;
+////            self.status();
+//            $ionicLoading.hide();
+//            $ionicScrollDelegate.resize();
+////            $scope.$broadcast('scroll.refreshComplete');
+//        });
+//    };
 
 
     //vaibhav: initializing default category to load in popular items
@@ -167,9 +187,21 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
             $scope.categoryDisplay = cat;
             cat = cat.replace(/[^a-zA-Z0-9]/gi, '');
             //vaibhav: checking data in localstorage
-            if (timeStorage.get(cat)) {
-                $scope.catItems1 = timeStorage.get(cat);
-//            self.status();
+            if (timeStorage.get('subcategory')) {
+                $scope.catItems123 = timeStorage.get('subcategory');
+                for(i=0;i<$scope.catItems123.length;i++){
+                    console.log($scope.catItems123[i]);
+                    if($scope.catItems123[i].key==cat){
+                        console.log($scope.catItems123[i].data);
+                        var catdata=$scope.catItems123[i].data;
+
+                            $scope.catItems1=catdata;
+                            console.log($scope.catItems1);
+                  
+                    }
+                }
+                console.log($scope.catItems1);
+           // self.status();
 
                 $ionicLoading.hide();
                 $ionicScrollDelegate.resize();
@@ -178,7 +210,7 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
             //vaibhav: if local storage is empty requesting new data by ajax
             else
             {
-                self.ajax(cat);   //def line 91
+                // self.ajax1();   
 
             }
 

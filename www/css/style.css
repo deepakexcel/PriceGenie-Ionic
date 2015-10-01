@@ -37,7 +37,26 @@
               font-size: 15px;};
           background-color: transparent!important;
 }
-
+.col123 {
+    width: 94%;
+    margin: 0 auto;
+}
+.chartitem {
+    background-color: #fff !important;
+    width: 93%;
+    margin: 0 auto;
+}
+p.chartheading {
+    color: #4e5153;
+    font-size: 1.2em;
+    float: left;
+    padding: 9px 0px 7px 4%;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.chartButton {
+    float: right;
+}
 .mychart1 {
     position: absolute;
     width: 100%;
@@ -58,10 +77,30 @@ ul.logout_ui.myui {
 }
 
 button.chrtbtnr {
-    width: 49%;
+/*    width: 49%;*/
     background-color: darkblue;
-    height: 42px;
+    height: 34px;
     border: none;
+}
+button.chrtbtnr.activated {
+    background-color:darkblue !important;
+      border:1px #847979 !important;
+}
+button.chrtbtnl.activated {
+    background-color:darkblue !important;
+    border:1px #847979 !important;
+}
+.col234 {
+    width: 25% !important;
+    font-size: 0.97em !important;
+text-align: center;
+}
+.smallLine {
+    background-color: #ddd;
+    width: 93%;
+    margin: 0 auto;
+    padding: 0.5px;
+    margin-top: 10px;
 }
 .col12 {
     font-size: 1em;
@@ -74,14 +113,14 @@ button.chrtbtnr {
 }
 button.chrtbtnl {
     background-color: darkblue;
-    width: 49%;
-    height: 42px;
+/*    width: 49%;*/
+    height: 34px;
     border: none;
 }
 
 .mytab {
-    background-color: darkblue;
-    height: 42px;
+    background-color: #fff;
+    height: 30px;
     border: none;
 }
 
@@ -236,7 +275,10 @@ li.myitemli.xy {
 .all{
     background-color: #E3E0E0;
 }
-
+.imgdiv > img {
+    width: 24px;
+    height:auto;
+}
 .Heading{
     color:#666;
     font-weight: 900;

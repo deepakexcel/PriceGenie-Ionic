@@ -37,7 +37,7 @@
 
 
             <div class="row">
-                <div class="col">
+                <div class="col123">
                     <ion-item ng-repeat="mainRes in mainData.result track by $index" class="myItem " ng-if="mainRes">
                         <div ng-init="i = $index">
                             <p class="catname2 mname"  ng-show="$index == 0" ng-hide="$index > 0">COMPARE PRICES</p>
@@ -78,11 +78,16 @@
             </div>
         </ion-item>
 
-        <div ng-show="chart">
-            <div class=" mytab" >
+        <div ng-show="chart" class="chartitem">
+            <div class=" mytab">
+  <p class="chartheading">Price History</p>
+  <div class="chartButton">
                 <button class="chrtbtnl" ng-click="chart1f()"><i class="icon btnico ion-stats-bars"></i></button>
                 <button class="chrtbtnr" ng-click="chart2f()"><i class="icon btnico  ion-ios-book-outline"></i></button>
+  </div>
             </div>
+            
+            <div class="smallLine"></div>
             <!--class="proTrend" ng-show="chart1" ng-hide="chart2"-->
             <div ng-class="{'chart':chart1 == true}" class="mychart1">
                 <chartist   chartist-chart-options="options" class="ct-chart" chartist-data="data" chartist-chart-type="Line" chartist-responsive-options="responsiveOptions"></chartist>
@@ -93,7 +98,7 @@
             <!--ng-show="chart2" ng-hide="chart1"--> 
             <div ng-class="{'chart':chart2 == true}" class="mychart2">
                 <div class="row">
-                    <div  ng-repeat="flag in colHeading track by $index" class="col-20 ct-series-a .ct-line"> {{flag.id}}</div>
+                    <div  ng-repeat="flag in colHeading track by $index" class="col234 col-20 ct-series-a .ct-line"> {{flag.id}}</div>
                 </div>
             </div>
             <div ng-class="{'chart':chart2 == true}" class="mychart2">

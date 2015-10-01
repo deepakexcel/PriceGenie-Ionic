@@ -1,5 +1,5 @@
 //vaibhav product controller
-myappc.controller('productCtrl', function($ionicModal, urlHelper, $ionicScrollDelegate, $ionicLoading, $scope, $rootScope, $stateParams, timeStorage, ajaxRequest, $filter) {
+myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ionicScrollDelegate, $ionicLoading, $scope, $rootScope, $stateParams, timeStorage, ajaxRequest, $filter) {
 
     $ionicLoading.show({
         templateUrl: 'partials/modals/productPage/loading.html',
@@ -56,7 +56,7 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper, $ionicScrollDe
         timeStorage.remove(url1); //removing data from the localStorage 
         timeStorage.remove(url2); //removing data from the localStorage 
         self.data1();   //data1 to load product data on the page
-        self.data2();        //data2 to load similar and related product data on the page
+      //  self.data2();        //data2 to load similar and related product data on the page
         $ionicLoading.hide();
     };
 
@@ -74,30 +74,7 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper, $ionicScrollDe
 
 
     var self = this;
-    self.data1 = function() {
-        if (timeStorage.get(url1)) {      //vaibhav checking data in local Storage
-            $scope.main = timeStorage.get(url1);
-
-            $scope.$broadcast('scroll.refreshComplete');
-            console.log(timeStorage.get(url1));
-            $ionicLoading.hide();
-        }
-        else
-        {                         //if localstorage is false retrieving data from ajax
-            var promise1 = ajaxRequest.send(url1);
-            promise1.then(function(data1) {
-
-                timeStorage.set(url1, data1, 4);
-                $scope.main = timeStorage.get(url1);        //vaibhav saving data to localstorage
-                $scope.$broadcast('scroll.refreshComplete');
-                $ionicLoading.hide();
-                console.log(timeStorage.get(url1));
-            });
-        }
-
-    };
-    self.data1();
-
+   
 
 
 //    self.status = function () {
@@ -141,7 +118,7 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper, $ionicScrollDe
         }
 
     };
-    self.data2();
+    //self.data2();
 
     //vaibhav function to format date
 //    $scope.doom = function (dateObj) {
@@ -279,11 +256,11 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper, $ionicScrollDe
                     $scope.change12 = 'query1';
                     if (data.error == 1)
                     {
-                        window.plugins.toast.showShortTop('please login to start alert');
+                        window.plugins.toast.showShortTop('Please Login to Start');
                     }
                     else
                     {
-                        window.plugins.toast.showShortTop('price alert is successfully activated');
+                        window.plugins.toast.showShortTop('Price alert is successfully activated');
 
                     }
 
@@ -298,7 +275,7 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper, $ionicScrollDe
             else
             {
                 $scope.followModal.hide();
-
+                $ionicLoading.hide();
                 urlHelper.openLogin();
 
                 $scope.change12 = 'query1';
@@ -451,13 +428,16 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper, $ionicScrollDe
             else
                 window.plugins.toast.showShortTop('chart unavailable');
 //            $scope.productTrendModal.show();
-
+//        if(data.status==1){
+//            self.data2();
+//        }
         });
-        promise.catch(function() {
-            console.log('error');
-        });
+//        promise.catch(function() {
+//            console.log('error');
+//            self.data2();
+//        });
     };
-    $scope.productTrend();
+   // $scope.productTrend();
     //function to close product trend modal
     $scope.trendModalClose = function() {
         $scope.productTrendModal.hide();
@@ -572,7 +552,7 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper, $ionicScrollDe
             console.log('error');
         });
     };
-    $scope.fullChart();
+  //  $scope.fullChart();
     //function to hide full char modal
     $scope.fullChartClose = function() {
         $scope.productFullChart.hide();
@@ -611,6 +591,47 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper, $ionicScrollDe
         $scope.chart2 = false;
     };
     $rootScope.defaultButton = false;
+     self.data1 = function() {
+        if (timeStorage.get(url1)) {      //vaibhav checking data in local Storage
+            $scope.main = timeStorage.get(url1);
+             $scope.productTrend();
+             $scope.fullChart();
+             $timeout(function(){
+                  self.data2();
+             },500);
+             
+            $scope.$broadcast('scroll.refreshComplete');
+            console.log(timeStorage.get(url1));
+            $ionicLoading.hide();
+        }
+        else
+        {                         //if localstorage is false retrieving data from ajax
+            var promise1 = ajaxRequest.send(url1);
+            promise1.then(function(data1) {
+
+                timeStorage.set(url1, data1, 4);
+                $scope.main = timeStorage.get(url1);        //vaibhav saving data to localstorage
+                $scope.$broadcast('scroll.refreshComplete');
+                $ionicLoading.hide();
+                console.log(timeStorage.get(url1));
+                if(data1.status==1){
+                    $scope.productTrend();
+                    $scope.fullChart();
+                   $timeout(function(){
+                    self.data2();
+                    },500);
+                }
+            });
+            promise1.catch(function(data){
+               $timeout(function(){
+                  self.data2();
+             },500);
+            });
+        }
+
+    };
+    self.data1();
+
 //    $scope.watch = function (url, watch_website, watch_price, watch_name, watch_url) {
 //        $ionicLoading.show({
 //            templateUrl: 'partials/modals/productPage/loading.html',

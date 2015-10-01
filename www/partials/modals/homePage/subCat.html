@@ -19,7 +19,7 @@
                 <div class="my-list">
 
                     <ul class="logout_ui myui" style="margin-top: 0px;margin-bottom: 0px">
-                        <li class="myitemli nb" ng-repeat="(key,value) in catItems1 track by $index" ng-class="{'homeCat':homeCat == value.cat_name}" on-tap="check(value.cat_id, value.sub_cat_id, value.cat_name)" >
+                        <li class="myitemli nb" ng-repeat="value in catItems1 track by $index" ng-class="{'homeCat':homeCat == value.cat_name}" on-tap="check(value.cat_id, value.sub_cat_id, value.cat_name)" >
 
                             <div class="myitemh2div">
                                 <p class="myp2">{{value.cat_name}}</p>

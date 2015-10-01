@@ -669,11 +669,11 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
                     $scope.change12='query1';
                     if (data.error == 1)
                     {
-                        window.plugins.toast.showShortTop('please login to start alert');
+                        window.plugins.toast.showShortTop('Please Login to Start');
                     }
                     else
                     {
-                        window.plugins.toast.showShortTop('price alert is successfully activated');
+                        window.plugins.toast.showShortTop('Price alert is successfully activated');
 
                     }
 
@@ -688,7 +688,7 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
             else
             {
                 $scope.followModal.hide();
-
+                 $ionicLoading.hide();
                 urlHelper.openLogin();
 
                 $scope.change12='query1';

@@ -7,7 +7,7 @@
         "files": {}
     },
     "installed_plugins": {
-        "com.phonegap.plugins.PushPlugin": {
+        "phonegap-plugin-push": {
             "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
         }
     },

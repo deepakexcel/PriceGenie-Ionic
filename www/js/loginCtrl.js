@@ -32,13 +32,13 @@ myappc.controller('loginCtrl', function($scope, $log, ajaxRequest, $ionicHistory
     // for manual login
     $scope.login = function() {
         if (!$scope.model.login_email) {
-            $scope.msg = "please enter valid email";
+            $scope.msg = "Please enter valid email";
             console.log($scope.msg);
             window.plugins.toast.showShortTop($scope.msg);
 
         }
         else if (!$scope.model.login_pwd) {
-            $scope.msg = "please enter password";
+            $scope.msg = "Please enter password";
             console.log($scope.msg);
             window.plugins.toast.showShortTop($scope.msg);
         }
@@ -59,7 +59,7 @@ myappc.controller('loginCtrl', function($scope, $log, ajaxRequest, $ionicHistory
                     var name = 'login';
                     $ionicLoading.hide();
 
-                    timeStorage.set(name, data, 48);
+                    timeStorage.set(name, data, 168);
                     urlHelper.openHome();
                     window.plugins.toast.showShortTop('Hi ' + data.firstname);
 
@@ -101,7 +101,7 @@ myappc.controller('loginCtrl', function($scope, $log, ajaxRequest, $ionicHistory
 
                     var name = 'googleLogin';
                     //var data1 = [{email: res.email, name: res.name, image: res.picture}]
-                    timeStorage.set(name, data, 48);
+                    timeStorage.set(name, data, 168);
                     urlHelper.openHome();
                     window.plugins.toast.showShortTop('Hi ' + data.firstname);
                     $ionicLoading.hide();
@@ -236,7 +236,7 @@ myappc.controller('loginCtrl', function($scope, $log, ajaxRequest, $ionicHistory
                 $scope.response = data;
 
                 var name = 'fbLogin';
-                timeStorage.set(name, data1, 48);
+                timeStorage.set(name, data1, 168);
                 urlHelper.openHome();
                 window.plugins.toast.showShortTop('Hi ' + data1.firstname);
 //                

@@ -44,28 +44,28 @@ myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading,
 //for email id sign up
     $scope.signup = function() {
         if (!$scope.model.reg_firstname) {
-            $scope.msg = "please enter your name";
+            $scope.msg = "Please enter your name";
             console.log($scope.msg);
             window.plugins.toast.showShortTop($scope.msg);
 
         }
         else if (!$scope.model.reg_email) {
-            $scope.msg = "please enter valid email";
+            $scope.msg = "Please enter valid email";
             console.log($scope.msg);
             window.plugins.toast.showShortTop($scope.msg);
         }
         else if (!$scope.model.reg_pwd) {
-            $scope.msg = "please enter password"
+            $scope.msg = "Please enter password"
             console.log($scope.msg);
             window.plugins.toast.showShortTop($scope.msg);
         }
         else if (!$scope.model.reg_con_pwd) {
-            $scope.msg = "please enter confirm password";
+            $scope.msg = "Please enter confirm password";
             console.log($scope.msg);
             window.plugins.toast.showShortTop($scope.msg);
         }
         else if (checked == false) {
-            $scope.msg = "please agree with terms and conditions";
+            $scope.msg = "Please agree with terms and conditions";
             console.log($scope.msg);
             window.plugins.toast.showShortTop($scope.msg);
         }
@@ -139,7 +139,7 @@ myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading,
                     $scope.response = data;
 
                     var name = 'googleLogin';
-                    timeStorage.set(name, data, 48);
+                    timeStorage.set(name, data, 168);
                     urlHelper.openHome();
                     window.plugins.toast.showShortTop('Hi ' + data.firstname);
 
@@ -212,7 +212,7 @@ myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading,
                 $scope.response = data;
 
                 var name = 'fbLogin';
-                timeStorage.set(name, data1, 48);
+                timeStorage.set(name, data1, 168);
                 urlHelper.openHome();
                 window.plugins.toast.showShortTop('Hi ' + data1.firstname);
 //                $ionicLoading.hide();
