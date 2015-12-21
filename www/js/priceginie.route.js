@@ -1,64 +1,7 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-var myapp = angular.module('starter', ['ionic', 'startercc', 'angular-chartist']);
-
-
-myapp.run(function($ionicPlatform, urlHelper, $rootScope) {
-    document.addEventListener("offline", onOffline, false);
-    function onOffline() {
-        console.log('hello1');
-        //   window.plugins.toast.showShortBottom('You Are Offline Now');
-        urlHelper.openOffline();
-    }
-    document.addEventListener("online", onOnline, false);
-    function onOnline() {
-        urlHelper.openHome();
-        console.log("hello2");
-        //  window.plugins.toast.showShortBottom('You Are Online Now');
-    }
-
-    $ionicPlatform.ready(function() {
-        var isWebView = ionic.Platform.isWebView();
-        console.log(isWebView);
-        try {
-            if (device.platform == 'Android') {
-                urlHelper.openHome();
-                StatusBar.backgroundColorByHexString("#06457b");
-            }
-        }
-        catch (e) {
-
-
-        }
-        if (isWebView) {
-            urlHelper.openHome();
-        }
-
-    });
-// this is for front view of app 
-//        if (!timeStorage.get("login") && !timeStorage.get("googleLogin") && !timeStorage.get("fbLogin")) {
-//
-//            $rootScope.show = true;
-//            $rootScope.show1 = false;
-//            // urlHelper.openFrontpage();
-//            urlHelper.openHome();
-//        }
-//        else {
-//            urlHelper.openHome();
-//        }
-
-
-    // urlHelper.openHome();
-    //alert(1);
-
-
-
-
-});
-myapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+(function() {
+    'use strict';
+    angular.module('starter')
+    .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 // if (ionic.Platform.isAndroid()) {
 //      $ionicConfigProvider.scrolling.jsScrolling(false);
 //    }
@@ -208,23 +151,4 @@ myapp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) 
     // $urlRouterProvider.otherwise('/priceGenie/home');
 
 });
-
-myapp.directive('menuCloseKeepHistory', ['$ionicHistory', function($ionicHistory) {
-        return {
-            restrict: 'AC',
-            link: function($scope, $element) {
-                $element.bind('click', function() {
-                    var sideMenuCtrl = $element.inheritedData('$ionSideMenusController');
-                    if (sideMenuCtrl) {
-                        $ionicHistory.nextViewOptions({
-                            historyRoot: false,
-                            disableAnimate: true,
-                            expire: 300
-                        });
-                        sideMenuCtrl.close();
-                    }
-                });
-            }
-        };
-    }]);
-var myapps = angular.module('starterss', ['ionic', 'startercc', 'ngStorage']);
+})();

@@ -1,7 +1,8 @@
-//search controller @siddharth
+(function() {
+    'use strict';
 
-
-myappc.controller('searchCtrl', function($scope, urlHelper, $ionicLoading, timeStorage, $ionicPlatform, $ionicHistory, ajaxRequest) {
+    angular.module('starter')
+    .controller('searchCtrl', function($scope, urlHelper, $ionicLoading, timeStorage, $ionicPlatform, $ionicHistory, ajaxRequest) {
     var self = this;
     var previous = [];
     var name = "previousSearch";
@@ -244,6 +245,6 @@ myappc.controller('searchCtrl', function($scope, urlHelper, $ionicLoading, timeS
         }
     };
 });
-
+})();
 
         

@@ -1,4 +1,8 @@
-myappc.controller('YourAlertCtrl', function($scope, ajaxRequest, timeStorage, $ionicLoading) {
+(function() {
+    'use strict';
+
+    angular.module('starter')
+    .controller('YourAlertCtrl', function($scope, ajaxRequest, timeStorage, $ionicLoading) {
     var self = this;
     self.AllData = function(api) {
         var promise = ajaxRequest.send(api);
@@ -123,3 +127,4 @@ myappc.controller('YourAlertCtrl', function($scope, ajaxRequest, timeStorage, $i
         });
     };
 });
+})();

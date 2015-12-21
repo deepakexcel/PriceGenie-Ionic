@@ -52,9 +52,12 @@
         "phonegap-facebook-plugin": {
             "APP_ID": "467986553238213",
             "APP_NAME": "PriceGenie",
+<<<<<<< HEAD
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "phonegap-plugin-push": {
+=======
+>>>>>>> 10d861d6eb9e1f7d9b8b526b06567675335b7aee
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         }
     },

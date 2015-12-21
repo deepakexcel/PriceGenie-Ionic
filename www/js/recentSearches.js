@@ -1,4 +1,7 @@
-myappc.controller('recentSearches', function($scope, $rootScope, timeStorage) {
+(function() {
+    'use strict';
+
+    angular.module('starter').controller('recentSearches', function($scope, $rootScope, timeStorage) {
 //    $rootScope.defaultButton = true;
     var data1;
 
@@ -82,3 +85,4 @@ myappc.controller('recentSearches', function($scope, $rootScope, timeStorage) {
     };
 
 });
+})();

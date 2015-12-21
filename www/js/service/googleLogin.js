@@ -1,5 +1,7 @@
-
-myapps.factory('googleLogin', [
+(function() {
+    'use strict';
+    angular.module('starter')
+.factory('googleLogin', [
     '$http', '$q', '$interval', '$log', 'timeStorage',
     function($http, $q, $interval, $log, timeStorage) {
         var service = {};
@@ -156,3 +158,4 @@ myapps.factory('googleLogin', [
         return service;
     }
 ]);
+})();

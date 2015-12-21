@@ -1,6 +1,8 @@
-//setting controller @siddharth
+(function() {
+    'use strict';
 
-myappc.controller('settingCtrl', function($scope, timeStorage, $rootScope, ajaxRequest) {
+    angular.module('starter')
+    .controller('settingCtrl', function($scope, timeStorage, $rootScope, ajaxRequest) {
     var self = this;
 
     try {
@@ -90,3 +92,4 @@ myappc.controller('settingCtrl', function($scope, timeStorage, $rootScope, ajaxR
 
     };
 });
+})();

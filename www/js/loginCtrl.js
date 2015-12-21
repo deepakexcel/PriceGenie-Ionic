@@ -1,7 +1,7 @@
-//search controller @siddharth-->
+(function() {
+    'use strict';
 
-
-myappc.controller('loginCtrl', function($scope, $log, ajaxRequest, $ionicHistory, $ionicLoading, googleLogin, $ionicPopup, $ionicModal, urlHelper, $rootScope, $timeout, timeStorage) {
+    angular.module('starter').controller('loginCtrl', function($scope, $log, ajaxRequest, $ionicHistory, $ionicLoading, googleLogin, $ionicPopup, $ionicModal, urlHelper, $rootScope, $timeout, timeStorage) {
     var self = this;
     $scope.model = {
         login_email: '',
@@ -73,7 +73,7 @@ myappc.controller('loginCtrl', function($scope, $log, ajaxRequest, $ionicHistory
             });
         }
     };
-    opt = {
+    var opt = {
         client_id: '117380048302-2a8bqb3vjdme9733tr0mk70gom4llmte.apps.googleusercontent.com',
         redirect_uri: 'http://localhost/PriceGeniee/www/',
         scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/plus.me',
@@ -230,6 +230,7 @@ myappc.controller('loginCtrl', function($scope, $log, ajaxRequest, $ionicHistory
                 $scope.fb_data = data;
 
             });
+            console.log(data.email);
             api1 = 'facebook.php?type=mobile_facebook&id=' + data.id + '&name=' + data.name + '&email=' + data.email + '&gender=' + data.gender + '&device_id=' + $scope.uuid;
             var promise = ajaxRequest.send(api1);
             promise.then(function(data1) {
@@ -246,4 +247,4 @@ myappc.controller('loginCtrl', function($scope, $log, ajaxRequest, $ionicHistory
         });
     };
 });
-
+})();
