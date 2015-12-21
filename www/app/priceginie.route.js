@@ -15,7 +15,7 @@
 //    })
             .state('menu', {
                 url: '/priceGenie',
-                templateUrl: 'partials/menu.html',
+                templateUrl: 'app/home/menu.html',
                 controller: 'menuCtrl',
                 // abstract: true
             })
@@ -23,126 +23,126 @@
             .state('menu.home', {
                 url: '/home',
                 views: {'mainView': {
-                        templateUrl: 'partials/home.html',
+                        templateUrl: 'app/home/home.html',
                         controller: 'homeCtrl'
                     }}
             })
             .state('menu.category', {
                 url: '/category/:name/:category/:subCategory/:brand',
                 views: {'mainView': {
-                        templateUrl: 'partials/viewall.html',
+                        templateUrl: 'app/product/viewall.html',
                         controller: 'viewallCtrl'
                     }}
             })
             .state('menu.search', {
                 url: '/search',
                 views: {'mainView': {
-                        templateUrl: 'partials/search.html',
+                        templateUrl: 'app/product/search.html',
                         controller: 'searchCtrl'
                     }}
             })
             .state('menu.product', {
                 url: '/product/:name/:query_id/',
                 views: {'mainView': {
-                        templateUrl: 'partials/product.html',
+                        templateUrl: 'app/product/product.html',
                         controller: 'productCtrl'
                     }}
             })
             .state('menu.register', {
                 url: '/register',
                 views: {'mainView': {
-                        templateUrl: 'partials/register.html',
+                        templateUrl: 'app/register/register.html',
                         controller: 'registerCtrl'
                     }}
             })
             .state('menu.login', {
                 url: '/login',
                 views: {'mainView': {
-                        templateUrl: 'partials/login.html',
+                        templateUrl: 'app/login/login.html',
                         controller: 'loginCtrl'
                     }}
             })
             .state('menu.setting', {
                 url: '/setting',
                 views: {'mainView': {
-                        templateUrl: 'partials/setting.html',
+                        templateUrl: 'app/setting/setting.html',
                         controller: 'settingCtrl'
                     }}
             })
             .state('menu.feedback', {
                 url: '/feedback',
                 views: {'mainView': {
-                        templateUrl: 'partials/feedback.html',
+                        templateUrl: 'app/feedback/feedback.html',
                         controller: 'feedbackCtrl'
                     }}
             })
             .state('menu.recentSearches', {
                 url: '/recent',
                 views: {'mainView': {
-                        templateUrl: 'partials/myRecentSearches.html',
+                        templateUrl: 'app/product/myRecentSearches.html',
                         controller: 'recentSearches'
                     }}
             })
             .state('menu.Aboutus', {
                 url: '/Aboutus',
                 views: {'mainView': {
-                        templateUrl: 'partials/Aboutus.html',
+                        templateUrl: 'app/about/Aboutus.html',
                         controller: 'AboutusCtrl'
                     }}
             })
             .state('menu.star', {
                 url: '/notification',
                 views: {'mainView': {
-                        templateUrl: 'partials/star.html',
+                        templateUrl: 'app/common/star.html',
                         controller: 'star'
                     }}
             })
             .state('menu.notification', {
                 url: '/category',
                 views: {'mainView': {
-                        templateUrl: 'partials/notification.html',
+                        templateUrl: 'app/common/notification.html',
                         controller: 'star'
                     }}
             })
             .state('menu.Contactus', {
                 url: '/Contactus',
                 views: {'mainView': {
-                        templateUrl: 'partials/Contactus.html',
+                        templateUrl: 'app/contact/Contactus.html',
                         controller: 'ContactusCtrl'
                     }}
             })
             .state('menu.YourAlert', {
                 url: '/YourAlert',
                 views: {'mainView': {
-                        templateUrl: 'partials/YourAlert.html',
+                        templateUrl: 'app/common/YourAlert.html',
                         controller: 'YourAlertCtrl'
                     }}
             })
             .state('menu.website', {
                 url: '/website',
                 views: {'mainView': {
-                        templateUrl: 'partials/website.html',
+                        templateUrl: 'app/common/website.html',
                         controller: 'star'
                     }}
             })
             .state('menu.notifytext', {
                 url: '/text',
                 views: {'mainView': {
-                        templateUrl: 'partials/notifytext.html',
+                        templateUrl: 'app/common/notifytext.html',
                         controller: 'star'
                     }}
             })
             .state('menu.success', {
                 url: '/successful',
                 views: {'mainView': {
-                        templateUrl: 'partials/notifySuccess.html',
+                        templateUrl: 'app/common/notifySuccess.html',
                         controller: 'star'
                     }}
             })
             .state('menu.offline', {
                 url: '/offline',
                 views: {'mainView': {
-                        templateUrl: 'partials/offline.html',
+                        templateUrl: 'app/common/offline.html',
                         controller: 'recentSearches'
                     }}
             });
