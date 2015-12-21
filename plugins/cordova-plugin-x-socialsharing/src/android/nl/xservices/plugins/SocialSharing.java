@@ -18,7 +18,6 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
-import org.apache.http.util.ByteArrayBuffer;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,6 +43,7 @@ public class SocialSharing extends CordovaPlugin {
   private static final String ACTION_SHARE_VIA_FACEBOOK_EVENT = "shareViaFacebook";
   private static final String ACTION_SHARE_VIA_FACEBOOK_WITH_PASTEMESSAGEHINT = "shareViaFacebookWithPasteMessageHint";
   private static final String ACTION_SHARE_VIA_WHATSAPP_EVENT = "shareViaWhatsApp";
+  private static final String ACTION_SHARE_VIA_INSTAGRAM_EVENT = "shareViaInstagram";
   private static final String ACTION_SHARE_VIA_SMS_EVENT = "shareViaSMS";
   private static final String ACTION_SHARE_VIA_EMAIL_EVENT = "shareViaEmail";
 
@@ -78,6 +78,11 @@ public class SocialSharing extends CordovaPlugin {
       return doSendIntent(callbackContext, args.getString(0), args.getString(1), args.getJSONArray(2), args.getString(3), "com.facebook.katana", false);
     } else if (ACTION_SHARE_VIA_WHATSAPP_EVENT.equals(action)) {
       return doSendIntent(callbackContext, args.getString(0), args.getString(1), args.getJSONArray(2), args.getString(3), "whatsapp", false);
+    } else if (ACTION_SHARE_VIA_INSTAGRAM_EVENT.equals(action)) {
+      if (notEmpty(args.getString(0))) {
+        copyHintToClipboard(args.getString(0), "Instagram paste message");
+      }
+      return doSendIntent(callbackContext, args.getString(0), args.getString(1), args.getJSONArray(2), args.getString(3), "instagram", false);
     } else if (ACTION_CAN_SHARE_VIA.equals(action)) {
       return doSendIntent(callbackContext, args.getString(0), args.getString(1), args.getJSONArray(2), args.getString(3), args.getString(4), true);
     } else if (ACTION_CAN_SHARE_VIA_EMAIL.equals(action)) {
@@ -227,7 +232,10 @@ public class SocialSharing extends CordovaPlugin {
         }
         if (notEmpty(message)) {
           sendIntent.putExtra(android.content.Intent.EXTRA_TEXT, message);
-          sendIntent.putExtra("sms_body", message); // sometimes required when the user picks share via sms
+          // sometimes required when the user picks share via sms
+          if (Build.VERSION.SDK_INT < 21) { // LOLLIPOP
+            sendIntent.putExtra("sms_body", message);
+          }
         }
 
         if (appPackageName != null) {
@@ -254,7 +262,8 @@ public class SocialSharing extends CordovaPlugin {
                   public void run() {
                     cordova.getActivity().runOnUiThread(new Runnable() {
                       public void run() {
-                        showPasteMessage(msg, pasteMessage);
+                        copyHintToClipboard(msg, pasteMessage);
+                        showPasteMessage(pasteMessage);
                       }
                     });
                   }
@@ -275,16 +284,20 @@ public class SocialSharing extends CordovaPlugin {
   }
 
   @SuppressLint("NewApi")
-  private void showPasteMessage(String msg, String label) {
+  private void copyHintToClipboard(String msg, String label) {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
       return;
     }
-    // copy to clipboard
     final ClipboardManager clipboard = (android.content.ClipboardManager) cordova.getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
     final ClipData clip = android.content.ClipData.newPlainText(label, msg);
     clipboard.setPrimaryClip(clip);
+  }
 
-    // show a toast
+  @SuppressLint("NewApi")
+  private void showPasteMessage(String label) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+      return;
+    }
     final Toast toast = Toast.makeText(webView.getContext(), label, Toast.LENGTH_LONG);
     toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
     toast.show();
@@ -336,6 +349,19 @@ public class SocialSharing extends CordovaPlugin {
         fileName = "file" + (nthFile == 0 ? "" : "_" + nthFile) + "." + imgExtension;
       }
       saveFile(Base64.decode(encodedImg, Base64.DEFAULT), dir, fileName);
+      localImage = "file://" + dir + "/" + fileName;
+    } else if (image.startsWith("df:")) {
+      // safeguard for https://code.google.com/p/android/issues/detail?id=7901#c43
+      if (!image.contains(";base64,")) {
+        sendIntent.setType("text/plain");
+        return null;
+      }
+      // format looks like this :  df:filename.txt;data:image/png;base64,R0lGODlhDAA...
+      final String fileName = image.substring(image.indexOf("df:") + 3, image.indexOf(";data:"));
+      final String fileType = image.substring(image.indexOf(";data:") + 6, image.indexOf(";base64,"));
+      final String encodedImg = image.substring(image.indexOf(";base64,") + 8);
+      sendIntent.setType(fileType);
+      saveFile(Base64.decode(encodedImg, Base64.DEFAULT), dir, sanitizeFilename(fileName));
       localImage = "file://" + dir + "/" + fileName;
     } else if (!image.startsWith("file://")) {
       throw new IllegalArgumentException("URL_NOT_SUPPORTED");
@@ -456,13 +482,14 @@ public class SocialSharing extends CordovaPlugin {
   }
 
   private byte[] getBytes(InputStream is) throws IOException {
-    BufferedInputStream bis = new BufferedInputStream(is);
-    ByteArrayBuffer baf = new ByteArrayBuffer(5000);
-    int current;
-    while ((current = bis.read()) != -1) {
-      baf.append((byte) current);
+    ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+    int nRead;
+    byte[] data = new byte[16384];
+    while ((nRead = is.read(data, 0, data.length)) != -1) {
+      buffer.write(data, 0, nRead);
     }
-    return baf.toByteArray();
+    buffer.flush();
+    return buffer.toByteArray();
   }
 
   private void saveFile(byte[] bytes, String dirName, String fileName) throws IOException {

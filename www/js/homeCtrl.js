@@ -1,29 +1,11 @@
-//vaibhav home controller
+//home controller
 
-myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ionicModal, $scope, ajaxRequest, urlHelper, timeStorage, $interval, $ionicLoading, $ionicScrollDelegate) {
+myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ionicModal, $scope, ajaxRequest, urlHelper, timeStorage, $interval, $ionicLoading, $ionicScrollDelegate, userData) {
     $ionicHistory.clearHistory();    //clearing history of app to disable back views
 
     var self = this;
-    var email;
-    var userid;
-
-
-    //retrieving user data from local sorage if logged in
-    if (timeStorage.get('login').email)
-    {
-        email = timeStorage.get('login').email;  //retrieving user email
-        userid = timeStorage.get('login').userid;  //retrieving userid
-    }
-    else if (timeStorage.get('googleLogin').email)
-    {
-        email = timeStorage.get('googleLogin').email;
-        userid = timeStorage.get('googleLogin').userid;
-    }
-    else if (timeStorage.get('fbLogin').email)
-    {
-        email = timeStorage.get('fbLogin').email;
-        userid = timeStorage.get('fbLogin').userid;
-    }
+    var email = userData.userEmail();
+    var userid = userData.userId();
 
 //getting device id
     try {
@@ -283,9 +265,7 @@ self.ajax1 = function() {
                 else
                 {
                     self.toast('price console.log is successfully activated');
-
                 }
-
             });
             promise.catch(function(data) {
                 console.log(data);

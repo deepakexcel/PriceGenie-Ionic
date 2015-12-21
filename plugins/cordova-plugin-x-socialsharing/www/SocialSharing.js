@@ -1,4 +1,4 @@
-var cordova = require('cordova');
+﻿var cordova = require('cordova');
 
 function SocialSharing() {
 }
@@ -70,6 +70,10 @@ SocialSharing.prototype.canShareVia = function (via, message, subject, fileOrFil
 
 SocialSharing.prototype.canShareViaEmail = function (successCallback, errorCallback) {
   cordova.exec(successCallback, this._getErrorCallback(errorCallback, "canShareViaEmail"), "SocialSharing", "canShareViaEmail", []);
+};
+
+SocialSharing.prototype.shareViaInstagram = function (message, fileOrFileArray, successCallback, errorCallback) {
+  cordova.exec(successCallback, this._getErrorCallback(errorCallback, "shareViaInstagram"), "SocialSharing", "shareViaInstagram", [message, null, this._asArray(fileOrFileArray), null]);
 };
 
 SocialSharing.prototype.shareVia = function (via, message, subject, fileOrFileArray, url, successCallback, errorCallback) {
