@@ -8,7 +8,6 @@
     var self = this;
     var email = userData.userEmail();
     var userid = userData.userId();
-
 //getting device id
     try {
         $scope.uuid = device.uuid;   //getting device id
@@ -153,7 +152,6 @@ self.ajax1 = function() {
     });
     $scope.subCatModalClose = function() {
         $scope.subCatModal.hide();
-
     };
 
     $scope.loadLatest = function(cat) {
@@ -282,7 +280,6 @@ self.ajax1 = function() {
         $ionicHistory.nextViewOptions({
             disableAnimate: true
         });
-//        $timeout(function () {
 
 
         name = name.replace(/[^a-zA-Z0-9]/gi, '');
@@ -291,7 +288,6 @@ self.ajax1 = function() {
             $scope.homeCat = '';
             $scope.subCatModal.hide();
         }, 150);
-//        }, 100);
     };
 //function for adding extra scroll feature
 //    var y = 15;
