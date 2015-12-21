@@ -1,4 +1,8 @@
-myappc.controller('star', function($scope, $ionicNavBarDelegate, ajaxRequest, $rootScope, urlHelper, timeStorage, $ionicLoading) {
+(function() {
+    'use strict';
+
+    angular.module('starter')
+    .controller('star', function($scope, $ionicNavBarDelegate, ajaxRequest, $rootScope, urlHelper, timeStorage, $ionicLoading) {
 //    $rootScope.defaultButton = false;
 
     var e = $ionicNavBarDelegate.showBar(false);
@@ -238,3 +242,4 @@ myappc.controller('star', function($scope, $ionicNavBarDelegate, ajaxRequest, $r
         });
     };
 });
+})();

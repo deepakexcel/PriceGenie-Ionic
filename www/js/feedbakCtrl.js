@@ -1,4 +1,8 @@
-myappc.controller('feedbackCtrl', function($scope, $ionicLoading, ajaxRequest, $ionicScrollDelegate, $http) {
+(function() {
+    'use strict';
+
+    angular.module('starter')
+    .controller('feedbackCtrl', function($scope, $ionicLoading, ajaxRequest, $ionicScrollDelegate, $http) {
     var self = this;
     $scope.text = {
         show: 'What do you want to say about the product!',
@@ -75,3 +79,4 @@ myappc.controller('feedbackCtrl', function($scope, $ionicLoading, ajaxRequest, $
 
 
 });
+})();

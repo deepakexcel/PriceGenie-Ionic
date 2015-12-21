@@ -4,226 +4,54 @@
         "uninstalled": []
     },
     "config_munge": {
-        "files": {
-            "res/xml/config.xml": {
-                "parents": {
-                    "/*": [
-                        {
-                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"EmailComposer\"><param name=\"android-package\" value=\"de.appplant.cordova.emailcomposer.EmailComposer\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SocialSharing\"><param name=\"android-package\" value=\"nl.xservices.plugins.SocialSharing\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Toast\"><param name=\"android-package\" value=\"nl.xservices.plugins.Toast\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Globalization\"><param name=\"android-package\" value=\"org.apache.cordova.globalization.Globalization\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"AppRate\"><param name=\"android-package\" value=\"org.pushandplay.cordova.apprate.AppRate\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"AppVersion\"><param name=\"android-package\" value=\"uk.co.whiteoctober.cordova.AppVersion\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"FacebookConnectPlugin\"><param name=\"android-package\" value=\"org.apache.cordova.facebook.ConnectPlugin\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<access origin=\"https://m.facebook.com\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<access origin=\"https://graph.facebook.com\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<access origin=\"https://api.facebook.com\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<access origin=\"https://*.fbcdn.net\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<access origin=\"https://*.akamaihd.net\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"PushNotification\"><param name=\"android-package\" value=\"com.adobe.phonegap.push.PushPlugin\" /></feature>",
-                            "count": 1
-                        }
-                    ]
-                }
-            },
-            "AndroidManifest.xml": {
-                "parents": {
-                    "/manifest": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"com.google.android.c2dm.permission.RECEIVE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<permission android:name=\"com.excellence.PriceGenie.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"com.excellence.PriceGenie.permission.C2D_MESSAGE\" />",
-                            "count": 1
-                        }
-                    ],
-                    "/manifest/application": [
-                        {
-                            "xml": "<activity android:exported=\"true\" android:name=\"com.adobe.phonegap.push.PushHandlerActivity\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<receiver android:name=\"com.adobe.phonegap.push.CordovaGCMBroadcastReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><action android:name=\"com.google.android.c2dm.intent.REGISTRATION\" /><category android:name=\"com.excellence.PriceGenie\" /></intent-filter></receiver>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<service android:name=\"com.adobe.phonegap.push.GCMIntentService\" />",
-                            "count": 1
-                        }
-                    ],
-                    "/*": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 1
-                        }
-                    ],
-                    "application": [
-                        {
-                            "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationId\" android:value=\"@string/fb_app_id\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<activity android:label=\"@string/fb_app_name\" android:name=\"com.facebook.LoginActivity\" android:theme=\"@android:style/Theme.Translucent.NoTitleBar\" />",
-                            "count": 1
-                        }
-                    ]
-                }
-            },
-            "res/values/facebookconnect.xml": {
-                "parents": {
-                    "/*": [
-                        {
-                            "xml": "<string name=\"fb_app_id\">467986553238213</string>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<string name=\"fb_app_name\">PriceGenie</string>",
-                            "count": 1
-                        }
-                    ]
-                }
-            }
-        }
+        "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-app-version": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
-        },
-        "de.appplant.cordova.plugin.email-composer": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
-        },
-        "cordova-plugin-x-socialsharing": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
-        },
-        "cordova-plugin-x-toast": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
-        },
-        "org.apache.cordova.dialogs": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
-        },
-        "org.apache.cordova.globalization": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
-        },
-        "org.pushandplay.cordova.apprate": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
-        },
-        "uk.co.whiteoctober.cordova.appversion": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
-        },
-        "com.phonegap.plugins.facebookconnect": {
-            "APP_ID": "467986553238213",
-            "APP_NAME": "PriceGenie",
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
-        "phonegap-plugin-push": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "de.appplant.cordova.plugin.email-composer": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "org.pushandplay.cordova.apprate": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "phonegap-facebook-plugin": {
+            "APP_ID": "467986553238213",
+            "APP_NAME": "PriceGenie",
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         }
     },

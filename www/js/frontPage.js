@@ -1,4 +1,8 @@
-myappc.controller('frontPageCtrl', function($scope, $timeout, $ionicLoading, $log, ajaxRequest, googleLogin, urlHelper, timeStorage, $rootScope) {
+(function() {
+    'use strict';
+
+    angular.module('starter')
+    .controller('frontPageCtrl', function($scope, $timeout, $ionicLoading, $log, ajaxRequest, googleLogin, urlHelper, timeStorage, $rootScope) {
     // for google login
     opt = {
         client_id: '117380048302-2a8bqb3vjdme9733tr0mk70gom4llmte.apps.googleusercontent.com',
@@ -109,3 +113,4 @@ myappc.controller('frontPageCtrl', function($scope, $timeout, $ionicLoading, $lo
         });
     };
 });
+})();

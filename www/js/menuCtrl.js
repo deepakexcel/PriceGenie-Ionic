@@ -1,8 +1,8 @@
-//siddharth controller module
-var myappc = angular.module('startercc', ['ionic', 'starter', 'starterss', 'ngStorage', 'angular-chartist']);
+(function() {
+    'use strict';
 
-
-myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope, $ionicLoading, $ionicPlatform, $ionicHistory, urlHelper, timeStorage) {
+    angular.module('starter')
+    .controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope, $ionicLoading, $ionicPlatform, $ionicHistory, urlHelper, timeStorage) {
 
     var count = 0;
     try {
@@ -19,36 +19,36 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
         $ionicLoading.hide();
     };
    document.addEventListener("deviceready", function() {
-        var push = PushNotification.init({ 
-            "android": {"senderID": "117380048302"}
-        });
-       push.on('registration', function(data) {
-        console.log(data);
-        var x=data.registrationId;
-        timeStorage.set("Noti_reg_id", x, 100);
-        var action = "add_mobile";
-        var params = 'device_id=' + encodeURIComponent(device.uuid) + '&user_key=' + '' + '&gcm_reg_id=' + encodeURIComponent(x);
-        var api = 'mobile_api/api.php?action=' + action + '&' + params;
-        console.log(api);
-        var promise = ajaxRequest.send(api);
-        promise.then(function(data) {
-        console.log(data);
-            });
-    });
-     push.on('notification', function(data) {
-         console.log(data.message);
-        // data.message,
-        // data.title,
-        // data.count,
-        // data.sound,
-        // data.image,
-        // data.additionalData
-    });
+    //     var push = PushNotification.init({ 
+    //         "android": {"senderID": "117380048302"}
+    //     });
+    //    push.on('registration', function(data) {
+    //     console.log(data);
+    //     var x=data.registrationId;
+    //     timeStorage.set("Noti_reg_id", x, 100);
+    //     var action = "add_mobile";
+    //     var params = 'device_id=' + encodeURIComponent(device.uuid) + '&user_key=' + '' + '&gcm_reg_id=' + encodeURIComponent(x);
+    //     var api = 'mobile_api/api.php?action=' + action + '&' + params;
+    //     console.log(api);
+    //     var promise = ajaxRequest.send(api);
+    //     promise.then(function(data) {
+    //     console.log(data);
+    //         });
+    // });
+    //  push.on('notification', function(data) {
+    //      console.log(data.message);
+    //     // data.message,
+    //     // data.title,
+    //     // data.count,
+    //     // data.sound,
+    //     // data.image,
+    //     // data.additionalData
+    // });
 
-    push.on('error', function(e) {
-        console.log(e.message);
-        // e.message
-    });
+    // push.on('error', function(e) {
+    //     console.log(e.message);
+    //     // e.message
+    // });
     
     });
      
@@ -215,7 +215,7 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
 //        event.stopPropagation();
         $ionicLoading.hide();
         
-        view = $ionicHistory.currentView();
+        var view = $ionicHistory.currentView();
         console.log(view.stateId);
         if (view.stateId == 'menu.home' && count == 0 || view.stateId == 'menu.offline' && count == 0)
         {
@@ -240,8 +240,8 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
             count = 0;
         }
     }, 100);
-    view = $ionicHistory.currentView();
-    console.log(view);
+    // view = $ionicHistory.currentView();
+    // console.log(view);
     $scope.cut = function(name) {
         if (name)
             var name1 = name.substr(0, 30);
@@ -410,6 +410,7 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
         timeStorage.remove("googleLogin");
         timeStorage.remove("google_access_token");
         timeStorage.remove("fbLogin");
+        window.plugins.toast.showShortTop("You are Logged Out");
         var promise = ajaxRequest.send(api);
         promise.then(function(data) {
             $scope.response = data;
@@ -451,4 +452,4 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
     };
 
 });
-
+})();

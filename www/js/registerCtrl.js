@@ -1,7 +1,7 @@
-//search controller @siddharth-->
+(function() {
+    'use strict';
 
-
-myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading, $log, googleLogin, $rootScope, urlHelper, timeStorage, $timeout, ajaxRequest) {
+    angular.module('starter').controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading, $log, googleLogin, $rootScope, urlHelper, timeStorage, $timeout, ajaxRequest) {
     $scope.model = {
         reg_firstname: '',
         reg_email: '',
@@ -111,7 +111,7 @@ myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading,
     }
 
     //google+ login 
-    opt = {
+    var opt = {
         client_id: '117380048302-2a8bqb3vjdme9733tr0mk70gom4llmte.apps.googleusercontent.com',
         redirect_uri: 'http://localhost/PriceGeniee/www/',
         scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/plus.me',
@@ -223,4 +223,4 @@ myappc.controller('registerCtrl', function($scope, $ionicHistory, $ionicLoading,
     };
 
 });
-
+})();

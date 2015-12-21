@@ -1,4 +1,7 @@
-myapps.factory('urlHelper', function($state) {
+(function() {
+    'use strict';
+    angular.module('starter')
+    .factory('urlHelper', function($state) {
     var goview = {};
     goview.openHome = function() {
         $state.go("menu.home");
@@ -56,3 +59,4 @@ myapps.factory('urlHelper', function($state) {
     };
     return goview;
 });
+})();

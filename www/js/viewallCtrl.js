@@ -1,5 +1,8 @@
-//siddharth category controller
-myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicScrollDelegate, $ionicPopup, $rootScope, $ionicLoading, ajaxRequest, urlHelper, $stateParams, timeStorage) {
+(function() {
+    'use strict';
+
+    angular.module('starter')
+    .controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicScrollDelegate, $ionicPopup, $rootScope, $ionicLoading, ajaxRequest, urlHelper, $stateParams, timeStorage) {
     var filters = [];
     
     var self = this;
@@ -51,7 +54,7 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
             $scope.cat_name = $scope.response.crums[2].name;
 
             if ($scope.response.display_data.length == 8) {
-                a = true;
+                var a = true;
 
             }
 
@@ -170,7 +173,7 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
     };
 //    self.mainPage();
 
-    fil = 0;
+    var fil = 0;
 
     var str = $stateParams.name;
     var res = str.toLowerCase();
@@ -178,7 +181,7 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
     $scope.page = 1;
 
 
-    s = 0;
+    var s = 0;
     $scope.sortclose = function(href, val) {
 
         $scope.filter.hide();
@@ -266,8 +269,8 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
         popup.close();
     };
 
-    fl = 0;
-    br = 0;
+    var fl = 0;
+    var br = 0;
 
     $scope.brandModal = function(brand) {
         console.log("true1");
@@ -701,3 +704,4 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
         }
     };
 });
+})();

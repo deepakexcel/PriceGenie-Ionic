@@ -1,5 +1,8 @@
-//vaibhav product controller
-myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ionicScrollDelegate, $ionicLoading, $scope, $rootScope, $stateParams, timeStorage, ajaxRequest, $filter) {
+(function() {
+    'use strict';
+
+    angular.module('starter')
+    .controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ionicScrollDelegate, $ionicLoading, $scope, $rootScope, $stateParams, timeStorage, ajaxRequest, $filter) {
 
     $ionicLoading.show({
         templateUrl: 'partials/modals/productPage/loading.html',
@@ -14,6 +17,7 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ioni
     $scope.qid = qid;
     var email;
     var userid;
+    var i,j,k;
     //checking user details
     if (timeStorage.get('login').email)
     {
@@ -339,7 +343,7 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ioni
                 var timeSlot = [];
                 var rou = $scope.tableData.length / 10;
                 var j = 0;
-                for (i = 0; i < $scope.tableData.length; i++)
+                for (var i = 0; i < $scope.tableData.length; i++)
                 {
                     if ($scope.tableData.length < 11)
                         price.push($scope.tableData[i].price);
@@ -360,7 +364,7 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ioni
                 }
                 j = 0;
 
-                for (i = 0; i < $scope.tableData.length; i++)
+                for (var i = 0; i < $scope.tableData.length; i++)
                 {
                     if ($scope.tableData.length < 11)
                         timeSlot.push($scope.tableData[i].timeslot);
@@ -475,11 +479,11 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ioni
                 var k = 0;
                 console.log($scope.tableDataFull.length);
                 console.log($scope.colHeading);
-                for (i = 0; i < $scope.colHeading.length; i++)
+                for (var i = 0; i < $scope.colHeading.length; i++)
                 {
                     console.log($scope.colHeading[i].id);
                     var pricein = [];
-                    for (j = 0; j < $scope.tableDataFull.length; j++)
+                    for (var j = 0; j < $scope.tableDataFull.length; j++)
                     {
                         if (k < rou && i < $scope.tableDataFull.length - 1 && j != 0)
                         {
@@ -666,3 +670,4 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ioni
 //
 //    };
 });
+})();

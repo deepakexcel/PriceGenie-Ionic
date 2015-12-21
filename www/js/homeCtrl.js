@@ -1,6 +1,8 @@
-//vaibhav home controller
+(function() {
+    'use strict';
 
-myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ionicModal, $scope, ajaxRequest, urlHelper, timeStorage, $interval, $ionicLoading, $ionicScrollDelegate) {
+    angular.module('starter')
+    .controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ionicModal, $scope, ajaxRequest, urlHelper, timeStorage, $interval, $ionicLoading, $ionicScrollDelegate) {
     $ionicHistory.clearHistory();    //clearing history of app to disable back views
 
     var self = this;
@@ -189,7 +191,7 @@ self.ajax1 = function() {
             //vaibhav: checking data in localstorage
             if (timeStorage.get('subcategory')) {
                 $scope.catItems123 = timeStorage.get('subcategory');
-                for(i=0;i<$scope.catItems123.length;i++){
+                for(var i=0;i<$scope.catItems123.length;i++){
                     console.log($scope.catItems123[i]);
                     if($scope.catItems123[i].key==cat){
                         console.log($scope.catItems123[i].data);
@@ -388,3 +390,4 @@ self.ajax1 = function() {
 ////        $scope.catItems1[i].products[j].redheart = 1;      //vaibhav: 1 to show red heart
 //    };
 });
+})();

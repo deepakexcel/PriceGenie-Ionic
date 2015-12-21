@@ -22,7 +22,7 @@
 
 
                     </div>
-
+                   
 
                     <div class="row itemspec">
                         <div class="col col23">
@@ -34,11 +34,11 @@
 
                 </div>
             </div>
-
-
-            <div class="row">
+            
+            <div class="topitemcontent" style="margin-top:10px;">
+            <div class="row" style="width:100%;">
                 <div class="col123">
-                    <ion-item ng-repeat="mainRes in mainData.result track by $index" class="myItem " ng-if="mainRes">
+                    <ion-item ng-repeat="mainRes in mainData.result track by $index" class="myItem " ng-if="mainRes" style="width:100%;">
                         <div ng-init="i = $index">
                             <p class="catname2 mname"  ng-show="$index == 0" ng-hide="$index > 0">COMPARE PRICES</p>
 
@@ -76,8 +76,9 @@
                     </ion-item>
                 </div>
             </div>
+            </div>
         </ion-item>
-
+        <div class="topitemcontent" style="margin-top:10px;">
         <div ng-show="chart" class="chartitem">
             <div class=" mytab">
   <p class="chartheading">Price History</p>
@@ -104,7 +105,7 @@
             <div ng-class="{'chart':chart2 == true}" class="mychart2">
                 <chartist   chartist-chart-options="options2" class="ct-chart" chartist-data="data2" chartist-chart-type="Line" ></chartist>
             </div>
-        </div>
+        </div></div>
 
         <!--        <div ng-show="chart">
                     <div class=" mytab" >
@@ -124,8 +125,8 @@
                     </div>
                 </div>-->
 
-
-        <div class="pconent" >
+        <div class="topitemcontent" style="margin-top:10px;">
+       
             <ion-item ng-repeat="extraData in extra track by $index"  class="che" ng-if="extraData.length">
 
                 <div ng-init="i = $index">
@@ -186,6 +187,6 @@
                     </div>
                 </div> 
             </ion-item>
-        </div>
+        </div></div>
     </ion-content>
 </ion-view>

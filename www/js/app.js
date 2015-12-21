@@ -25,6 +25,7 @@ myapp.run(function($ionicPlatform, urlHelper, $rootScope) {
         console.log(isWebView);
         try {
             if (device.platform == 'Android') {
+                urlHelper.openHome();
                 StatusBar.backgroundColorByHexString("#06457b");
             }
         }
@@ -32,7 +33,7 @@ myapp.run(function($ionicPlatform, urlHelper, $rootScope) {
 
 
         }
-        if (!isWebView) {
+        if (isWebView) {
             urlHelper.openHome();
         }
 

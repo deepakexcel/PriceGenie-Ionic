@@ -1,9 +1,11 @@
-//about us controller @siddharth
+(function() {
+    'use strict';
 
-myappc.controller('AboutusCtrl', function($scope) {
+    angular.module('starter').controller('AboutusCtrl', function($scope) {
 
     $scope.gotoPricegenie = function() {
         console.log("terms");
         window.open("http://pricegenie.co/", '_system', 'location=yes');
     };
 });
+ })();
