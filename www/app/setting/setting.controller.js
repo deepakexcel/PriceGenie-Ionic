@@ -2,7 +2,8 @@
     'use strict';
 
     angular.module('starter')
-    .controller('settingCtrl', function($scope, timeStorage, $rootScope, ajaxRequest) {
+    .controller('settingCtrl', function($scope, timeStorage, $rootScope, ajaxRequest,settingService) {
+    console.log("Setting");
     var self = this;
 
     try {
@@ -14,39 +15,10 @@
     catch (e) {
         console.log(e);
     }
-    self.caller = function() {
-        if (!timeStorage.get("login") && !timeStorage.get("googleLogin") && !timeStorage.get("fbLogin")) {
-            console.log("show");
-            $rootScope.show = true;
-            $rootScope.show1 = false;
-        }
-        else if (timeStorage.get("login") !== '') {
-            var x = timeStorage.get("login");
-            console.log(x);
-            $rootScope.user = x.firstname;
-            console.log("show1");
-            $rootScope.show1 = true;
-            $rootScope.show = false;
-        } else if (timeStorage.get("fbLogin") !== '') {
-            var x = timeStorage.get("fbLogin");
-            console.log(x);
-            $rootScope.user = x.name;
-            console.log("show12");
-            $rootScope.show1 = true;
-            $rootScope.show = false;
-        }
-        else {
-            var x = timeStorage.get("googleLogin");
-            console.log(x);
-            $rootScope.user = x.firstname;
-            console.log("show1");
-            $rootScope.show1 = true;
-            $rootScope.show = false;
-        }
-    };
+    self.caller =settingService.caller();
     var y = timeStorage.get("login");
 
-    api = 'mobile_api/api.php?action=logout_notify&user_key=' + y.user_key + '&device_id=' + $scope.uuid;
+    var api = 'mobile_api/api.php?action=logout_notify&user_key=' + y.user_key + '&device_id=' + $scope.uuid;
     $scope.logout = function() {
         timeStorage.remove("login");
         timeStorage.remove("googleLogin");

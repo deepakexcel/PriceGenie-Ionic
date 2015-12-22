@@ -451,14 +451,6 @@
 
     };
 
-    //modal for full chart
-//    $ionicModal.fromTemplateUrl('partials/modals/productPage/fullChart.html', {
-//        scope: $scope,
-//        animaion: 'slide-in-up',
-//    }).then(function (modal3) {
-//        $scope.productFullChart = modal3;
-//    });
-
 //    function for full chart
     $scope.fullChart = function() {
 
@@ -517,9 +509,6 @@
 
                 };
                 $scope.options2 = {
-                    // Within the series options you can use the series names
-                    // to specify configuration that will only be used for the
-                    // specific series.
                     series: {
                         'series-1': {
                             lineSmooth: Chartist.Interpolation.step()
@@ -550,13 +539,11 @@
             }
             else
                 $scope.tableEmptyFull = false;
-//            $scope.productFullChart.show();
         });
         promise.catch(function() {
             console.log('error');
         });
     };
-  //  $scope.fullChart();
     //function to hide full char modal
     $scope.fullChartClose = function() {
         $scope.productFullChart.hide();
@@ -569,7 +556,6 @@
         {
             if (key == head)
                 ret = $scope.tableDataFull[index][key];
-//            console.log($scope.tableDataFull[index][key]);  
         }
 
         if (ret)
@@ -596,7 +582,7 @@
     };
     $rootScope.defaultButton = false;
      self.data1 = function() {
-        if (timeStorage.get(url1)) {      //vaibhav checking data in local Storage
+        if (timeStorage.get(url1)) {      
             $scope.main = timeStorage.get(url1);
              $scope.productTrend();
              $scope.fullChart();
@@ -609,12 +595,12 @@
             $ionicLoading.hide();
         }
         else
-        {                         //if localstorage is false retrieving data from ajax
+        {   
             var promise1 = ajaxRequest.send(url1);
             promise1.then(function(data1) {
 
                 timeStorage.set(url1, data1, 4);
-                $scope.main = timeStorage.get(url1);        //vaibhav saving data to localstorage
+                $scope.main = timeStorage.get(url1);       
                 $scope.$broadcast('scroll.refreshComplete');
                 $ionicLoading.hide();
                 console.log(timeStorage.get(url1));
@@ -635,39 +621,5 @@
 
     };
     self.data1();
-
-//    $scope.watch = function (url, watch_website, watch_price, watch_name, watch_url) {
-//        $ionicLoading.show({
-//            templateUrl: 'partials/modals/productPage/loading.html',
-//            scope: $scope
-//        });
-//
-//        console.log(userid);
-//        if (userid)
-//        {
-//            var promise = ajaxRequest.send('watch.php?watch=1&watch_url=' + watch_url + '&watch_website=' + watch_website + '&watch_price=' + watch_price + '&watch_name=' + watch_name + '&query_id=' + qid + '&userid=' + userid + '&device_id=' + $scope.uuid);
-//            promise.then(function (data) {
-//
-//                $ionicLoading.hide();
-//                console.log(data);
-//                window.plugins.toast.showShortTop(data.message);
-//
-//            });
-//            promise.catch(function () {
-//                console.log('error');
-//            });
-//
-//        }
-//        else
-//        {
-//            $scope.variantModal.hide();
-//            $ionicLoading.hide();
-//
-//            gorouter.gostate('menu.login');
-//            window.plugins.toast.showShortTop('Please Login With Price Genie Email To Set Price Alert');
-//
-//        }
-//
-//    };
 });
 })();
