@@ -30,9 +30,9 @@
         $ionicHistory.goBack();
     };
 
-    sea = 0;
+    var sea = 0;
 
-    select = 0;
+    var select = 0;
     $scope.$watch('textSearch', function(value1) {
         $scope.textS = value1;
         var last_query = Math.round(Math.random() * 10000);

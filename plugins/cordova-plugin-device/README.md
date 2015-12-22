@@ -121,7 +121,8 @@ Get the device's operating system name.
     // Depending on the device, a few examples are:
     //   - "Android"
     //   - "BlackBerry 10"
-    //   - "browser"
+    //   - Browser:         returns "MacIntel" on Mac
+    //                      returns "Win32" on Windows
     //   - "iOS"
     //   - "WinCE"
     //   - "Tizen"

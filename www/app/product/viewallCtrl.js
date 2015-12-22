@@ -607,7 +607,7 @@
                 $scope.followModal.show();
                 $ionicLoading.hide();
             }
-            for (i = 0; i < $scope.pricedata.length; i++)
+            for (var i = 0; i < $scope.pricedata.length; i++)
                 $scope.pricedata[i].show = 'false';
             console.log($scope.pricedata);
         });

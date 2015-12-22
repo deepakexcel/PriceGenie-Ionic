@@ -18,9 +18,11 @@
   "cordovaPlugins": [
     
   ],
-
+<<<<<<< HEAD
   "cordovaPlatforms": [
   
   ]
-
+=======
+  "cordovaPlatforms": []
+>>>>>>> 10d861d6eb9e1f7d9b8b526b06567675335b7aee
 }

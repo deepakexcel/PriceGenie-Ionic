@@ -148,7 +148,7 @@
             });
 
 
-    // $urlRouterProvider.otherwise('/priceGenie/home');
+    $urlRouterProvider.otherwise('/priceGenie/home');
 
 });
 })();

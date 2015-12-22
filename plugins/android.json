@@ -7,19 +7,13 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-app-version": {
+        "com.phonegap.plugins.PushPlugin": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.excellence.PriceGenie"
-        },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.excellence.PriceGenie"
-        },
-        "cordova-plugin-globalization": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-inappbrowser": {
@@ -31,10 +25,10 @@
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
-        "cordova-plugin-statusbar": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
-        "cordova-plugin-whitelist": {
+        "de.appplant.cordova.plugin.email-composer": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-x-socialsharing": {
@@ -43,21 +37,24 @@
         "cordova-plugin-x-toast": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
-        "de.appplant.cordova.plugin.email-composer": {
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "cordova-plugin-globalization": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "org.pushandplay.cordova.apprate": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "cordova-plugin-app-version": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
         "phonegap-facebook-plugin": {
             "APP_ID": "467986553238213",
             "APP_NAME": "PriceGenie",
-<<<<<<< HEAD
-            "PACKAGE_NAME": "com.excellence.PriceGenie"
-        },
-        "phonegap-plugin-push": {
-=======
->>>>>>> 10d861d6eb9e1f7d9b8b526b06567675335b7aee
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         }
     },

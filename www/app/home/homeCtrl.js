@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('starter')
-    .controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ionicModal, $scope, ajaxRequest, urlHelper, timeStorage, $interval, $ionicLoading, $ionicScrollDelegate, userData) {
+    .controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ionicModal, $scope, ajaxRequest, urlHelper, timeStorage, $interval, $ionicLoading, $ionicScrollDelegate, userData, homeService) {
     $ionicHistory.clearHistory();    //clearing history of app to disable back views
 
     var self = this;
@@ -30,89 +30,26 @@
                     position: "top",
                     addPixelsY: -40  // added a negative value to move it up a bit (default 0)
                 }
-
         );
     };
-    //siddharth: checking login for side menu
-    self.caller = function() {
-        if (!timeStorage.get("login") && !timeStorage.get("googleLogin") && !timeStorage.get("fbLogin")) {
-            console.log("show");
-            $rootScope.show = true;
-            $rootScope.show1 = false;
-        }
-        else if (timeStorage.get("login") != '') {
-            var x = timeStorage.get("login");
-            console.log(x);
-            $rootScope.user = x.firstname;
-            console.log($rootScope.user);
-            console.log("show1");
-            $rootScope.show1 = true;
-            $rootScope.show = false;
-            $rootScope.shadow = {
-                'box-shadow': '0px -1px 0px 0px #5b656f'
-            };
-        } else if (timeStorage.get("fbLogin") != '') {
-            var x = timeStorage.get("fbLogin");
-            console.log(x);
-            $rootScope.user = x.firstname;
-            console.log("show12");
-            $rootScope.show1 = true;
-            $rootScope.show = false;
-            $rootScope.shadow = {
-                'box-shadow': '0px -1px 0px 0px #5b656f'
-            };
-        }
-        else {
-            var x = timeStorage.get("googleLogin");
-            console.log(x);
-            $rootScope.user = x.firstname;
-            console.log("show13");
-            $rootScope.show1 = true;
-            $rootScope.show = false;
-            $rootScope.shadow = {
-                'box-shadow': '0px -1px 0px 0px #5b656f'
-            };
-        }
-    };
-    self.caller();
-//   $scope.shadow=function(){                        //for home page search active
-//       $scope.boxShadow={
-//       'box-shadow': '0px 0px 1px 2px #e3ae22'
-//   };
-//   };
-//   $scope.shadow1=function(){
-//       $scope.boxShadow={
-//       'box-shadow': '0px 0px 0px 0px '
-//   };
-//   };
+    // checking login for side menu
+    self.caller = homeService.caller();
+
     //event when modal closes
     $scope.$on('modal.hidden', function() {
         $ionicScrollDelegate.scrollTop();
     });
     $ionicLoading.hide();
-//function for ion refresh
-//    $scope.doRefresh = function () {
-//        cate = category.replace(/[^a-zA-Z0-9]/gi, '');  //changing pattern for the categories
-//        timeStorage.remove(cate);     //removing data from the localStorage 
-//        $scope.loadLatest(cate);         //loadLatest to load data on the page
-//        $ionicLoading.hide();             //hiding the loading icon
-//    };
 
-//    $rootScope.defaultButton = true;      //showing the common button in menu
-
-    var self = this;
 
 self.ajax1 = function() {
       var  urlmain = 'mobile_api/api.php?action=category_tree';
         var promise = ajaxRequest.send(urlmain);
         promise.then(function(data) {
            
-            console.log(data);
-            
+            console.log(data);    
             //vaibhav :setting data in localstorage
             timeStorage.set('subcategory', data, 168);
-           // $scope.catItems1 = data;
-//            self.status();
             $ionicLoading.hide();
             $ionicScrollDelegate.resize();
 //            $scope.$broadcast('scroll.refreshComplete');
@@ -122,23 +59,6 @@ self.ajax1 = function() {
     if (!timeStorage.get('subcategory')) {
         self.ajax1();
     }
-    //vaibhav: function to fire ajaxRequest to load home page popular items
-//    self.ajax = function(cat) {
-//        url2 = 'mobile_api/api.php?action=home_products_v1&size=10&device=tablet&swipe=1&key=' + cat;
-//        var promise = ajaxRequest.send(url2);
-//        promise.then(function(data) {
-//            var data = data.data;
-//            console.log(data);
-//            //vaibhav :setting data in localstorage
-//            timeStorage.set(cat, data, 168);
-//            $scope.catItems1 = data;
-////            self.status();
-//            $ionicLoading.hide();
-//            $ionicScrollDelegate.resize();
-////            $scope.$broadcast('scroll.refreshComplete');
-//        });
-//    };
-
 
     //vaibhav: initializing default category to load in popular items
     var cat;
@@ -176,32 +96,24 @@ self.ajax1 = function() {
                     if($scope.catItems123[i].key==cat){
                         console.log($scope.catItems123[i].data);
                         var catdata=$scope.catItems123[i].data;
-
                             $scope.catItems1=catdata;
                             console.log($scope.catItems1);
-                  
                     }
                 }
                 console.log($scope.catItems1);
            // self.status();
-
                 $ionicLoading.hide();
                 $ionicScrollDelegate.resize();
-
             }
             //vaibhav: if local storage is empty requesting new data by ajax
             else
             {
                 // self.ajax1();   
-
             }
-
             console.log($scope.catItems1);
-
         }, 100);
     };
     //vaibhav: loading data first time
-
 
     //function to stop loading icon when user clicks on screen
     $scope.closePodcastsLoader = function() {
@@ -280,8 +192,6 @@ self.ajax1 = function() {
         $ionicHistory.nextViewOptions({
             disableAnimate: true
         });
-
-
         name = name.replace(/[^a-zA-Z0-9]/gi, '');
         urlHelper.openCategory({category: id, subCategory: sub, name: name});
         $timeout(function() {
@@ -289,81 +199,6 @@ self.ajax1 = function() {
             $scope.subCatModal.hide();
         }, 150);
     };
-//function for adding extra scroll feature
-//    var y = 15;
-//    $interval(function () {
-//        y = 15;
-//        z = -15;
-//    }, 500);
-//    $scope.onSwipe = function () {
-//        $ionicScrollDelegate.$getByHandle('main').scrollBy(0, y, true);
-//        console.log(y);
-//        y = y + 10;
-//    };
-//    var z = -15;
-//    $scope.onDragDown = function () {
-//        $ionicScrollDelegate.$getByHandle('main').scrollBy(0, z, true);
-//        console.log(z);
-//        z = z - 10;
-//    };
 
-    //vaibhav: adding a field in catItems1 array 
-//    self.status = function () {
-//        for (var i = 0; i < $scope.catItems1.length; i++)
-//        {
-//            for (var j = 0; j < $scope.catItems1[i].products.length; j++)
-//            {
-//                $scope.catItems1[i].products[j].redheart = 0;     //vaibhav: 0  to show grey heart
-//            }
-//        }
-//    };
-
-//    //modal to show follow page
-//    $ionicModal.fromTemplateUrl('partials/modals/homePage/follow.html', {
-//        scope: $scope,
-//        animaion: 'slide-in-up',
-//    }).then(function (modal2) {
-//        $scope.followModal = modal2;
-//    });
-//    $scope.followModalClose = function () {
-//        $scope.followModal.hide();
-//    };
-////    $scope.unfollow = function (i, j) {
-////        $scope.catItems1[i].products[j].redheart = 0;              //vaibhav: 0  to show grey heart
-////    };
-//    var qid;
-//    
-//    //function to open follow modal and loading its data
-//    $scope.follow = function (i, j, query_id) {
-//        qid = query_id;
-//        $ionicLoading.show({
-//            templateUrl: 'partials/modals/productPage/loading.html',
-//            scope: $scope
-//        });              //showing loading icon
-//        
-//        //ajax to retrieve follow moal data
-//        var promise = ajaxRequest.send('mobile_api/api.php?action=watch&query_id=' + query_id + '&websitesData=1&userid=' + userid + '&device_id=' + $scope.uuid);
-//        promise.then(function (data) {
-//            if (data.length > 0)
-//            {
-//                $scope.pricedata = data;
-//                $scope.msg = false;
-//                $scope.followModal.show();
-//                $ionicLoading.hide();
-//            }
-//            else
-//            {
-//                $scope.pricedata = false;
-//                $scope.msg = 'price console.log not available for this product';
-//                $scope.followModal.show();
-//                $ionicLoading.hide();
-//            }
-//            //adding show key to array $scope.priceata for checkbox functionality
-//            for (i = 0; i < $scope.pricedata.length; i++)
-//                $scope.pricedata[i].show = 'false';
-//            console.log($scope.pricedata);
-//        });
-////        $scope.catItems1[i].products[j].redheart = 1;      //vaibhav: 1 to show red heart
-//    };
 });
 })();

@@ -1,9 +1,14 @@
+(function() {
+    'use strict';
 angular
     .module('starter')
     .service('userData', userData);
 
 function userData(timeStorage) {
+    var email = '';
+    var userid = '';
   this.userEmail = function() {
+
     	if (timeStorage.get('login').email)
     {
         return email = timeStorage.get('login').email;  //retrieving user email
@@ -32,3 +37,4 @@ function userData(timeStorage) {
     }
   };
 }
+})();
