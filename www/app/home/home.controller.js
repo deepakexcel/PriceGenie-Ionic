@@ -4,7 +4,7 @@
     angular.module('starter')
     .controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ionicModal, $scope, ajaxRequest, urlHelper, timeStorage, $interval, $ionicLoading, $ionicScrollDelegate, userData, homeService) {
     $ionicHistory.clearHistory();    //clearing history of app to disable back views
-
+console.log("kush");
     var self = this;
     var email = userData.userEmail();
     var userid = userData.userId();
@@ -75,6 +75,7 @@ self.ajax1 = function() {
     };
 
     $scope.loadLatest = function(cat) {
+        console.log("product");
         $scope.homeCat = cat;
 
         $timeout(function() {

@@ -7,13 +7,19 @@
         "files": {}
     },
     "installed_plugins": {
-        "com.phonegap.plugins.PushPlugin": {
+        "cordova-plugin-app-version": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "cordova-plugin-globalization": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-inappbrowser": {
@@ -25,10 +31,10 @@
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
-        "de.appplant.cordova.plugin.email-composer": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-x-socialsharing": {
@@ -37,19 +43,10 @@
         "cordova-plugin-x-toast": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.excellence.PriceGenie"
-        },
-        "cordova-plugin-globalization": {
+        "de.appplant.cordova.plugin.email-composer": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "org.pushandplay.cordova.apprate": {
-            "PACKAGE_NAME": "com.excellence.PriceGenie"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.excellence.PriceGenie"
-        },
-        "cordova-plugin-app-version": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "phonegap-facebook-plugin": {

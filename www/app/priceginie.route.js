@@ -86,7 +86,7 @@
             .state('menu.Aboutus', {
                 url: '/Aboutus',
                 views: {'mainView': {
-                        templateUrl: 'app/about/Aboutus.html',
+                        templateUrl: 'app/about/aboutus.html',
                         controller: 'AboutusCtrl'
                     }}
             })
@@ -107,7 +107,7 @@
             .state('menu.Contactus', {
                 url: '/Contactus',
                 views: {'mainView': {
-                        templateUrl: 'app/contact/Contactus.html',
+                        templateUrl: 'app/contact/contactus.html',
                         controller: 'ContactusCtrl'
                     }}
             })
