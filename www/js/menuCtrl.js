@@ -18,52 +18,52 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
     $scope.closePodcastsLoader = function() {
         $ionicLoading.hide();
     };
-   document.addEventListener("deviceready", function() {
-        var push = PushNotification.init({ 
-            "android": {"senderID": "117380048302"}
-        });
-       push.on('registration', function(data) {
-        console.log(data);
-        var x=data.registrationId;
-        timeStorage.set("Noti_reg_id", x, 100);
-        var action = "add_mobile";
-        var params = 'device_id=' + encodeURIComponent(device.uuid) + '&user_key=' + '' + '&gcm_reg_id=' + encodeURIComponent(x);
-        var api = 'mobile_api/api.php?action=' + action + '&' + params;
-        console.log(api);
-        var promise = ajaxRequest.send(api);
-        promise.then(function(data) {
-        console.log(data);
-            });
-    });
-     push.on('notification', function(data) {
-         console.log(data.message);
-        // data.message,
-        // data.title,
-        // data.count,
-        // data.sound,
-        // data.image,
-        // data.additionalData
-    });
-
-    push.on('error', function(e) {
-        console.log(e.message);
-        // e.message
-    });
-    
-    });
-     
-    
+//   document.addEventListener("deviceready", function() {
+//        var push = PushNotification.init({ 
+//            "android": {"senderID": "117380048302"}
+//        });
+//       push.on('registration', function(data) {
+//        console.log(data);
+//        var x=data.registrationId;
+//        timeStorage.set("Noti_reg_id", x, 100);
+//        var action = "add_mobile";
+//        var params = 'device_id=' + encodeURIComponent(device.uuid) + '&user_key=' + '' + '&gcm_reg_id=' + encodeURIComponent(x);
+//        var api = 'mobile_api/api.php?action=' + action + '&' + params;
+//        console.log(api);
+//        var promise = ajaxRequest.send(api);
+//        promise.then(function(data) {
+//        console.log(data);
+//            });
+//    });
+//     push.on('notification', function(data) {
+//         console.log(data.message);
+//        // data.message,
+//        // data.title,
+//        // data.count,
+//        // data.sound,
+//        // data.image,
+//        // data.additionalData
+//    });
+//
+//    push.on('error', function(e) {
+//        console.log(e.message);
+//        // e.message
+//    });
+//    
+//    });
 
 
 
-   var data= {
-    title:"AUX Scrum",
-    message: "Scrum: Daily touchbase @ 10am Please be on time so we can cover everything on the agenda.",
-    actions: [
-        { icon: "emailGuests", title: "EMAIL GUESTS", callback: "app.emailGuests"},
-        { icon: "snooze", title: "SNOOZE", callback: "app.snooze"}
-    ]
-}
+
+
+    var data = {
+        title: "AUX Scrum",
+        message: "Scrum: Daily touchbase @ 10am Please be on time so we can cover everything on the agenda.",
+        actions: [
+            {icon: "emailGuests", title: "EMAIL GUESTS", callback: "app.emailGuests"},
+            {icon: "snooze", title: "SNOOZE", callback: "app.snooze"}
+        ]
+    }
 //    document.addEventListener("deviceready", function() {
 //        var pushNotification = window.plugins.pushNotification;
 //        console.log('push=' + pushNotification);
@@ -158,7 +158,7 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
         console.log("yes i am ready");
         if (menushow == 0) {
             $scope.showMenu1 = true;
-            menushow=1;
+            menushow = 1;
         }
         else {
             $scope.showMenu1 = false;
@@ -170,12 +170,12 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
         $scope.showMenu1 = false;
         menushow = 0;
     };
-     $scope.hidemenu = function() {
-         if( $scope.showMenu1 === false){
-             menushow=0;
-         }else{
-        $scope.showMenu1 = false;
-         }
+    $scope.hidemenu = function() {
+        if ($scope.showMenu1 === false) {
+            menushow = 0;
+        } else {
+            $scope.showMenu1 = false;
+        }
     };
 
     self.caller = function() {
@@ -214,22 +214,22 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
 //        event.preventDefault();
 //        event.stopPropagation();
         $ionicLoading.hide();
-        
+
         view = $ionicHistory.currentView();
         console.log(view.stateId);
         if (view.stateId == 'menu.home' && count == 0 || view.stateId == 'menu.offline' && count == 0)
         {
-             $ionicLoading.hide();
+            $ionicLoading.hide();
             window.plugins.toast.showShortBottom('Press Back Button Again To Exit The App!');
             count++;
-            
+
             $timeout(function() {
                 count = 0;
             }, 3000);
         }
         else if (view.stateId == 'menu.home' && count == 1 || view.stateId == 'menu.offline' && count == 1)
         {
-             $ionicLoading.hide();
+            $ionicLoading.hide();
             navigator.app.exitApp();
             count = 0;
         }
@@ -450,5 +450,44 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
 
     };
 
+}).directive('closeSubmenu', function($window, $ionicHistory, $localStorage) {
+    return {
+        scope: {
+            closeSubmenu: '&'
+        },
+        link: function(scope, element, attrs) {
+
+            var x = 0;
+            angular.element($window).bind('click', function(e) {
+
+                if (e.target.id == 'moreView') {
+
+                    if (x == 0) {
+                        x = 1;
+
+                        var ele = document.getElementById("mypopover");
+                        ele.className = ele.className.replace("ng-hide", 'sidem');
+
+                    } else {
+                        x = 0;
+
+                        var ele = document.getElementById("mypopover");
+                        ele.setAttribute("class", "ng-hide");
+
+                    }
+
+                } else {
+                    x = 0;
+
+                    var ele = document.getElementById("mypopover");
+                    ele.setAttribute("class", "ng-hide");
+
+                }
+
+//                    }
+            });
+        }
+    };
 });
+;
 
