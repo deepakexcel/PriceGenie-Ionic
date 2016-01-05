@@ -41,10 +41,15 @@
     width: 94%;
     margin: 0 auto;
 }
+.laptop{
+    padding:4px 0px 0px 0px;
+}
 .chartitem {
     background-color: #fff !important;
     width: 93%;
     margin: 0 auto;
+
+    margin-top: 10px;
 }
 p.chartheading {
     color: #4e5153;
@@ -56,6 +61,7 @@ p.chartheading {
 }
 .chartButton {
     float: right;
+    padding: 0 3% 0 0;
 }
 .mychart1 {
     position: absolute;
@@ -74,26 +80,27 @@ ul.logout_ui.myui {
 .mychart2 {
     padding: 16px 5px 15px 2px;
     margin: 3px 0 10px 0;
+    font-weight: 600;
 }
 
 button.chrtbtnr {
-/*    width: 49%;*/
-    background-color: darkblue;
+    /*    width: 49%;*/
+    background-color: #fff;
     height: 34px;
     border: none;
 }
 button.chrtbtnr.activated {
-    background-color:darkblue !important;
-      border:1px #847979 !important;
+    background-color:#fff !important;
+/*    border:1px #555556 !important;*/
 }
 button.chrtbtnl.activated {
-    background-color:darkblue !important;
-    border:1px #847979 !important;
+    background-color:#fff !important;
+    /*border:1px #555556 !important;*/
 }
 .col234 {
     width: 25% !important;
     font-size: 0.97em !important;
-text-align: center;
+    text-align: center;
 }
 .smallLine {
     background-color: #ddd;
@@ -108,12 +115,15 @@ text-align: center;
     padding: 5px 10px 0 10px;
     width: 100%;
 }
+svg.ct-chart-line {
+    width: 90% !important;
+}
 .col23{
     background-color:#fff;
 }
 button.chrtbtnl {
-    background-color: darkblue;
-/*    width: 49%;*/
+    background-color: #fff;
+    /*    width: 49%;*/
     height: 34px;
     border: none;
 }
@@ -177,7 +187,7 @@ li.myitemli2 {
 }
 
 p.myp {    padding-right: 12%;
-    padding: 8px 0 0 40px;
+           padding: 8px 0 0 40px;
 }
 
 .myicon {
@@ -212,7 +222,9 @@ img.myitemimg {
 
 .myitemhead {
     /* display: inline; */}
-
+.mobile {
+    width: 21px;
+}
 .imgdiv {
     float: left;
     margin: 2px 0px 5px 0px;
@@ -267,7 +279,7 @@ li.myitemli.xy {
 
 .searchgimg {
     float: left;
-       padding: 11px 15px 0 8px;
+    padding: 11px 15px 0 8px;
     color: black;
     font-size: 20px;
 }
@@ -276,7 +288,7 @@ li.myitemli.xy {
     background-color: #E3E0E0;
 }
 .imgdiv > img {
-    width: 24px;
+/*    width: 24px;*/
     height:auto;
 }
 .Heading{
@@ -526,6 +538,7 @@ span.mygenie {
     list-style: none outside none;
     padding-bottom: 0.5em;
     padding-top: 0.5em;
+    height:55px;
 }
 .textbox::-webkit-input-placeholder{
     color:#707070;
