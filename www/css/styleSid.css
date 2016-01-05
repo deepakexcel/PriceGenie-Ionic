@@ -58,7 +58,7 @@ li.sort1 {
 
 .mainHeader{
     background-color: #085394;   
-    height: 48px;
+    height: 48px !important;
 }
 .subheaderCategory {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -1408,6 +1408,16 @@ ion-item.fil1.li.item.ng-binding {
     float: right;
     width: 40px;
     z-index: 9999;
+}
+/*=====================================ios=================*/
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > *{
+    margin-top:0px !important;
+}
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader){
+    height:48px;
+}
+.platform-ios.platform-cordova:not(.fullscreen) .has-header, .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+    top: 44px; 
 }
 /*========================*/
 /*========================*/
