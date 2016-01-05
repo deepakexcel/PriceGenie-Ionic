@@ -58,7 +58,7 @@ li.sort1 {
 
 .mainHeader{
     background-color: #085394;   
-    height: 48px !important;
+    height: 48px;
 }
 .subheaderCategory {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -77,7 +77,7 @@ li.sort1 {
     float: left;
     height: 22px;
     overflow: hidden;
-/*    padding-left: 1%;*/
+    /*    padding-left: 1%;*/
     width: 60%;
 }
 .sortFilter {
@@ -912,8 +912,16 @@ p {
     width: 209px;
     background-color: #3e454d;
 }*/
+/*.forios{
+    top: 64px !important;
+}*/
+.topm{
+
+    top: 63px !important;
+
+}
 .sidem {
-     width: 220px;
+    width:245px;
     background-color: #3e454d;
     position: absolute;
     top: 47px;
@@ -926,7 +934,7 @@ p {
 }
 .buttons.buttons-right.header-item {
     margin-right: 5%;
-/*     right: 0px !important;*/
+    /*     right: 0px !important;*/
 }
 /*.Home {
     box-shadow: 0px -1px 0px 0px #5b656f;
@@ -1410,14 +1418,17 @@ ion-item.fil1.li.item.ng-binding {
     z-index: 9999;
 }
 /*=====================================ios=================*/
-.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > *{
+/*.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > *{
     margin-top:0px !important;
-}
-.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader){
+}*/
+/*.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader){
     height:48px;
 }
 .platform-ios.platform-cordova:not(.fullscreen) .has-header, .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
     top: 44px; 
+}*/
+.platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+    top: 64px !important;
 }
 /*========================*/
 /*========================*/

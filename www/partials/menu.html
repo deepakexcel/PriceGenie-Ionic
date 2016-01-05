@@ -16,7 +16,7 @@
 
             </ion-nav-buttons>
             <ion-nav-buttons side="left" >
-                <img src="img/genie-logo-g.png" alt="Side Navigation" ng-click="home()">
+                <img src="img/genie-logo-g.png" alt="Side Navigation" on-tap="home()">
 
             </ion-nav-buttons>
             <ion-nav-buttons side="right" >
@@ -35,7 +35,7 @@
         </ion-header-bar>-->
         <ion-content overflow-scroll="false"   >
                </ion-content>                  <!--ng-show="showMenu1" -->
-        <div  class="sidem ng-hide"  style="z-index:50"   id="mypopover">
+        <div  class="ng-hide" ng-style="iosMenu"  style="z-index:50"   id="mypopover">
             <ul style="display: block;">
 
                 <li class=" item-icon-left" menu-close-keep-history ng-show="show" ui-sref='menu.login' on-tap="goto()">

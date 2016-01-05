@@ -52,7 +52,15 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
 //    
 //    });
 
-
+    if ($scope.phoneName == 'iOS') {
+        $rootScope.iosMenu = {
+            'top': '64px !important'
+        };
+    } else {
+        $rootScope.iosMenu = {
+            'top': '64px !important'
+        };
+    }
 
 
 
@@ -329,7 +337,7 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
         customLocale.cancelButtonLabel = "";
         customLocale.laterButtonLabel = "Remind Me Later";
         customLocale.rateButtonLabel = "Rate It Now";
-        if ($scope.phoneName === "iPhone") {
+        if ($scope.phoneName === "iOS") {
             console.log('iPhone');
             AppRate.preferences.customLocale = customLocale;
             AppRate.preferences.storeAppURL.ios = '511364723';
@@ -464,9 +472,24 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
 
                     if (x == 0) {
                         x = 1;
+                        try {
+                            if (device.platform == 'iOS') {
+                                console.log('ios');
+                                var ele = document.getElementById("mypopover");
+                                ele.className = ele.className.replace("ng-hide", 'sidem topm');
+                            }
+                            else {
+                                console.log('other');
+                                var ele = document.getElementById("mypopover");
+                                ele.className = ele.className.replace("ng-hide", 'sidem');
+                            }
 
-                        var ele = document.getElementById("mypopover");
-                        ele.className = ele.className.replace("ng-hide", 'sidem');
+                        } catch (e) {
+                            console.log('other1');
+                            var ele = document.getElementById("mypopover");
+                            ele.className = ele.className.replace("ng-hide", 'sidem');
+                        }
+
 
                     } else {
                         x = 0;
