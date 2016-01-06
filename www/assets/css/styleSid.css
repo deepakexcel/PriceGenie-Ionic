@@ -55,6 +55,7 @@ li.sort1 {
 .popup-head {
     padding:0px !important;   
 }
+
 .mainHeader{
     background-color: #085394;   
     height: 48px;
@@ -76,13 +77,13 @@ li.sort1 {
     float: left;
     height: 22px;
     overflow: hidden;
-/*    padding-left: 1%;*/
-    width: 60%;
+    /*    padding-left: 1%;*/
+    width: 55%;
 }
 .sortFilter {
     float: right;
     text-align: right;
-    width: 39%;
+    width: 44%;
 }
 .page_title {
     padding-top: 2px;
@@ -94,7 +95,7 @@ li.sort1 {
     background-position: right center;
     background-repeat: no-repeat;
     border-bottom: 2px solid #085394;
-    float: right;
+    float: right ;
     font-size: 0.8em;
     margin-left: 5px;
     margin-right: 5px;
@@ -911,8 +912,16 @@ p {
     width: 209px;
     background-color: #3e454d;
 }*/
+/*.forios{
+    top: 64px !important;
+}*/
+.topm{
+
+    top: 63px !important;
+
+}
 .sidem {
-     width: 220px;
+    width:245px;
     background-color: #3e454d;
     position: absolute;
     top: 47px;
@@ -925,7 +934,7 @@ p {
 }
 .buttons.buttons-right.header-item {
     margin-right: 5%;
-/*     right: 0px !important;*/
+    /*     right: 0px !important;*/
 }
 /*.Home {
     box-shadow: 0px -1px 0px 0px #5b656f;
@@ -1272,7 +1281,7 @@ a {
 }
 .img12 {
     float: left;
-    width: 50%;
+    width: 38%;
     padding:6px 0px 0px 0px;
     color: #b5b5b5 !important;
     font-size: 0.85em;
@@ -1341,7 +1350,7 @@ a {
 }
 .fl{
     background-color: #085394;
-    height: 48px !important;
+    height: 48px ;
 }
 .sidemenu {
     width: 42%;
@@ -1408,10 +1417,70 @@ ion-item.fil1.li.item.ng-binding {
     width: 40px;
     z-index: 9999;
 }
-/*========================*/
-/*.buttons.buttons-left.header-item {
-    margin-left: 4%;
+.search-bar1 {
+
+    height: 70px !important;
 }
-.buttons.buttons-right.header-item {
-    margin-right: 2%;
+.backB1 {
+    top: 32px !important;
+}
+.backB2 {
+    top: 22px !important;
+}
+.fil_item1 {
+
+    top: 71px !important;
+
+}
+.bar-subheader121 {
+
+    top: 71px !important;
+
+}
+.bar-subheader11 {
+
+    top: 71px !important;
+
+}
+.ioscontent{
+    top: 70px !important;
+}
+.sidemenu1 {
+
+    margin: 70px 0 0 0 !important;
+
+}
+/*=====================================ios=================*/
+/*.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > *{
+    margin-top:0px !important;
+    
+}*/
+/*.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader){
+    height:48px;
+}
+.platform-ios.platform-cordova:not(.fullscreen) .has-header, .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+    top: 44px; 
+}*/
+.platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+    top: 64px !important;
+}
+/*========================*/
+/*========================*/
+/*@media (min-width:650px) and (max-width:1400px){
+
+.modal {
+    bottom: 15% !important;
+    left: 20% !important;
+    min-height: 240px !important;
+    right: 20% !important;
+    top: 10% !important;
+    width: 60% !important;
+}
+}
+@media (min-height:462px) and (max-height:600px){
+
+.fil1.li {
+    
+    padding: 3px 6px 5px 7px !important;
+}
 }*/

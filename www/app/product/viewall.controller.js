@@ -19,6 +19,14 @@
     $scope.choice = {
         A: ''
     };
+    try {
+        if (device.platform == 'iOS' || device.platform == 'iPhone') {
+            $scope.iostr = true;
+        }
+    }
+    catch (e) {
+        console.log('not ios');
+    }
     $ionicLoading.show({
         templateUrl: 'partials/modals/productPage/loading.html',
         scope: $scope

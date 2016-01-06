@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    angular.module('starter', ['ionic','angular-chartist','ngStorage'])
+    angular.module('starter', ['ionic','angular-chartist','ngStorage','ngIOS9UIWebViewPatch'])
         .run(function($ionicPlatform, urlHelper, $rootScope) {
             document.addEventListener("offline", onOffline, false);
 

@@ -21,6 +21,14 @@ console.log("kush");
     $scope.closePodcastsLoader = function() {
         $ionicLoading.hide();
     };
+    try {
+        if (device.platform == 'iOS' || device.platform == 'iPhone') {
+            $scope.iostr = true;
+        }
+    }
+    catch (e) {
+        console.log('not ios');
+    }
     //function to call toast
     self.toast = function(msg) {
         window.plugins.toast.showWithOptions(

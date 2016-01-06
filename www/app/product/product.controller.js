@@ -34,6 +34,14 @@
         email = timeStorage.get('fbLogin').email;
         userid = timeStorage.get('fbLogin').userid;
     }
+    try {
+        if (device.platform == 'iOS' || device.platform == 'iPhone') {
+            $scope.iostr = true;
+        }
+    }
+    catch (e) {
+        console.log('not ios');
+    }
 //getting device id
     try {
         $scope.uuid = device.uuid;   //getting device id
