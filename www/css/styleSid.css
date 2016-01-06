@@ -95,7 +95,7 @@ li.sort1 {
     background-position: right center;
     background-repeat: no-repeat;
     border-bottom: 2px solid #085394;
-    float: right;
+    float: right ;
     font-size: 0.8em;
     margin-left: 5px;
     margin-right: 5px;
@@ -1482,6 +1482,5 @@ ion-item.fil1.li.item.ng-binding {
 .fil1.li {
     
     padding: 3px 6px 5px 7px !important;
-  
 }
 }*/
