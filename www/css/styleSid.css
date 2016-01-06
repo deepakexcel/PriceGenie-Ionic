@@ -78,12 +78,12 @@ li.sort1 {
     height: 22px;
     overflow: hidden;
     /*    padding-left: 1%;*/
-    width: 60%;
+    width: 55%;
 }
 .sortFilter {
     float: right;
     text-align: right;
-    width: 39%;
+    width: 44%;
 }
 .page_title {
     padding-top: 2px;
