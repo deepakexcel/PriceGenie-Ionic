@@ -1,11 +1,11 @@
 //siddharth category controller
 myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicScrollDelegate, $ionicPopup, $rootScope, $ionicLoading, ajaxRequest, urlHelper, $stateParams, timeStorage) {
     var filters = [];
-    
+
     var self = this;
     var bigdata = [];
     console.log($stateParams);
-  
+
     var cat = $stateParams.category;
     var sub_cat = $stateParams.subCategory;
     var sub = $stateParams.subCategory;
@@ -19,12 +19,19 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
     $ionicLoading.show({
         templateUrl: 'partials/modals/productPage/loading.html',
         scope: $scope
-    
+
     });
     $scope.closePodcastsLoader = function() {
         $ionicLoading.hide();
     };
-
+    try {
+        if (device.platform == 'iOS' || device.platform == 'iPhone') {
+            $scope.iostr = true;
+        }
+    }
+    catch (e) {
+        console.log('not ios');
+    }
     self.AllData = function(api, page) {
         api = api + page;
         var promise = ajaxRequest.send(api);
@@ -557,7 +564,7 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
 
     $scope.loadMore();
     $scope.query_id = function(id) {
-        
+
         console.log(id);
         var ID = id.split('/')[6];
         console.log(ID);
@@ -573,21 +580,21 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
     });
     $scope.followModalClose = function() {
         $scope.followModal.hide();
-        $scope.change12='query1';
+        $scope.change12 = 'query1';
     };
-   
+
     var qid1;
     $scope.priceAlert = function(query) {
-         $scope.change12=query;
+        $scope.change12 = query;
         var query_id = query.split('/')[6];
         qid1 = query_id;
         $ionicLoading.show({
             templateUrl: 'partials/modals/productPage/loading.html',
             scope: $scope
         });
-       
+
         var promise = ajaxRequest.send('mobile_api/api.php?action=watch&query_id=' + query_id + '&websitesData=1&userid=' + userid + '&device_id=' + $scope.uuid);
-        
+
         promise.then(function(data) {
             if (data.length > 0)
             {
@@ -595,7 +602,7 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
                 $scope.msg = false;
                 $scope.followModal.show();
                 $ionicLoading.hide();
-                $scope.change12='query1';
+                $scope.change12 = 'query1';
             }
             else
             {
@@ -628,16 +635,16 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
 
     $scope.processFollow = function() {
         $ionicLoading.show({
-        templateUrl: 'partials/modals/productPage/loading.html',
-        scope: $scope
-    
-    });
+            templateUrl: 'partials/modals/productPage/loading.html',
+            scope: $scope
+
+        });
         if (webObj.length == 0)
         {
             console.log('no website selected');
             $ionicLoading.hide();
             window.plugins.toast.showShortTop('no website selected');
-            
+
         }
         else if (webObj.length > 3)
         {
@@ -666,7 +673,7 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
                     console.log(data);
                     $ionicLoading.hide();
                     $scope.followModal.hide();
-                    $scope.change12='query1';
+                    $scope.change12 = 'query1';
                     if (data.error == 1)
                     {
                         window.plugins.toast.showShortTop('Please Login to Start');
@@ -682,16 +689,16 @@ myappc.controller('viewallCtrl', function($scope, $ionicModal, $timeout, $ionicS
 
                     console.log(data);
                     $scope.followModal.hide();
-                    $scope.change12='query1';
+                    $scope.change12 = 'query1';
                 });
             }
             else
             {
                 $scope.followModal.hide();
-                 $ionicLoading.hide();
+                $ionicLoading.hide();
                 urlHelper.openLogin();
 
-                $scope.change12='query1';
+                $scope.change12 = 'query1';
 
                 console.log('please login to start alert');
                 window.plugins.toast.showShortTop('please login to start alert');

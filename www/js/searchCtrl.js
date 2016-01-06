@@ -5,7 +5,14 @@ myappc.controller('searchCtrl', function($scope, urlHelper, $ionicLoading, timeS
     var self = this;
     var previous = [];
     var name = "previousSearch";
-
+    try {
+        if (device.platform == 'iOS' || device.platform == 'iPhone') {
+            $scope.iostr = true;
+        }
+    }
+    catch (e) {
+        console.log('not ios');
+    }
     if (timeStorage.get(name)) {    // this is for getting recent searches
         var local = timeStorage.get(name);
         //     console.log(local);

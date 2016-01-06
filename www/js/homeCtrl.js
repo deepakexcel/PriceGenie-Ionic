@@ -24,7 +24,14 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
         email = timeStorage.get('fbLogin').email;
         userid = timeStorage.get('fbLogin').userid;
     }
-
+    try {
+        if (device.platform == 'iOS' || device.platform == 'iPhone') {
+            $scope.iostr = true;
+        }
+    }
+    catch (e) {
+        console.log('not ios');
+    }
 //getting device id
     try {
         $scope.uuid = device.uuid;   //getting device id
@@ -119,23 +126,23 @@ myappc.controller('homeCtrl', function($ionicHistory, $timeout, $rootScope, $ion
 
     var self = this;
 
-self.ajax1 = function() {
-      var  urlmain = 'mobile_api/api.php?action=category_tree';
+    self.ajax1 = function() {
+        var urlmain = 'mobile_api/api.php?action=category_tree';
         var promise = ajaxRequest.send(urlmain);
         promise.then(function(data) {
-           
+
             console.log(data);
-            
+
             //vaibhav :setting data in localstorage
             timeStorage.set('subcategory', data, 168);
-           // $scope.catItems1 = data;
+            // $scope.catItems1 = data;
 //            self.status();
             $ionicLoading.hide();
             $ionicScrollDelegate.resize();
 //            $scope.$broadcast('scroll.refreshComplete');
         });
     };
-  
+
     if (!timeStorage.get('subcategory')) {
         self.ajax1();
     }
@@ -189,19 +196,19 @@ self.ajax1 = function() {
             //vaibhav: checking data in localstorage
             if (timeStorage.get('subcategory')) {
                 $scope.catItems123 = timeStorage.get('subcategory');
-                for(i=0;i<$scope.catItems123.length;i++){
+                for (i = 0; i < $scope.catItems123.length; i++) {
                     console.log($scope.catItems123[i]);
-                    if($scope.catItems123[i].key==cat){
+                    if ($scope.catItems123[i].key == cat) {
                         console.log($scope.catItems123[i].data);
-                        var catdata=$scope.catItems123[i].data;
+                        var catdata = $scope.catItems123[i].data;
 
-                            $scope.catItems1=catdata;
-                            console.log($scope.catItems1);
-                  
+                        $scope.catItems1 = catdata;
+                        console.log($scope.catItems1);
+
                     }
                 }
                 console.log($scope.catItems1);
-           // self.status();
+                // self.status();
 
                 $ionicLoading.hide();
                 $ionicScrollDelegate.resize();

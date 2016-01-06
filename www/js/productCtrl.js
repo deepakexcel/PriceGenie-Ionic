@@ -1,5 +1,5 @@
 //vaibhav product controller
-myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ionicScrollDelegate, $ionicLoading, $scope, $rootScope, $stateParams, timeStorage, ajaxRequest, $filter) {
+myappc.controller('productCtrl', function($ionicModal, urlHelper, $timeout, $ionicScrollDelegate, $ionicLoading, $scope, $rootScope, $stateParams, timeStorage, ajaxRequest, $filter) {
 
     $ionicLoading.show({
         templateUrl: 'partials/modals/productPage/loading.html',
@@ -30,6 +30,14 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ioni
         email = timeStorage.get('fbLogin').email;
         userid = timeStorage.get('fbLogin').userid;
     }
+    try {
+        if (device.platform == 'iOS' || device.platform == 'iPhone') {
+            $scope.iostr = true;
+        }
+    }
+    catch (e) {
+        console.log('not ios');
+    }
 //getting device id
     try {
         $scope.uuid = device.uuid;   //getting device id
@@ -56,7 +64,7 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ioni
         timeStorage.remove(url1); //removing data from the localStorage 
         timeStorage.remove(url2); //removing data from the localStorage 
         self.data1();   //data1 to load product data on the page
-      //  self.data2();        //data2 to load similar and related product data on the page
+        //  self.data2();        //data2 to load similar and related product data on the page
         $ionicLoading.hide();
     };
 
@@ -74,7 +82,7 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ioni
 
 
     var self = this;
-   
+
 
 
 //    self.status = function () {
@@ -437,7 +445,7 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ioni
 //            self.data2();
 //        });
     };
-   // $scope.productTrend();
+    // $scope.productTrend();
     //function to close product trend modal
     $scope.trendModalClose = function() {
         $scope.productTrendModal.hide();
@@ -552,7 +560,7 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ioni
             console.log('error');
         });
     };
-  //  $scope.fullChart();
+    //  $scope.fullChart();
     //function to hide full char modal
     $scope.fullChartClose = function() {
         $scope.productFullChart.hide();
@@ -591,15 +599,15 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ioni
         $scope.chart2 = false;
     };
     $rootScope.defaultButton = false;
-     self.data1 = function() {
+    self.data1 = function() {
         if (timeStorage.get(url1)) {      //vaibhav checking data in local Storage
             $scope.main = timeStorage.get(url1);
-             $scope.productTrend();
-             $scope.fullChart();
-             $timeout(function(){
-                  self.data2();
-             },500);
-             
+            $scope.productTrend();
+            $scope.fullChart();
+            $timeout(function() {
+                self.data2();
+            }, 500);
+
             $scope.$broadcast('scroll.refreshComplete');
             console.log(timeStorage.get(url1));
             $ionicLoading.hide();
@@ -614,18 +622,18 @@ myappc.controller('productCtrl', function($ionicModal, urlHelper,$timeout, $ioni
                 $scope.$broadcast('scroll.refreshComplete');
                 $ionicLoading.hide();
                 console.log(timeStorage.get(url1));
-                if(data1.status==1){
+                if (data1.status == 1) {
                     $scope.productTrend();
                     $scope.fullChart();
-                   $timeout(function(){
-                    self.data2();
-                    },500);
+                    $timeout(function() {
+                        self.data2();
+                    }, 500);
                 }
             });
-            promise1.catch(function(data){
-               $timeout(function(){
-                  self.data2();
-             },500);
+            promise1.catch(function(data) {
+                $timeout(function() {
+                    self.data2();
+                }, 500);
             });
         }
 

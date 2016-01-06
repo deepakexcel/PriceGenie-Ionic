@@ -15,7 +15,14 @@ myappc.controller('YourAlertCtrl', function($scope, ajaxRequest, timeStorage, $i
 
         });
     };
-
+    try {
+        if (device.platform == 'iOS' || device.platform == 'iPhone') {
+            $scope.iostr = true;
+        }
+    }
+    catch (e) {
+        console.log('not ios');
+    }
     $scope.break = function(website) {
         var web = [];
         //  console.log(website);

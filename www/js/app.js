@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var myapp = angular.module('starter', ['ionic', 'startercc', 'angular-chartist','ngIOS9UIWebViewPatch']);
+var myapp = angular.module('starter', ['ionic', 'startercc', 'angular-chartist', 'ngIOS9UIWebViewPatch']);
 
 
 myapp.run(function($ionicPlatform, urlHelper, $rootScope) {
@@ -35,7 +35,14 @@ myapp.run(function($ionicPlatform, urlHelper, $rootScope) {
         if (!isWebView) {
             urlHelper.openHome();
         }
-
+        try {
+            if (device.platform == 'iOS' || device.platform == 'iPhone') {
+                $rootScope.iostr = true;
+            }
+        }
+        catch (e) {
+            console.log('not ios');
+        }
     });
 // this is for front view of app 
 //        if (!timeStorage.get("login") && !timeStorage.get("googleLogin") && !timeStorage.get("fbLogin")) {

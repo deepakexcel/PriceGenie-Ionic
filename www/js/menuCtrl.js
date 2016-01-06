@@ -18,6 +18,14 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
     $scope.closePodcastsLoader = function() {
         $ionicLoading.hide();
     };
+    try {
+        if (device.platform == 'iOS' || device.platform == 'iPhone') {
+            $scope.iostr = true;
+        }
+    }
+    catch (e) {
+        console.log('not ios');
+    }
 //   document.addEventListener("deviceready", function() {
 //        var push = PushNotification.init({ 
 //            "android": {"senderID": "117380048302"}
@@ -52,15 +60,6 @@ myappc.controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope
 //    
 //    });
 
-    if ($scope.phoneName == 'iOS') {
-        $rootScope.iosMenu = {
-            'top': '64px !important'
-        };
-    } else {
-        $rootScope.iosMenu = {
-            'top': '64px !important'
-        };
-    }
 
 
 
