@@ -13,6 +13,14 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"AppVersion\"><param name=\"android-package\" value=\"uk.co.whiteoctober.cordova.AppVersion\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
                             "count": 1
                         },
@@ -25,11 +33,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"EmailComposer\"><param name=\"android-package\" value=\"de.appplant.cordova.emailcomposer.EmailComposer\" /></feature>",
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
@@ -38,6 +46,10 @@
                         },
                         {
                             "xml": "<feature name=\"Toast\"><param name=\"android-package\" value=\"nl.xservices.plugins.Toast\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"EmailComposer\"><param name=\"android-package\" value=\"de.appplant.cordova.emailcomposer.EmailComposer\" /></feature>",
                             "count": 1
                         },
                         {
@@ -50,14 +62,6 @@
                         },
                         {
                             "xml": "<feature name=\"AppRate\"><param name=\"android-package\" value=\"org.pushandplay.cordova.apprate.AppRate\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"AppVersion\"><param name=\"android-package\" value=\"uk.co.whiteoctober.cordova.AppVersion\" /></feature>",
                             "count": 1
                         },
                         {
@@ -82,10 +86,6 @@
                         },
                         {
                             "xml": "<access origin=\"https://*.akamaihd.net\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -179,7 +179,13 @@
         "com.phonegap.plugins.PushPlugin": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
+        "cordova-plugin-app-version": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
         "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-inappbrowser": {
@@ -191,16 +197,19 @@
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
-        "de.appplant.cordova.plugin.email-composer": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-x-socialsharing": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "de.appplant.cordova.plugin.email-composer": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
         "org.apache.cordova.dialogs": {
@@ -212,18 +221,9 @@
         "org.pushandplay.cordova.apprate": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.excellence.PriceGenie"
-        },
-        "cordova-plugin-app-version": {
-            "PACKAGE_NAME": "com.excellence.PriceGenie"
-        },
         "phonegap-facebook-plugin": {
             "APP_ID": "467986553238213",
             "APP_NAME": "PriceGenie",
-            "PACKAGE_NAME": "com.excellence.PriceGenie"
-        },
-        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         }
     },

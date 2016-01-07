@@ -29,5 +29,7 @@
       "id": "cordova-plugin-network-information"
     }
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "android"
+  ]
 }
