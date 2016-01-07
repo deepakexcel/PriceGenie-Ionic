@@ -1,0 +1,28 @@
+{
+  "name": "pricegenie",
+  "version": "1.0.0",
+  "description": "priceGenie: An Ionic project",
+  "dependencies": {
+    "chartist": "^0.9.4",
+    "gulp": "^3.5.6",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^1.3.3"
+  },
+  "devDependencies": {
+    "bower": "^1.3.3",
+    "gulp-util": "^2.2.14",
+    "shelljs": "^0.3.0"
+  },
+  "cordovaPlugins": [
+    
+  ],
+<<<<<<< HEAD
+  "cordovaPlatforms": [
+  
+  ]
+=======
+  "cordovaPlatforms": []
+>>>>>>> 10d861d6eb9e1f7d9b8b526b06567675335b7aee
+}
