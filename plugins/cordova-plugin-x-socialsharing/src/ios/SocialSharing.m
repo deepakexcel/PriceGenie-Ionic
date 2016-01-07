@@ -30,12 +30,7 @@
   if (_popupCoordinates != nil) {
     return _popupCoordinates;
   }
-  if ([self.webView respondsToSelector:@selector(stringByEvaluatingJavaScriptFromString:)]) {
-    return [(UIWebView*)self.webView stringByEvaluatingJavaScriptFromString:@"window.plugins.socialsharing.iPadPopupCoordinates();"];
-  } else {
-    // prolly a wkwebview, ignoring for now
-    return nil;
-  }
+  return [self.webView stringByEvaluatingJavaScriptFromString:@"window.plugins.socialsharing.iPadPopupCoordinates();"];
 }
 
 - (void)setIPadPopupCoordinates:(CDVInvokedUrlCommand*)command {
@@ -91,10 +86,8 @@
       [activityVC setValue:subject forKey:@"subject"];
     }
     
-    // TODO deprecated in iOS 8.0, change this some day
     [activityVC setCompletionHandler:^(NSString *activityType, BOOL completed) {
       [self cleanupStoredFiles];
-      NSLog(@"SocialSharing app selected: %@", activityType);
       CDVPluginResult * pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:completed];
       [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }];
@@ -183,8 +176,6 @@
   } else if ([@"email" caseInsensitiveCompare:via] == NSOrderedSame && [self isEmailAvailable]) {
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
   } else if ([@"whatsapp" caseInsensitiveCompare:via] == NSOrderedSame && [self canShareViaWhatsApp]) {
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-  } else if ([@"instagram" caseInsensitiveCompare:via] == NSOrderedSame && [self canShareViaInstagram]) {
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
   } else if ([self isAvailableForSharing:command type:via]) {
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
@@ -448,10 +439,6 @@
   [self.commandDelegate sendPluginResult:pluginResult callbackId:_command.callbackId];
 }
 
-- (bool)canShareViaInstagram {
-  return [[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"instagram://app"]]; // requires whitelisting on iOS9
-}
-
 - (bool)canShareViaWhatsApp {
   return [[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"whatsapp://app"]]; // requires whitelisting on iOS9
 }
@@ -464,66 +451,18 @@
     [UIImageJPEGRepresentation(image, 1.0) writeToFile:savePath atomically:YES];
     _documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:savePath]];
     _documentInteractionController.UTI = @""; // TODO find the scheme for google drive and create a shareViaGoogleDrive function
-    [_documentInteractionController presentOpenInMenuFromRect:CGRectZero inView:self.viewController.view animated: YES];
+    [_documentInteractionController presentOpenInMenuFromRect:CGRectMake(0, 0, 0, 0) inView:self.viewController.view animated: YES];
   }
-}
-
-- (void)shareViaInstagram:(CDVInvokedUrlCommand*)command {
-  
-  // on iOS9 canShareVia('instagram'..) will only work if instagram:// is whitelisted.
-  // If it's not, this method will ask permission to the user on iOS9 for opening the app,
-  // which is of course better than Instagram sharing not working at all because you forgot to whitelist it.
-  // Tradeoff: on iOS9 this method will always return true, so make sure to whitelist it and call canShareVia('instagram'..)
-  if (!IsAtLeastiOSVersion(@"9.0")) {
-    if (![self canShareViaInstagram]) {
-      CDVPluginResult * pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"not available"];
-      [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-      return;
-    }
-  }
-
-  NSString *message   = [command.arguments objectAtIndex:0];
-  // subject is not supported by the SLComposeViewController
-  NSArray  *filenames = [command.arguments objectAtIndex:2];
-
-  // only use the first image (for now.. maybe we can share in a loop?)
-  UIImage* image = nil;
-  for (NSString* filename in filenames) {
-    image = [self getImage:filename];
-    break;
-  }
-  
-//  NSData *imageObj = [NSData dataFromBase64String:objectAtIndex0];
-  NSString *tmpDir = NSTemporaryDirectory();
-  NSString *path = [tmpDir stringByAppendingPathComponent:@"instagram.igo"];
-  [UIImageJPEGRepresentation(image, 1.0) writeToFile:path atomically:YES];
-
-  _documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:path]];
-  _documentInteractionController.delegate = self;
-  _documentInteractionController.UTI = @"com.instagram.exclusivegram";
-
-  if (message != (id)[NSNull null]) {
-    // no longer working, so ..
-    _documentInteractionController.annotation = @{@"InstagramCaption" : message};
-
-    // .. we put the message on the clipboard (you app can prompt the user to paste it)
-    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    [pasteboard setValue:message forPasteboardType:@"public.text"];
-  }
-
-  // remember the command for the delegate method
-  _command = command;
-  [_documentInteractionController presentOpenInMenuFromRect:CGRectZero inView:self.webView animated:YES];
 }
 
 - (void)shareViaWhatsApp:(CDVInvokedUrlCommand*)command {
-
+  
   // on iOS9 canShareVia('whatsapp'..) will only work if whatsapp:// is whitelisted.
   // If it's not, this method will ask permission to the user on iOS9 for opening the app,
   // which is of course better than WhatsApp sharing not working at all because you forgot to whitelist it.
   // Tradeoff: on iOS9 this method will always return true, so make sure to whitelist it and call canShareVia('whatsapp'..)
   if (!IsAtLeastiOSVersion(@"9.0")) {
-    if (![self canShareViaWhatsApp]) {
+    if ([self canShareViaWhatsApp]) {
       CDVPluginResult * pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"not available"];
       [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
       return;
@@ -534,7 +473,6 @@
   // subject is not supported by the SLComposeViewController
   NSArray  *filenames = [command.arguments objectAtIndex:2];
   NSString *urlString = [command.arguments objectAtIndex:3];
-  NSString *abid = [command.arguments objectAtIndex:4];
 
   // only use the first image (for now.. maybe we can share in a loop?)
   UIImage* image = nil;
@@ -549,9 +487,7 @@
     [UIImageJPEGRepresentation(image, 1.0) writeToFile:savePath atomically:YES];
     _documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:savePath]];
     _documentInteractionController.UTI = @"net.whatsapp.image";
-    _documentInteractionController.delegate = self;
-    _command = command;
-    [_documentInteractionController presentOpenInMenuFromRect:CGRectZero inView:self.viewController.view animated: YES];
+    [_documentInteractionController presentOpenInMenuFromRect:CGRectMake(0, 0, 0, 0) inView:self.viewController.view animated: YES];
   } else {
     // append an url to a message, if both are passed
     NSString * shareString = @"";
@@ -568,18 +504,13 @@
     NSString * encodedShareString = [shareString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     // also encode the '=' character
     encodedShareString = [encodedShareString stringByReplacingOccurrencesOfString:@"=" withString:@"%3D"];
-    encodedShareString = [encodedShareString stringByReplacingOccurrencesOfString:@"&" withString:@"%26"];
-    NSString * abidString = @"";
-    if (abid != (id)[NSNull null]) {
-      abidString = [NSString stringWithFormat:@"abid=%@&", abid];
-    }
-    NSString * encodedShareStringForWhatsApp = [NSString stringWithFormat:@"whatsapp://send?%@text=%@", abidString, encodedShareString];
+    NSString * encodedShareStringForWhatsApp = [NSString stringWithFormat:@"whatsapp://send?text=%@", encodedShareString];
 
     NSURL *whatsappURL = [NSURL URLWithString:encodedShareStringForWhatsApp];
     [[UIApplication sharedApplication] openURL: whatsappURL];
-    CDVPluginResult * pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
   }
+  CDVPluginResult * pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+  [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void)saveToPhotoAlbum:(CDVInvokedUrlCommand*)command {
@@ -688,7 +619,9 @@
 }
 
 + (NSData*) dataFromBase64String:(NSString*)aString {
-  return [[NSData alloc] initWithBase64EncodedString:aString options:0];
+  size_t outputLength = 0;
+  void* outputBuffer = CDVNewBase64Decode([aString UTF8String], [aString length], &outputLength);
+  return [NSData dataWithBytesNoCopy:outputBuffer length:outputLength freeWhenDone:YES];
 }
 
 #pragma mark - UIPopoverControllerDelegate methods
@@ -701,20 +634,6 @@
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
   _popover = nil;
-}
-
-#pragma mark - UIDocumentInteractionControllerDelegate methods
-
-- (void) documentInteractionController: (UIDocumentInteractionController *) controller willBeginSendingToApplication: (NSString *) application {
-  // note that the application actually contains the app bundle id which was picked (for whatsapp and instagram only)
-      NSLog(@"SocialSharing app selected: %@", application);
-}
-
-- (void) documentInteractionControllerDidDismissOpenInMenu: (UIDocumentInteractionController *) controller {
-  if (self.command != nil) {
-    CDVPluginResult *result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [self.commandDelegate sendPluginResult:result callbackId: self.command.callbackId];
-  }
 }
 
 @end

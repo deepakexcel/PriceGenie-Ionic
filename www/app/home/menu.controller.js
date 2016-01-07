@@ -5,6 +5,7 @@
             .controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope, $ionicLoading, $ionicPlatform, $ionicHistory, urlHelper, timeStorage) {
 
                 var count = 0;
+
                 try {
                     $scope.uuid = device.uuid;   //getting device id
                     console.log($scope.uuid);
@@ -288,7 +289,7 @@
                 $rootScope.feedback = function() {
                     $scope.showMenu1 = false;
                     menushow = 0;
-                    if ($scope.isMobile && $scope.Email) {
+//                    if ($scope.isMobile && $scope.Email) {
                         console.log("true");
                         cordova.plugins.email.open({// for opening gmail app
                             app: 'gmail',
@@ -298,10 +299,10 @@
                             attachments: ['base64:device.json//' + btoa(JSON.stringify($scope.device))]
                         });
 
-                    } else {
-                        console.log("false");
-                        urlHelper.openFeedback();
-                    }
+//                    } else {
+//                        console.log("false");
+//                        urlHelper.openFeedback();
+//                    }
                 };
                 if ($scope.isMobile) {
                     $scope.device = {
@@ -337,7 +338,7 @@
                     customLocale.cancelButtonLabel = "";
                     customLocale.laterButtonLabel = "Remind Me Later";
                     customLocale.rateButtonLabel = "Rate It Now";
-                    if ($scope.phoneName === "iPhone") {
+                    if ($scope.phoneName === "iOS") {
                         console.log('iPhone');
                         AppRate.preferences.customLocale = customLocale;
                         AppRate.preferences.storeAppURL.ios = '511364723';
@@ -371,7 +372,7 @@
                         query_id: product.query_id,
                         query_date: new Date(),
                         query: product.full_name
-                    }
+                    };
 
                     if (!timeStorage.get('myRecentSearch'))
                     {
