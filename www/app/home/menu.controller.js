@@ -6,28 +6,28 @@
 
                 var count = 0;
 
-                try {
-                    $scope.uuid = device.uuid;   //getting device id
-                    console.log($scope.uuid);
-                    $scope.phoneName = device.platform;
-                    console.log($scope.phoneName);
 
-                }
-                catch (e) {
-                    console.log(e);
-                }
-                try {
-                    if (device.platform == 'iOS' || device.platform == 'iPhone') {
-                        $scope.iostr = true;
-                    }
-                }
-                catch (e) {
-                    console.log('not ios');
-                }
                 $scope.closePodcastsLoader = function() {
                     $ionicLoading.hide();
                 };
+                $scope.isMobile = false;
                 document.addEventListener("deviceready", function() {
+
+                    if (window.cordova) {
+                        $scope.isMobile = true;
+                    }
+                    try {
+                        $scope.uuid = device.uuid;   //getting device id
+                        console.log($scope.uuid);
+                        $scope.phoneName = device.platform;
+                        console.log($scope.phoneName);
+                        if (device.platform == 'iOS' || device.platform == 'iPhone') {
+                            $scope.iostr = true;
+                        }
+                    }
+                    catch (e) {
+                        console.log(e);
+                    }
                     //     var push = PushNotification.init({ 
                     //         "android": {"senderID": "117380048302"}
                     //     });
@@ -258,10 +258,9 @@
                 };
 
 
-                $scope.isMobile = false;
-                if (window.cordova && window.cordova.plugins) {
-                    $scope.isMobile = true;
-                }
+
+
+
                 //This is for share app
                 $scope.share = function() {
                     console.log('share me');
@@ -288,16 +287,17 @@
                 }
                 $rootScope.feedback = function() {
                     $scope.showMenu1 = false;
+                    console.log(device.platform);
                     menushow = 0;
 //                    if ($scope.isMobile && $scope.Email) {
-                        console.log("true");
-                        cordova.plugins.email.open({// for opening gmail app
-                            app: 'gmail',
-                            to: 'arun@excellencetechnologies.in', // email addresses for TO field
-                            subject: 'Feedback For PriceGenie App',
-                            isHtml: true,
-                            attachments: ['base64:device.json//' + btoa(JSON.stringify($scope.device))]
-                        });
+                    console.log("true");
+                    cordova.plugins.email.open({// for opening gmail app
+                        app: 'gmail',
+                        to: 'arun@excellencetechnologies.in', // email addresses for TO field
+                        subject: 'Feedback For PriceGenie App',
+                        isHtml: true,
+                        attachments: ['base64:device.json//' + btoa(JSON.stringify($scope.device))]
+                    });
 
 //                    } else {
 //                        console.log("false");
