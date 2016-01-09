@@ -10,7 +10,7 @@
 
         data1 = timeStorage.get('myRecentSearch');
 
-        for (i = 0; i < data1.length; i++)
+        for (var i = 0; i < data1.length; i++)
         {
             var cur_date = new Date();
             cur_date = cur_date.getTime();
@@ -23,9 +23,9 @@
 
         }
         var swap;
-        for (c = 0; c < (data1.length - 1); c++)
+        for (var c = 0; c < (data1.length - 1); c++)
         {
-            for (d = 0; d < data1.length - c - 1; d++)
+            for (var d = 0; d < data1.length - c - 1; d++)
             {
                 if (data1[d].diff > data1[d + 1].diff)
                 {

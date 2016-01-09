@@ -232,15 +232,15 @@ ion-list.all_data.disable-user-behavior {
     padding-top: 0px;
     position: relative;
 }
+
 ion-item.all_data1.item {
     background-color: white;
     float: left;
     height: 91px;
-    margin-bottom: 5px;
-    margin-left: 5%;
+    margin-bottom: 2%;
+    margin-left: 2%;
     margin-right: 0;
-    width: 90%;
-
+    width: 96%;
 }
 /*.centerede{
     width:90%;
@@ -697,18 +697,19 @@ img.imgsize {
     width: 25px;
     /* padding-bottom: 0; */
 }
+
 .redheart {
     background-image: url("../img/follow_heart.png");
     background-repeat: no-repeat;
-    height: 35px;
+    height: 54px;
     background-position: right;
     position: absolute;
-
     right: 6px;
     top: 50px;
     float: right;
-    width: 55px;
+    width: 60px;
     z-index: 9999;
+    padding: 0 0 0 0;
 }
 
 /*===========================reset password=========================*/
