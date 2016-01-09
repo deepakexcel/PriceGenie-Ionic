@@ -26,12 +26,12 @@
             <div class="row webrow1">
                 <div class="col webcol1">
                     <div class="row webrowmain" ng-repeat="website in pricedata track by $index">
-                        <div class="col-90 webcolmain">
+                        <div class="col-66 webcolmain">
                             {{website.website}}
                         </div>
-                        <div class="col-10 webcheck">
-                            <img src="assets/img/round_grey.png" ng-click="addWeb(website.website, $index)" ng-hide="$index == website.show"/>
-                            <img src="assets/img/checked.png" ng-click="subWeb(website.website, $index)" ng-show="$index == website.show"/>
+                        <div class="col-33 webcheck">
+                            <img class="imgsize" src="assets/img/round_grey.png" ng-click="addWeb(website.website, $index)" ng-hide="$index == website.show"/>
+                            <img class="imgsize" src="assets/img/checked.png" ng-click="subWeb(website.website, $index)" ng-show="$index == website.show"/>
                         </div>
                     </div>
                 </div>

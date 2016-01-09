@@ -14,6 +14,9 @@
     font-family:Roboto;
 
 }
+.btmenu{
+    width: 30px !important;
+}
 .title > img {
     max-height: 42px;
     padding-top: 4px;
@@ -90,7 +93,7 @@ li.sort1 {
     font-size: 1em;
     text-transform:capitalize;;
 }
-.catalog_sort {
+/*.catalog_sort {
     background-image: url("../img/back_triangle.png");
     background-position: right center;
     background-repeat: no-repeat;
@@ -102,6 +105,27 @@ li.sort1 {
     margin-top: 6px;
     padding-left: 5px;
     padding-right: 12px;
+}*/
+
+.catalog_sort {
+    background-image: url("../img/back_triangle.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    border-bottom: 2px solid #085394;
+    float: right;
+    font-size: 0.8em;
+    margin-right: 5px;
+    margin-top: 6px;
+    width: 50px;
+    text-align: center;
+}
+.sortpop{
+    position:relative;
+}
+.cro1 {
+    position: absolute;
+    right: 0;
+    top: 5px;
 }
 .clearfilter {
     float: right;
@@ -122,8 +146,8 @@ li.sort1 {
 .f2{
     float:left
 }
-.catalog_filter {
-    background-image: url("../img/back_triangle.png");
+/* .catalog_filter {
+   background-image: url("../img/back_triangle.png");
     background-position: right center;
     background-repeat: no-repeat;
     border-bottom: 2px solid #e3ae22;
@@ -134,6 +158,18 @@ li.sort1 {
     margin-top: 6px;
     padding-left: 5px;
     padding-right: 12px;
+}*/
+.catalog_filter {
+    background-image: url("../img/back_triangle.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    border-bottom: 2px solid #e3ae22;
+    float: right;
+    font-size: 0.8em;
+    margin-top: 6px;
+    width: 57px;
+    text-align: center;
+
 }
 .clearfix, .cf {
     clear: both;
@@ -653,16 +689,25 @@ ion-item :hover .filterS1.item{
     margin-left: 4%;
     margin-right: 4%;
 }
+.col-33.webcheck {
+    text-align: right;
+    padding-right: 10px;
+}
+img.imgsize {
+    width: 25px;
+    /* padding-bottom: 0; */
+}
 .redheart {
     background-image: url("../img/follow_heart.png");
     background-repeat: no-repeat;
-    height: 28px;
+    height: 35px;
     background-position: right;
     position: absolute;
-    right: 5px;
-    top: 56px;
+
+    right: 6px;
+    top: 50px;
     float: right;
-    width: 40px;
+    width: 55px;
     z-index: 9999;
 }
 
@@ -933,7 +978,7 @@ p {
     margin-left: 5%;
 }
 .buttons.buttons-right.header-item {
-    margin-right: 5%;
+    /*margin-right: 5%;*/
     /*     right: 0px !important;*/
 }
 /*.Home {
@@ -1397,6 +1442,9 @@ ion-item.fil1.li.item.ng-binding {
     .m1 {
         bottom: 10% ! important;
 
+    }
+    .back{
+        top:0px !important;
     }
 }
 @media (min-width:660px) and (max-width:900px){

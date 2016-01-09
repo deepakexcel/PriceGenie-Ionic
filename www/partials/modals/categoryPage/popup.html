@@ -1,6 +1,15 @@
 <!--template for sort item -->
 
-<div class="sort" ng-click='closeModal1()'>SORT BY</div>
+<div class="sort"><p class="sortpop">SORT BY</p>
+    <div class="cro1" ng-click='closeModal1()'>
+        <!--<span><img alt="back" src="img/cross.png" /></span>-->
+        <button class="button button-clear"> 
+            <i class="icon icon-right ion-android-close">
+            </i>
+        </button>
+    </div>
+</div>
+
 <ul>
     <li class="sort1" ng-repeat="sort in response.sort_by track by $index" ng-click="sortclose(sort.url, $index)">
         <i ng-model="choice.A" ng-value="'A'">{{sort.name}}</i>

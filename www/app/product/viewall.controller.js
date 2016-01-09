@@ -261,6 +261,7 @@
         $scope.choice.A = null;
 
     };
+    var popup;
     $scope.sort = function() {
         if ($scope.sorthide == true) {
             console.log('sorthide');
@@ -635,7 +636,7 @@
         $scope.pricedata[i].show = i;
     };
     $scope.subWeb = function(website, j) {
-        for (i = 0; i < webObj.length; i++)
+        for (var i = 0; i < webObj.length; i++)
         {
             if (webObj[i] == website)
                 webObj.splice(i, 1);

@@ -78,8 +78,8 @@
             </div>
             </div>
         </ion-item>
-        <div class="topitemcontent" style="margin-top:10px;">
-        <div ng-show="chart" class="chartitem">
+        <div class="topitemcontent" ng-if="chart" style="margin-top:10px;">
+        <div  class="chartitem">
             <div class=" mytab">
   <p class="chartheading">Price History</p>
   <div class="chartButton">
@@ -125,7 +125,7 @@
                     </div>
                 </div>-->
 
-        <div class="topitemcontent" style="margin-top:10px;">
+        <div class="topitemcontent" ng-if= style="margin-top:10px;">
        
             <ion-item ng-repeat="extraData in extra track by $index"  class="che" ng-if="extraData.length">
 
