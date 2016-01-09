@@ -335,7 +335,7 @@
                     var customLocale = {};
                     customLocale.title = "Rate PriceGenie";
                     customLocale.message = "If you enjoy using PriceGenie, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!";
-//                    customLocale.cancelButtonLabel = "";
+                    customLocale.cancelButtonLabel = "";
                     customLocale.laterButtonLabel = "Remind Me Later";
                     customLocale.rateButtonLabel = "Rate It Now";
                     if ($scope.phoneName === "iOS") {
