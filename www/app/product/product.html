@@ -22,7 +22,7 @@
 
 
                     </div>
-                   
+
 
                     <div class="row itemspec">
                         <div class="col col23">
@@ -34,78 +34,80 @@
 
                 </div>
             </div>
-            
+
             <div class="topitemcontent" style="margin-top:10px;">
-            <div class="row" style="width:100%;">
-                <div class="col123">
-                    <ion-item ng-repeat="mainRes in mainData.result track by $index" class="myItem " ng-if="mainRes" style="width:100%;">
-                        <div ng-init="i = $index">
-                            <p class="catname2 mname"  ng-show="$index == 0" ng-hide="$index > 0">COMPARE PRICES</p>
-
-                        </div>
-                        <div class="midall">
-                            <div class="row item midall1">
-                                <div class="row row12 newimage">
-                                    <img class="extraImg" ng-src="{{mainRes.image}}">
-                                </div>
-                                <div class="col-80 genie_name item-text-wrap">
-                                    <p class="newname">  {{mainRes.name}}</p>
-                                    <p class="newprice"> Rs. {{mainRes.price}}</p>
-                                    <a class="button save"  ng-click="open(mainRes.url)">BUY NOW</a>
-
-                                </div>
+                <div class="row" style="width:100%;">
+                    <div class="col123">
+                        <ion-item ng-repeat="mainRes in mainData.result track by $index" class="myItem " ng-if="mainRes" style="width:100%;">
+                            <div ng-init="i = $index">
+                                <p class="catname2 mname"  ng-show="$index == 0" ng-hide="$index > 0">COMPARE PRICES</p>
 
                             </div>
-                            <div class="row item lowerextra">
-                                <div class="col-10 weblogo" >
-                                    <img class="lowerextraimg "  ng-src="assets/img/fav/{{mainRes.website| lowercase}}.png">
+                            <div class="midall">
+                                <div class="row item midall1">
+                                    <div class="row row12 newimage">
+                                        <div class=" prod_image product-image">
+                                            <img class="imgs" ng-src="{{mainRes.image}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-80 genie_name item-text-wrap">
+                                        <p class="newname">  {{mainRes.name}}</p>
+                                        <p class="newprice"> Rs. {{mainRes.price}}</p>
+                                        <a class="button save"  ng-click="open(mainRes.url)">BUY NOW</a>
+
+                                    </div>
+
                                 </div>
-                                <div class="col-20 website">
-                                    <span >{{mainRes.website}}</span>
-                                </div>
-                                <div class="col-50 " >
-                                    <div class="varient" ng-show="variant(mainRes.varient_data)" ng-click="variantShow(mainRes.varient_data)">
-                                        {{variant(mainRes.varient_data)}} Variant
+                                <div class="row item lowerextra">
+                                    <div class="col-10 weblogo" >
+                                        <img class="lowerextraimg "  ng-src="assets/img/fav/{{mainRes.website| lowercase}}.png">
+                                    </div>
+                                    <div class="col-20 website">
+                                        <span >{{mainRes.website}}</span>
+                                    </div>
+                                    <div class="col-50 " >
+                                        <div class="varient" ng-show="variant(mainRes.varient_data)" ng-click="variantShow(mainRes.varient_data)">
+                                            {{variant(mainRes.varient_data)}} Variant
+                                        </div>
+                                    </div>
+                                    <div class="col-20">
+                                        <!--<a ng-click="watch(mainRes.href,mainRes.website,mainRes.price,mainRes.name,mainRes.org_url)" class="button button-small watch">Watch Price</a>-->
                                     </div>
                                 </div>
-                                <div class="col-20">
-                                    <!--<a ng-click="watch(mainRes.href,mainRes.website,mainRes.price,mainRes.name,mainRes.org_url)" class="button button-small watch">Watch Price</a>-->
-                                </div>
                             </div>
-                        </div>
-                    </ion-item>
+                        </ion-item>
+                    </div>
                 </div>
-            </div>
             </div>
         </ion-item>
         <div class="topitemcontent" ng-if="chart" style="margin-top:10px;">
-        <div  class="chartitem">
-            <div class=" mytab">
-  <p class="chartheading">Price History</p>
-  <div class="chartButton">
-                <button class="chrtbtnl" ng-click="chart1f()"><i class="icon btnico ion-stats-bars"></i></button>
-                <button class="chrtbtnr" ng-click="chart2f()"><i class="icon btnico  ion-ios-book-outline"></i></button>
-  </div>
-            </div>
-            
-            <div class="smallLine"></div>
-            <!--class="proTrend" ng-show="chart1" ng-hide="chart2"-->
-            <div ng-class="{'chart':chart1 == true}" class="mychart1">
-                <chartist   chartist-chart-options="options" class="ct-chart" chartist-data="data" chartist-chart-type="Line" chartist-responsive-options="responsiveOptions"></chartist>
-
-                <!--        
-                -->
-            </div>
-            <!--ng-show="chart2" ng-hide="chart1"--> 
-            <div ng-class="{'chart':chart2 == true}" class="mychart2">
-                <div class="row">
-                    <div  ng-repeat="flag in colHeading track by $index" class="col234 col-20 ct-series-a .ct-line"> {{flag.id}}</div>
+            <div  class="chartitem">
+                <div class=" mytab">
+                    <p class="chartheading">Price History</p>
+                    <div class="chartButton">
+                        <button class="chrtbtnl" ng-click="chart1f()"><i class="icon btnico ion-stats-bars"></i></button>
+                        <button class="chrtbtnr" ng-click="chart2f()"><i class="icon btnico  ion-ios-book-outline"></i></button>
+                    </div>
                 </div>
-            </div>
-            <div ng-class="{'chart':chart2 == true}" class="mychart2">
-                <chartist   chartist-chart-options="options2" class="ct-chart" chartist-data="data2" chartist-chart-type="Line" ></chartist>
-            </div>
-        </div></div>
+
+                <div class="smallLine"></div>
+                <!--class="proTrend" ng-show="chart1" ng-hide="chart2"-->
+                <div ng-class="{'chart':chart1 == true}" class="mychart1">
+                    <chartist   chartist-chart-options="options" class="ct-chart" chartist-data="data" chartist-chart-type="Line" chartist-responsive-options="responsiveOptions"></chartist>
+
+                    <!--        
+                    -->
+                </div>
+                <!--ng-show="chart2" ng-hide="chart1"--> 
+                <div ng-class="{'chart':chart2 == true}" class="mychart2">
+                    <div class="row">
+                        <div  ng-repeat="flag in colHeading track by $index" class="col234 col-20 ct-series-a .ct-line"> {{flag.id}}</div>
+                    </div>
+                </div>
+                <div ng-class="{'chart':chart2 == true}" class="mychart2">
+                    <chartist   chartist-chart-options="options2" class="ct-chart" chartist-data="data2" chartist-chart-type="Line" ></chartist>
+                </div>
+            </div></div>
 
         <!--        <div ng-show="chart">
                     <div class=" mytab" >
@@ -126,7 +128,7 @@
                 </div>-->
 
         <div class="topitemcontent" ng-if= style="margin-top:10px;">
-       
+
             <ion-item ng-repeat="extraData in extra track by $index"  class="che" ng-if="extraData.length">
 
                 <div ng-init="i = $index">
