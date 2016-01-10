@@ -251,7 +251,7 @@
                         for (i = 0; i < webObj.length; i++)
                         {
                             if (webObj.length > 1 && webObj.length - 1 != i)
-                                comma = ',';
+                                var comma = ',';
                             else
                                 comma = '';
                             webStr += webObj[i] + comma;
