@@ -119,13 +119,16 @@ li.sort1 {
     width: 50px;
     text-align: center;
 }
-.sortpop{
+/*.sortpop{
     position:relative;
-}
+}*/
 .cro1 {
-    position: absolute;
-    right: 0;
-    top: 5px;
+    /* position: absolute; */
+    /* right: 0; */
+    /* top: 5px; */
+    float: right;
+    margin: -37px 0 0 0;
+    /* top: 73px; */
 }
 .clearfilter {
     float: right;
@@ -971,7 +974,7 @@ p {
     background-color: #3e454d;
     position: absolute;
     top: 47px;
-    height: 320px;
+    height:258px;
     right: 0;
 }
 

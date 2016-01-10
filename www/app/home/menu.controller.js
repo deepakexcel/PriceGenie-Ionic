@@ -335,7 +335,7 @@
                     var customLocale = {};
                     customLocale.title = "Rate PriceGenie";
                     customLocale.message = "If you enjoy using PriceGenie, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!";
-                    customLocale.cancelButtonLabel = "";
+                    customLocale.cancelButtonLabel = "No, Thanks";
                     customLocale.laterButtonLabel = "Remind Me Later";
                     customLocale.rateButtonLabel = "Rate It Now";
                     if ($scope.phoneName === "iOS") {
@@ -383,9 +383,9 @@
                     {
                         recent = timeStorage.get('myRecentSearch');
                         console.log(recent.length);
-                        for (i = 0; i < recent.length; i++)
+                        for (var i = 0; i < recent.length; i++)
                         {
-                            j = recent.length;
+                           var j = recent.length;
                             if (data.query_id == recent[i].query_id)
                             {
                                 console.log('if');
