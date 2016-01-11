@@ -1,6 +1,6 @@
 <ion-view cache-view="false" style="background-color: #e3e0e0;" can-swipe-back="false">
 
-    <ion-nav-buttons side="right" cache-view='false' >
+    <ion-nav-buttons ng-hide="iostr" side="right" cache-view='false' >
         <button  class="button button-clear button-large  mybuttonnav" ui-sref="menu.YourAlert"> <i class='icon ion-ios-bell colorCH'></i></button>  
     </ion-nav-buttons>
     <ion-content  overflow-scroll="true" class="has-header">
@@ -30,7 +30,7 @@
                             <div class=" my-list">
 
                                 <ul class="logout_ui myui" style="margin-top: 0px;margin-bottom: 0px" >
-                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Mobiles & Tablets'}"  on-tap="loadLatest('Mobiles & Tablets')" >
+                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Mobiles & Tablets'}"  ng-click="loadLatest('Mobiles & Tablets')" >
                                         <div class="imgdiv">
                                             <img src="assets/img/cat_icon/Mobiles.png" alt="">
                                             <!--<i class="icon myicon ion-iphone " style="color:green" ></i>-->
@@ -40,7 +40,7 @@
                                         </div>
                                         <div class="clearfix"></div>
                                     </li>
-                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Camera & Accessories'}" on-tap="loadLatest('Camera & Accessories')">
+                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Camera & Accessories'}" ng-click="loadLatest('Camera & Accessories')">
                                         <div class="imgdiv">
 
                                             <img src="assets/img/cat_icon/CameraAccessories.png" alt=""/>
@@ -52,7 +52,7 @@
                                         <div class="clearfix"></div>
 
                                     </li>
-                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Laptop & Desktop'}" on-tap="loadLatest('Laptop & Desktop')" >
+                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Laptop & Desktop'}" ng-click="loadLatest('Laptop & Desktop')" >
                                         <div class="imgdiv">
                                             <img src="assets/img/cat_icon/LaptopsDesktops.png" alt=""/>
                                             <!--<i  style="color:peru" class="icon myicon ion-laptop"></i>-->
@@ -64,7 +64,7 @@
 
                                     </li>
 
-                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Kitchen Appliances'}"  on-tap="loadLatest('Kitchen Appliances')">
+                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Kitchen Appliances'}"  ng-click="loadLatest('Kitchen Appliances')">
                                         <div class="imgdiv">
                                             <img src="assets/img/cat_icon/KitchenAppliances.png" alt=""/>
                                             <!--<i  style="color:pink" class="icon myicon ion-coffee"></i>-->
@@ -76,10 +76,10 @@
 
                                     </li>
 
-                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Home Appliances'}"  on-tap="loadLatest('Home Appliances')" >
+                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Home Appliances'}"  ng-click="loadLatest('Home Appliances')" >
                                         <div class="imgdiv">
                                             <img src="assets/img/cat_icon/HomeAppliances.png" alt=""/>
-<!--                                             <img src="img/cat_icon/machine icon.png" alt=""/>-->
+                                            <!--                                             <img src="img/cat_icon/machine icon.png" alt=""/>-->
                                             <!--<i  style="color:orange" class="icon myicon ion-ios-home-outline"></i>-->
                                         </div>
                                         <div class="myitemh2div">
@@ -88,7 +88,7 @@
                                         <div class="clearfix"></div>
 
                                     </li>
-                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'TV & Home Audio'}"  on-tap="loadLatest('TV & Home Audio')" >
+                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'TV & Home Audio'}"  ng-click="loadLatest('TV & Home Audio')" >
                                         <div class="imgdiv">
                                             <img src="assets/img/cat_icon/Television.png" alt=""/>
                                             <!--<i  style="color:coral" class="icon myicon ion-easel"></i>-->
@@ -101,7 +101,7 @@
                                     </li>
 
 
-                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Computer Accessories'}" on-tap="loadLatest('Computer Accessories')">
+                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Computer Accessories'}" ng-click="loadLatest('Computer Accessories')">
                                         <div class="imgdiv">
                                             <img src="assets/img/cat_icon/DesktopLaptopAccessories.png" alt=""/>
                                             <!--<i  style="color:gold" class="icon myicon ion-ios-printer-outline"></i>-->
@@ -112,7 +112,7 @@
                                         <div class="clearfix"></div>
 
                                     </li>
-                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Computer Components'}"  on-tap="loadLatest('Computer Components')">
+                                    <li class="myitemli" ng-class="{'homeCat':homeCat == 'Computer Components'}"  ng-click="loadLatest('Computer Components')">
                                         <div class="imgdiv">
                                             <img src="assets/img/cat_icon/ComputerComponents.png" alt=""/>
 
@@ -135,4 +135,5 @@
             </div>
         </div>
     </ion-content>
+
 </ion-view>

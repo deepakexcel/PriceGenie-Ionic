@@ -24,6 +24,9 @@
                         if (device.platform == 'iOS' || device.platform == 'iPhone') {
                             $scope.iostr = true;
                         }
+                        else{
+                            $scope.iostr = false;
+                        }
                     }
                     catch (e) {
                         console.log(e);
@@ -190,18 +193,20 @@
                 self.caller = function() {
                     if (!timeStorage.get("login") && !timeStorage.get("googleLogin") && !timeStorage.get("fbLogin")) {
                         console.log("show");
-
+                        $scope.login=false;
                         $rootScope.show = true;
                         $rootScope.show1 = false;
                     }
                     else if (timeStorage.get("login") !== '') {
                         var x = timeStorage.get("login");
                         console.log(x);
+                         $scope.login=true;
                         $rootScope.user = x.firstname;
                         console.log("show1");
                         $rootScope.show1 = true;
                         $rootScope.show = false;
                     } else if (timeStorage.get("fbLogin") !== '') {
+                        $scope.login=true;
                         var x = timeStorage.get("fbLogin");
                         console.log(x);
                         $rootScope.user = x.name;
@@ -211,6 +216,7 @@
                     }
                     else {
                         var x = timeStorage.get("googleLogin");
+                        $scope.login=true;
                         console.log(x);
                         $rootScope.user = x.firstname;
                         console.log("show1");
@@ -327,7 +333,9 @@
 
                 // rate app function
 
-
+                $scope.goback = function() {
+                    $ionicHistory.goBack();
+                };
                 $scope.rateApp = function() {
                     console.log('rateApp');
                     $scope.showMenu1 = false;
@@ -385,7 +393,7 @@
                         console.log(recent.length);
                         for (var i = 0; i < recent.length; i++)
                         {
-                           var j = recent.length;
+                            var j = recent.length;
                             if (data.query_id == recent[i].query_id)
                             {
                                 console.log('if');
@@ -419,6 +427,8 @@
                     timeStorage.remove("googleLogin");
                     timeStorage.remove("google_access_token");
                     timeStorage.remove("fbLogin");
+                    self.caller();
+                    urlHelper.openHome();
                     window.plugins.toast.showShortTop("You are Logged Out");
                     var promise = ajaxRequest.send(api);
                     promise.then(function(data) {
@@ -456,7 +466,7 @@
                     catch (e) {
 
                     }
-                    self.caller();
+                    
 
                 };
 

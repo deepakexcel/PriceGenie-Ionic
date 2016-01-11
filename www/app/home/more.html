@@ -1,0 +1,35 @@
+<ion-view hide-nav-bar ="true" chache-view="false" can-swipe-back="false">
+    <ion-header-bar>
+        <div class="header_sign_in1">
+            <div class="cross1" ng-click="goback()">
+                <!--<span><img alt="back" src="img/cross.png" /></span>-->
+                <button class="button button-clear"> 
+                    <i class="icon icon-right ion-android-close">
+                    </i>
+                </button>
+            </div>
+            <div class="title12" >
+                <span>More</span>
+            </div>
+        </div>
+    </ion-header-bar>
+    <ion-content class='' overflow-scroll="true">
+        <div class="more_page">
+            <div class="account-setting-list1">
+
+                <ul class="logout_ui" style="margin-top: 0px;margin-bottom: 0px">
+                    <li ui-sref="menu.recentSearches"><i class="icon ion-document-text my_icon_more1"></i>MY RECENT SEARCHES</li>
+                    <li ng-click="feedback()"><i class="icon ion-chatbox my_icon_more"></i>FEEDBACK</li>
+                    <li ng-click="rateApp()"><i class="icon ion-ios-star-outline my_icon_more"></i>APP</li>
+                    <li ng-click="share()"><i class="icon ion-android-share-alt my_icon_more"></i>SHARE</li>
+                    <li  ng-show="show1" ng-click="logout()"><i class="icon ion-log-out my_icon_more"></i>logout</li>
+                </ul>
+
+            </div>
+
+        </div>
+        <div style="clear: both"></div>
+        <div class="footer"></div>
+    </ion-content>
+</ion-view>
+

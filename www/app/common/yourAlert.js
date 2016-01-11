@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('starter')
-    .controller('YourAlertCtrl', function($scope, ajaxRequest, timeStorage, $ionicLoading) {
+    .controller('YourAlertCtrl', function($scope, ajaxRequest, timeStorage,urlHelper,$ionicLoading) {
     var self = this;
     self.AllData = function(api) {
         var promise = ajaxRequest.send(api);
@@ -32,7 +32,7 @@
         //  console.log(website);
 
         var str = '';
-        for (i = 0; i < website.length; i++)
+        for (var i = 0; i < website.length; i++)
         {
             if (website[i] !== ',' && i != website.length - 1)
             {
@@ -51,6 +51,9 @@
 
         // console.log(web);
         return web;
+    };
+    $scope.home=function(){
+      urlHelper.openHome();  
     };
     var email;
     var userid;

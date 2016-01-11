@@ -688,9 +688,12 @@ ion-item :hover .filterS1.item{
     padding-bottom: 0.5em;
     padding-top: 0.5em;
 }
-.account-setting-list ul {
+/*.account-setting-list ul {
     margin-left: 4%;
     margin-right: 4%;
+}*/
+.more_page{
+    margin:3% 4% 5%;
 }
 .col-33.webcheck {
     text-align: right;
@@ -1536,3 +1539,71 @@ ion-item.fil1.li.item.ng-binding {
     padding: 3px 6px 5px 7px !important;
 }
 }*/
+
+/*===============================================ios footer=====================================*/
+.ios_footer {
+    width: 94%;
+    margin:0 auto;
+}
+button.button.button-clear.button-large.iosbt1 {
+    width: 18%;
+    text-align: left;
+    margin: -6px 0 0 0;
+
+
+}
+button.button.button-clear.button-large.iosbt3 {
+    width: 30%;
+    margin: -6px 0 0 0;
+}
+
+button.button.button-clear.button-large.iosbt2 {
+    width: 30%;
+    margin: -6px 0 0 0;
+}
+button.button.button-clear.button-large.iosbt4 {
+    width: 15%;
+    /* text-align: center; */
+    margin: -6px 0 0 0;
+    float: right;
+}
+.my_icon_more {
+    font-size: 25px;
+    margin-right: 20px;
+}
+i.icon.ion-document-text.my_icon_more1 {
+    font-size: 27px;
+    margin-right: 25px;
+}
+.account-setting-list1 ul li {
+    background: url("../img/x.png") no-repeat scroll 100% 12px rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #dcdcdc;
+    color: #707070;
+    font-size: 100%;
+    list-style: none outside none;
+    padding: 5px 0 8px 0;
+}
+.tbName {
+    font-size: 14px;
+    margin: -15px 0 0 0;
+    color: #2D2C2C;
+
+}
+ion-footer-bar.bar.bar-footer.myfoot {
+    background-color: #E4E4E4;
+    border-top: 1px solid #CAC7C7;
+}
+.color_ch{
+    color: #353535;
+}
+.login_user{
+    width: 26% !important;
+    margin: -6px 0 0 0;
+    text-align: left;
+}
+
+.footercenter{
+    width: 45% !important;
+
+   
+}

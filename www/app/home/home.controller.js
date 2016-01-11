@@ -49,7 +49,7 @@ console.log("kush");
     });
     $ionicLoading.hide();
 
-
+console.log($scope.login);
 self.ajax1 = function() {
       var  urlmain = 'mobile_api/api.php?action=category_tree';
         var promise = ajaxRequest.send(urlmain);

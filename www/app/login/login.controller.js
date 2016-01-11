@@ -149,12 +149,13 @@
             $scope.modal1.hide();
         }
         $scope.forgotPWD = function(Femail) {
+            console.log('forgot pwd');
             $scope.femail = Femail;
             if (!$scope.femail) {
                 window.plugins.toast.showShortTop("please enter email");
             }
             else {
-                api = 'facebook.php?task=resetpwd&fpwd_email=' + $scope.femail;
+               var api = 'facebook.php?task=resetpwd&fpwd_email=' + $scope.femail;
                 var promise = ajaxRequest.send(api);
                 promise.then(function(data) {
                     $scope.response = data;

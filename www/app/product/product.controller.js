@@ -15,7 +15,7 @@
                 var pro_name = $stateParams.name;         //vaibhav product name
                 var qid = $stateParams.query_id;              //vaibhav  query id for url
                 var self = this;
-                $scope.qid = qid;
+                $rootScope.qid = qid;
                 var email;
                 var userid;
                 var i, j, k;
@@ -174,6 +174,7 @@
 
 //function for follow
                 $scope.follow = function(i, j, query_id) {
+                    console.log(i  ,  j  ,query_id);
                     $scope.change12 = query_id;
                     $ionicLoading.show({
                         templateUrl: 'partials/modals/productPage/loading.html',
@@ -200,6 +201,7 @@
                             $scope.pricedata[i].show = 'false';
                         console.log($scope.pricedata);
                     });
+                    console.log(i  ,  j  ,query_id);
                     if (i == 0)
                         i = 'related';
                     else if (i == 1)

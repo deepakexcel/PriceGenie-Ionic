@@ -147,6 +147,12 @@
                         templateUrl: 'app/common/offline.html',
                         controller: 'recentSearches'
                     }}
+            }).state('menu.more', {
+                url: '/more',
+                views: {'mainView': {
+                        templateUrl: 'app/home/more.html',
+                        controller: 'menuCtrl'
+                    }}
             });
 
 
