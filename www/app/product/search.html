@@ -5,7 +5,7 @@
         <div class="buttonsS ">
             <i class="icon ion-chevron-left backB" ng-class={'backB1':iostr==true} ng-click="myGoBack()"></i>
 
-            <img ng-hide="iostr" src="assets/img/genie-logo-g.png" alt="Side Navigation" ng-click="home()">
+            <img ng-if="head" ng-hide="iostr" src="assets/img/genie-logo-g.png" alt="Side Navigation" ng-click="home()">
 
         </div>
         <div side="left" resizable>

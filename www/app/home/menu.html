@@ -5,26 +5,27 @@
 <!--<ion-view ng-click="hidemenu()">-->
 <ion-view >
     <ion-nav-bar class="mainHeader" delegate-handle="nav">
-
+      
         <ion-nav-back-button class="button-clear" >
             <i class="icon ion-chevron-left colorCH"></i>    
         </ion-nav-back-button>
 
-        <ion-nav-buttons ng-hide="iostr" side="secondary">      <!--ng-click="showMenu()"-->
-            <button id="moreView" close-submenu class="button button-icon button-clear ion-android-more-vertical buttonColor btmenu"  >
+        <ion-nav-buttons   side="secondary">      <!--ng-click="showMenu()"-->
+            <button ng-if="head" id="moreView" close-submenu class="button button-icon button-clear ion-android-more-vertical buttonColor btmenu"  >
+
             </button>
 
         </ion-nav-buttons>
-        <ion-nav-buttons ng-hide="iostr" side="left" >
+        <ion-nav-buttons ng-show="head"  side="left" >
 
-            <img src="assets/img/genie-logo-g.png" alt="Side Navigation" ng-click="home()">
+            <img ng-if="head" src="assets/img/genie-logo-g.png" alt="Side Navigation" ng-click="home()">
 
 
         </ion-nav-buttons>
-        <ion-nav-buttons side="right" ng-hide="iostr" >
+        <ion-nav-buttons side="right"  >
             <!--<button  class="button button-clear button-large mybuttonnav" ui-sref="menu.star"><i class='icon ion-ios-star colorCH'></i></button>-->    
-            <button  class="button button-clear button-large  mybuttonnav" ui-sref="menu.YourAlert"> <i class='icon ion-ios-bell colorCH'></i></button>  
-            <button  class="button button-clear button-large  mybuttonnav" ui-sref="menu.search"> <i class='icon ion-search colorCH'></i></button>  
+            <button ng-if="head" class="button button-clear button-large  mybuttonnav" ui-sref="menu.YourAlert"> <i class='icon ion-ios-bell colorCH'></i></button>  
+            <button ng-if="head" class="button button-clear button-large  mybuttonnav" ui-sref="menu.search"> <i class='icon ion-search colorCH'></i></button>  
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="mainView"></ion-nav-view>  <!--view for child views -->
@@ -89,18 +90,18 @@
         <button class="button">Right Button</button>
       </div>
     </ion-footer-bar>-->
-    <ion-footer-bar class="myfoot" ng-if="iostr">
+    <ion-footer-bar class="myfoot" ng-if="footer_ios" >
         <div class="ios_footer">
             <button  ng-show="show" class="button button-clear button-large iosbt1" ui-sref="menu.login"> <i class='icon ion-ios-person-outline color_ch'></i>
                 <div class="tbName"> login</div>
             </button>  
             <button  class="button button-clear button-large  iosbt2" ng-class="{'login_user':login == true}" ng-hide="heart" ui-sref="menu.YourAlert"> <i class='icon ion-ios-bell-outline color_ch'></i>
                 <div class="tbName">alert</div>
-               
+
             </button>  
             <button ng-controller="productCtrl" class="button button-clear button-large  iosbt2" ng-class="{'login_user':login == true}" ng-click="follow(0, 0, qid)" ng-if="heart" > <i class='icon ion-ios-heart-outline color_ch'></i>
                 <div class="tbName">follow</div>
-               
+
             </button> 
             <button  class="button button-clear button-large iosbt3" ng-class="{'footercenter':login == true}"  ui-sref="menu.search"> <i class='icon ion-ios-search color_ch'></i>
                 <div class="tbName">search</div>

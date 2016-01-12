@@ -318,6 +318,7 @@ ion-item.all_data1.item {
     position: absolute;
     top: 14px;
     left:5px;
+
 }
 .bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before {
     font-size: 24px;
@@ -1481,6 +1482,8 @@ ion-item.fil1.li.item.ng-binding {
 }
 .backB2 {
     top: 22px !important;
+    left: 13px !important;
+    width: 30px;
 }
 .fil_item1 {
 
@@ -1605,5 +1608,8 @@ ion-footer-bar.bar.bar-footer.myfoot {
 .footercenter{
     width: 45% !important;
 
-   
+}
+
+.iostitle{
+    color: #fff;
 }

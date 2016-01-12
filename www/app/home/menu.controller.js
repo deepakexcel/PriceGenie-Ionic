@@ -5,7 +5,7 @@
             .controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope, $ionicLoading, $ionicPlatform, $ionicHistory, urlHelper, timeStorage) {
 
                 var count = 0;
-
+              
 
                 $scope.closePodcastsLoader = function() {
                     $ionicLoading.hide();
@@ -23,9 +23,6 @@
                         console.log($scope.phoneName);
                         if (device.platform == 'iOS' || device.platform == 'iPhone') {
                             $scope.iostr = true;
-                        }
-                        else{
-                            $scope.iostr = false;
                         }
                     }
                     catch (e) {
@@ -193,20 +190,20 @@
                 self.caller = function() {
                     if (!timeStorage.get("login") && !timeStorage.get("googleLogin") && !timeStorage.get("fbLogin")) {
                         console.log("show");
-                        $scope.login=false;
+                        $scope.login = false;
                         $rootScope.show = true;
                         $rootScope.show1 = false;
                     }
                     else if (timeStorage.get("login") !== '') {
                         var x = timeStorage.get("login");
                         console.log(x);
-                         $scope.login=true;
+                        $scope.login = true;
                         $rootScope.user = x.firstname;
                         console.log("show1");
                         $rootScope.show1 = true;
                         $rootScope.show = false;
                     } else if (timeStorage.get("fbLogin") !== '') {
-                        $scope.login=true;
+                        $scope.login = true;
                         var x = timeStorage.get("fbLogin");
                         console.log(x);
                         $rootScope.user = x.name;
@@ -216,7 +213,7 @@
                     }
                     else {
                         var x = timeStorage.get("googleLogin");
-                        $scope.login=true;
+                        $scope.login = true;
                         console.log(x);
                         $rootScope.user = x.firstname;
                         console.log("show1");
@@ -466,7 +463,7 @@
                     catch (e) {
 
                     }
-                    
+
 
                 };
 

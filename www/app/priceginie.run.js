@@ -16,6 +16,17 @@
                     console.log("hello2");
                     //  window.plugins.toast.showShortBottom('You Are Online Now');
                 }
+                var ios = ionic.Platform.isIOS();
+                if (ios) {
+                    $rootScope.footer_ios = true;
+                    $rootScope.head = false;
+                }
+                else {
+                    $rootScope.head = true;
+                    $rootScope.footer_ios = false;
+                    console.log('not ios' + $rootScope.head);
+
+                }
 
                 $ionicPlatform.ready(function() {
                     var isWebView = ionic.Platform.isWebView();
@@ -51,11 +62,11 @@
                 //alert(1);
 
                 $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-                    if(toState.name=="menu.product"){
-                        $rootScope.heart=true;
+                    if (toState.name == "menu.product") {
+                        $rootScope.heart = true;
                     }
-                    else{
-                        $rootScope.heart=false;
+                    else {
+                        $rootScope.heart = false;
                     }
                 });
 

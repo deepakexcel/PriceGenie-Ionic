@@ -1,12 +1,15 @@
 <ion-view style="background-color: rgb(227, 224, 224);" cache-view="false" can-swipe-back="false"> 
-    <ion-nav-buttons ng-hide="iostr" side="right" cache-view='false' ng-show="defaultButton">
+    <ion-nav-title >
+        <i class="iostitle" ng-if="footer_ios"> PRODUCT</i>
+    </ion-nav-title>
+    <ion-nav-buttons side="right" cache-view='false' ng-show="defaultButton">
         <!--        <button  side=""  class="button button-clear button-large mybuttonnav" ng-click="productTrend()">
                     <i class='icon ion-stats-bars colorCH'></i>
                 </button>-->
-        <button  class="button button-clear button-large  mybuttonnav" ui-sref="menu.search"> 
+        <button ng-if="head" class="button button-clear button-large  mybuttonnav" ui-sref="menu.search"> 
             <i class='icon ion-search colorCH'></i>
         </button>  
-        <button ng-click="follow(0, 0, qid)" class="button button-clear button-large  mybuttonnav" >
+        <button ng-if="head" ng-click="follow(0, 0, qid)" class="button button-clear button-large  mybuttonnav" >
             <i class='icon ion-ios-heart colorCH'></i>
         </button> 
     </ion-nav-buttons>
