@@ -62,11 +62,19 @@
                 //alert(1);
 
                 $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+                    console.log(toState);
                     if (toState.name == "menu.product") {
                         $rootScope.heart = true;
                     }
                     else {
                         $rootScope.heart = false;
+                    }
+                    if (toState.name == "menu.home") {
+                        $rootScope.home_page = true;
+                    }
+                    else {
+                        $rootScope.home_page = false;
+                        $rootScope.home_page1 = true;
                     }
                 });
 

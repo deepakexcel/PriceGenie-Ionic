@@ -1,9 +1,9 @@
 <!--search page @siddharth-->
 <ion-view hide-nav-bar ="true" chache-view="false" can-swipe-back="false">
-    <ion-header-bar  class="search-bar" ng-class={'search-bar1':iostr==true}>
+    <ion-header-bar  class="search-bar" ng-class="{'search-bar1':iostr==true}">
 
         <div class="buttonsS ">
-            <i class="icon ion-chevron-left backB" ng-class={'backB1':iostr==true} ng-click="myGoBack()"></i>
+            <i class="icon ion-chevron-left backB" ng-class="{'backB1':iostr==true}" ng-click="myGoBack()"></i>
 
             <img ng-if="head" ng-hide="iostr" src="assets/img/genie-logo-g.png" alt="Side Navigation" ng-click="home()">
 
@@ -15,16 +15,16 @@
         </div>
 
     </ion-header-bar>
-    <ion-item class="fil" ng-show='scrollshow' ng-class={'fil_item1':iostr==true}>
+    <ion-item class="fil" ng-show='scrollshow' ng-class="{'fil_item1':iostr==true}">
         Filter
     </ion-item>
     <div class="search_in">{{msg}}</div>
-    <div class='bar bar-subheader12' ng-class={'bar-subheader121':iostr==true} ng-hide="yes">
+    <div class='bar bar-subheader12' ng-class="{'bar-subheader121':iostr==true}" ng-hide="yes">
         <span>Your Previous Searches</span>
     </div>
     <div class='mainclass'>
 
-        <ion-scroll  direction="x" class="bar bar-subheader1" ng-class={'bar-subheader11':iostr==true} scrollbar-x="false" style="height:37px;width:100%;margin-left: 48px;" ng-show='scrollshow'>
+        <ion-scroll  direction="x" class="bar bar-subheader1" ng-class="{'bar-subheader11':iostr==true}" scrollbar-x="false" style="height:37px;width:100%;margin-left: 48px;" ng-show='scrollshow'>
             <div class=" filter1 row1 "  >
 
                 <ion-list class='filterSL1'>

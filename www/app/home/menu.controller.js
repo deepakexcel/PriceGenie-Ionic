@@ -5,7 +5,7 @@
             .controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope, $ionicLoading, $ionicPlatform, $ionicHistory, urlHelper, timeStorage) {
 
                 var count = 0;
-              
+
 
                 $scope.closePodcastsLoader = function() {
                     $ionicLoading.hide();
@@ -157,7 +157,9 @@
 //        };
 //    });
                 var self = this;
-
+                $rootScope.iconColor = function(val) {
+                    $scope.cl = val;
+                };
                 $rootScope.home = function() {
                     console.log('welcome to home');
                     urlHelper.openHome();

@@ -1,27 +1,35 @@
 <ion-view view-title=""  style="background-color: rgb(227, 224, 224);" can-swipe-back="false">
-    <ion-nav-title >
-        <i class="iostitle" ng-if="footer_ios"> CATEGORY</i>
+    <ion-nav-title>
+        <i class="iostitle" ng-if="footer_ios" ng-bind-html="cat_name"> </i>
     </ion-nav-title>
-    <div class="bar bar-subheader subheaderCategory">
-        <div class="centerede">
-            <div class="title_crumb">
-                <div class="page_title" >
+    <div class="bar bar-subheader mybar">
+        <div class="button-bar">
+            <a class="button sortbt1" ng-class="{'barbg':bg==1}" ng-click="sortclose('1','Price (Low to High)')">Price <i class="ion-arrow-down-c myicons"></i></a>
+            <a class="button sortbt3" ng-class="{'barbg':bg==2}" ng-click="sortclose('2','Price (High to Low)')">Price<i class="ion-arrow-up-c myicons"></i></a>
+            <a class="button sortbt4" ng-class="{'barbg':bg==3}" ng-click="sortclose('3','Popularity')">Popularity</a>
+            <a class="button sortbt2" ng-class="{'barbg':bg==4}" ng-click="show('brand','4')">Filter<i class="ion-funnel myicons"></i></a>
 
-                    <span ng-bind-html="cat_name"></span>
-                </div>
-            </div>
-            <div class="sortFilter">
-                <div class="catalog_filter" ng-style="fade" ng-click="show('brand')">
-                    FILTER
-                </div>
-                <div class="catalog_sort" ng-style="fade" ng-click="sort()">
-                    SORT
-                </div>
-            </div>
+
         </div>
+        <!--        <div class="centerede">
+                    <div class="title_crumb">
+                        <div class="page_title" >
+        
+                            <span ng-bind-html="cat_name"></span>
+                        </div>
+                    </div>
+                    <div class="sortFilter">
+                        <div class="catalog_filter" ng-style="fade" ng-click="show('brand')">
+                            FILTER
+                        </div>
+                        <div class="catalog_sort" ng-style="fade" ng-click="sort()">
+                            SORT
+                        </div>
+                    </div>
+                </div>-->
         <div class="clearfix"></div>
     </div>
-    <ion-content class="has-header category" ng-class={'ioscontent':iostr == true} overflow-scroll="true">
+    <ion-content class="has-header category" ng-class="{'ioscontent':iostr == true}" overflow-scroll="true">
                  <div class="cancelFilter card "  ng-show="data2" ng-style="myStyle2" >
             <div class="divfilter">
                 <div  class="filter_name" >

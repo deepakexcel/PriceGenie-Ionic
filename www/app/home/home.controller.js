@@ -6,9 +6,9 @@
                 $ionicHistory.clearHistory();    //clearing history of app to disable back views
                 console.log("kush");
                 var self = this;
-       
-               
-                
+                $rootScope.home_page = true;
+
+
                 var email = userData.userEmail();
                 var userid = userData.userId();
 //getting device id

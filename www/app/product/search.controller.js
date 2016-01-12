@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('starter')
-            .controller('searchCtrl', function($scope, urlHelper, $ionicLoading, timeStorage, $ionicPlatform, $ionicHistory, ajaxRequest) {
+            .controller('searchCtrl', function($scope, urlHelper, $ionicLoading,$rootScope, timeStorage, $ionicPlatform, $ionicHistory, ajaxRequest) {
                 var self = this;
                 var previous = [];
                 var name = "previousSearch";
@@ -35,6 +35,7 @@
                 };
                 $scope.myGoBack = function() {  // for back button
                     $ionicHistory.goBack();
+                    
                 };
 
                 var sea = 0;
