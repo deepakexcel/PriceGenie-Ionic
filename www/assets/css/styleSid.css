@@ -1504,7 +1504,7 @@ ion-item.fil1.li.item.ng-binding {
 
 }
 .ioscontent{
-    top: 70px !important;
+    top: 77px !important;
 }
 .sidemenu1 {
 
@@ -1523,7 +1523,7 @@ ion-item.fil1.li.item.ng-binding {
     top: 44px; 
 }*/
 .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
-    top: 72px !important;
+    top: 63px !important;
 }
 /*========================*/
 /*========================*/
@@ -1594,7 +1594,7 @@ i.icon.ion-document-text.my_icon_more1 {
 }
 .tbName {
     font-size: 14px;
-    margin: -15px 0 0 0;
+    margin: -19px 0 0 0;
     color: #2D2C2C;
 
 }
