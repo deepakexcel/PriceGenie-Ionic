@@ -1504,7 +1504,8 @@ ion-item.fil1.li.item.ng-binding {
 
 }
 .ioscontent{
-    top: 77px !important;
+    top: 79px !important;
+    margin-bottom:70px !important;
 }
 .sidemenu1 {
 
@@ -1554,26 +1555,26 @@ ion-item.fil1.li.item.ng-binding {
 button.button.button-clear.button-large.iosbt1 {
     width: 14%;
     float: left;
-    margin: -11px 0 0 0;
+    margin: -9px  0 0 0;
 
 
 }
 button.button.button-clear.button-large.iosbt3 {
     width: 17%;
-    margin: -11px 0 0 0;
+    margin: -9px  0 0 0;
 }
 button.button.button-clear.button-large.iosbt5 {
     width: 17%;
-    margin: -11px 0 0 0;
+    margin: -9px  0 0 0;
 }
 button.button.button-clear.button-large.iosbt2 {
     width: 30%;
-    margin: -11px 0 0 0;
+    margin: -9px  0 0 0;
 }
 button.button.button-clear.button-large.iosbt4 {
     width: 15%;
     /* text-align: center; */
-    margin: -11px 0 0 0;
+    margin: -9px  0 0 0;
     float: right;
 }
 .my_icon_more {
@@ -1636,23 +1637,27 @@ a.button.sortbt1 {
     border-color: #CDCED0;
     border-width: 2px 0px 2px 2px;
     height: 0;
+    line-height: 27px !important;
 }
 a.button.sortbt2 {
     border-radius: 0px 6px 6px 0px !important;
     border-color: #CDCED0;
     border-width: 2px 2px 2px 2px !important;
     height: 0;
+    line-height: 27px !important;
 }
 a.button.sortbt3 {
     height: 0;
     border-color: #CDCED0;
     border-width: 2px 0px 2px 2px;
+    line-height: 27px !important;
 }
 a.button.sortbt4 {
     min-width: 94px !important;
     border-color: #CDCED0;
     border-width: 2px 0px 2px 2px;
     height: 0;
+    line-height: 27px !important;
 }
 a.button.sortbt4.activated{
 
@@ -1686,10 +1691,10 @@ a.button.sortbt1.activated{
     width: 18% !important;
 }
 .iosbt21{
-    width: 14% !important;
+    width: 15% !important;
 }
 .iosbt31{
-    width: 26% !important;
+    width: 25% !important;
 }
 .iosbt51{
     width: 24% !important;
