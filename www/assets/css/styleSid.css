@@ -1505,7 +1505,7 @@ ion-item.fil1.li.item.ng-binding {
 }
 .ioscontent{
     top: 79px !important;
-    margin-bottom:70px !important;
+/*    margin-bottom:70px !important;*/
 }
 .sidemenu1 {
 
@@ -1555,26 +1555,26 @@ ion-item.fil1.li.item.ng-binding {
 button.button.button-clear.button-large.iosbt1 {
     width: 14%;
     float: left;
-    margin: -9px  0 0 0;
+    margin: -7px  0 0 0;
 
 
 }
 button.button.button-clear.button-large.iosbt3 {
     width: 17%;
-    margin: -9px  0 0 0;
+    margin: -7px  0 0 0;
 }
 button.button.button-clear.button-large.iosbt5 {
     width: 17%;
-    margin: -9px  0 0 0;
+    margin: -7px  0 0 0;
 }
 button.button.button-clear.button-large.iosbt2 {
     width: 30%;
-    margin: -9px  0 0 0;
+    margin: -7px  0 0 0;
 }
 button.button.button-clear.button-large.iosbt4 {
     width: 15%;
     /* text-align: center; */
-    margin: -9px  0 0 0;
+    margin: -7px  0 0 0;
     float: right;
 }
 .my_icon_more {
