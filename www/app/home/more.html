@@ -1,19 +1,9 @@
-<ion-view hide-nav-bar ="true" chache-view="false" can-swipe-back="false">
-    <ion-header-bar>
-        <div class="header_sign_in1">
-            <div class="cross1" ng-click="goback()">
-                <!--<span><img alt="back" src="img/cross.png" /></span>-->
-                <button class="button button-clear"> 
-                    <i class="icon icon-right ion-android-close">
-                    </i>
-                </button>
-            </div>
-            <div class="title12" >
-                <span>More</span>
-            </div>
-        </div>
-    </ion-header-bar>
-    <ion-content class='' overflow-scroll="true">
+<ion-view  chache-view="false" can-swipe-back="false">
+    <ion-nav-title>
+        <i class="iostitle" ng-if="footer_ios" >More </i>
+    </ion-nav-title>
+   
+    <ion-content class='has-header' overflow-scroll="true">
         <div class="more_page">
             <div class="account-setting-list1">
 

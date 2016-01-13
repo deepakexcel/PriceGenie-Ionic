@@ -153,6 +153,12 @@
                         templateUrl: 'app/home/more.html',
                         controller: 'menuCtrl'
                     }}
+            }).state('menu.subcat', {
+                url: '/subcat/:cat/:catitems',
+                views: {'mainView': {
+                        templateUrl: 'app/home/subcategory.html',
+                        controller: 'subcatCtrl'
+                    }}
             });
 
 
