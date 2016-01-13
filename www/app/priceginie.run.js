@@ -22,8 +22,8 @@
                     $rootScope.head = false;
                 }
                 else {
-                    $rootScope.head = true;
-                    $rootScope.footer_ios = false;
+                    $rootScope.head = false;
+                    $rootScope.footer_ios = true;
                     console.log('not ios' + $rootScope.head);
 
                 }
@@ -71,6 +71,7 @@
                     }
                     if (toState.name == "menu.home") {
                         $rootScope.home_page = true;
+                        $rootScope.home_page1 = false;
                     }
                     else {
                         $rootScope.home_page = false;
