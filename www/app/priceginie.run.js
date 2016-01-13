@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular.module('starter', ['ionic', 'angular-chartist', 'ngStorage', 'ngIOS9UIWebViewPatch'])
-            .run(function($ionicPlatform, urlHelper, $rootScope) {
+            .run(function($ionicPlatform, urlHelper, $rootScope,timeStorage) {
                 document.addEventListener("offline", onOffline, false);
 
                 function onOffline() {
@@ -63,6 +63,15 @@
 
                 $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
                     console.log(toState);
+                    if (!timeStorage.get("login") && !timeStorage.get("googleLogin") && !timeStorage.get("fbLogin")) {
+                
+                            $rootScope.lo = true;
+                            $rootScope.show1 = false;
+                            // urlHelper.openFrontpage();
+//                            urlHelper.openHome();
+                        }else{
+                            $rootScope.lo = false;
+                        }
                     if (toState.name == "menu.product") {
                         $rootScope.heart = true;
                     }

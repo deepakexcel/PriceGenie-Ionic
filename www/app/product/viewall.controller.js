@@ -144,20 +144,26 @@
                 var self = this;
                 var email;
                 var userid;
-                if (timeStorage.get('login').email)
+                if (timeStorage.get('login'))
                 {
                     email = timeStorage.get('login').email;
                     userid = timeStorage.get('login').userid;
+                    $scope.val=false;
                 }
-                else if (timeStorage.get('googleLogin').email)
+                else if (timeStorage.get('googleLogin'))
                 {
                     email = timeStorage.get('googleLogin').email;
                     userid = timeStorage.get('googleLogin').userid;
+                    $scope.val=false;
                 }
-                else if (timeStorage.get('fbLogin').email)
+                else if (timeStorage.get('fbLogin'))
                 {
                     email = timeStorage.get('fbLogin').email;
                     userid = timeStorage.get('fbLogin').userid;
+                    $scope.val=false;
+                }
+                else{
+                       $scope.val=true;
                 }
 
                 var m = 0;

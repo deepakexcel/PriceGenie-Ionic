@@ -1505,7 +1505,7 @@ ion-item.fil1.li.item.ng-binding {
 }
 .ioscontent{
     top: 79px !important;
-/*    margin-bottom:70px !important;*/
+    /*    margin-bottom:70px !important;*/
 }
 .sidemenu1 {
 
@@ -1695,10 +1695,28 @@ a.button.sortbt1.activated{
     width: 15% !important;
 }
 .iosbt31{
-    width: 25% !important;
+    width: 20% !important;
 }
 .iosbt51{
     width: 24% !important;
+}
+.iosbtlogin {
+    width: 23% !important;
+}
+.iosbt212{
+    width:35% !important;
+}
+.iosbtiosbtvie5{
+    width: 25%;
+    margin: -7px 0 0 0;
+}
+.iosbtiosbtvie2{
+    width: 16%;
+    margin: -7px 0 0 0;
+}
+.iosbtvie{
+    width: 23%;
+    margin: -7px 0 0 0;
 }
 /*.ic{
     color:#085394;
