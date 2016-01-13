@@ -13,7 +13,7 @@
             <i class='icon ion-ios-heart colorCH'></i>
         </button> 
     </ion-nav-buttons>
-    <ion-content overflow-scroll="true">
+    <ion-content overflow-scroll="true" class="has-footer">
         <ion-refresher   pulling-text="Pull to refresh..."  on-refresh="doRefreshProduct()">  </ion-refresher>
         <ion-item ng-repeat="mainData in main track by $index" class="myItem" ng-if="mainData.name_text">
             <div class="topitem">

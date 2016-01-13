@@ -1594,21 +1594,21 @@ i.icon.ion-document-text.my_icon_more1 {
     padding: 5px 0 8px 0;
 }
 .tbName {
-    font-size: 14px;
-    margin: -19px 0 0 0;
+    font-size: 11px;
+    margin: -17px 0 0 0;
     color: #2D2C2C;
 
 }
 ion-footer-bar.bar.bar-footer.myfoot {
-    background-color: #CDCED0;
-    border-top: 1px solid #C5C2C2;
+    background-color: #EFEFEF;
+    border-top: 1px solid #DEDCDC;
 }
 .color_ch{
-    color: #353535;
+    color: #AFAFAF;;
 }
 .login_user {
     width: 36% !important;
-    margin: -6px 0 0 0;
+    margin: -7px 0 0 0;
     text-align: center;
 }
 .footercenter {
@@ -1620,6 +1620,7 @@ ion-footer-bar.bar.bar-footer.myfoot {
 .N_Search{
     width: 66% !important;
 }
+
 .homepage1{
     width: 15% !important;
 }
