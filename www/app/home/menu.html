@@ -92,14 +92,15 @@
     </ion-footer-bar>-->
     <ion-footer-bar class="myfoot" ng-if="footer_ios" >
         <div class="ios_footer">
-            <button  ng-show="show" class="button button-clear button-large iosbt1" ui-sref="menu.login" ng-click="iconColor('1')" ng-class="{'iosbt11':login != true && home_page1 == true}">
-                <i class='icon ion-person color_ch' ng-class="{'ic':cl == 1}"></i>
-                <div class="tbName" ng-class="{'ic':cl == 1}"> login</div>
-            </button>  
-            <button  class="button button-clear button-large iosbt5" ng-hide="home_page"  ui-sref="menu.home" ng-click="iconColor('2')" ng-class="{'iosbt51':login != true && home_page1 == true}"> 
+                <button  class="button button-clear button-large iosbt1 " ng-hide="home_page"  ui-sref="menu.home" ng-click="iconColor('2')" ng-class="{'iosbt11':login != true && home_page1 == true}"> 
                 <i class='icon ion-ios-home color_ch' ng-class="{'ic':cl == 2}"></i>
                 <div class="tbName" ng-class="{'ic':cl == 2}">home</div>
             </button> 
+            <button  ng-show="show" class="button button-clear button-large iosbt5" ui-sref="menu.login" ng-click="iconColor('1')" ng-class="{'iosbt51':login != true && home_page1 == true}">
+                <i class='icon ion-person color_ch' ng-class="{'ic':cl == 1}"></i>
+                <div class="tbName" ng-class="{'ic':cl == 1}"> login</div>
+            </button>  
+        
             <button  class="button button-clear button-large  iosbt2" ng-click="iconColor('3')" ng-class="{'login_user':login == true,'homepage':home_page == true,'homepage1':home_page == true && login == true,'iosbt21':login != true && home_page1 == true}" ng-hide="heart" ui-sref="menu.YourAlert">
                 <i class='icon ion-ios-bell color_ch' ng-class="{'ic':cl == 3}"></i>
                 <div class="tbName" ng-class="{'ic':cl == 3}">alert</div>
