@@ -1438,7 +1438,7 @@ a {
     /* border-color: #202429; */
     text-transform: uppercase;
     font-size: 0.9em;
-    background-color: #CDCED0;
+    background-color:#E0E1E2;
     height: 43px;
     line-height: 2;
     font-size: 12px;
@@ -1485,6 +1485,11 @@ i.ion-ios-checkmark-empty.mytick {
     font-size: 35px;
     margin-left: 10px;
     float: left;
+    color:#D5d5d5;
+}
+.scroll-bar-indicator
+{
+	display: none;
 }
 ion-item.fil1.li.item.ng-binding {
     /*border-color: #202429;*/
@@ -1780,5 +1785,5 @@ a.button.sortbt1.activated{
     color:#085394;
 }*/
 .myfhas{
-    top:55px !important;
+    top:64px !important;
 }
