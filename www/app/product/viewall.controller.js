@@ -68,7 +68,7 @@
 //            }
 
                         $scope.cat_name = $scope.response.crums[2].name;
-                        var a;
+                    
                         if ($scope.response.display_data.length == 8) {
                             a = true;
 
@@ -383,16 +383,18 @@
                     $scope.color = brand;
                     $scope.bg = bgcolor;
 
+
                     $ionicScrollDelegate.scrollTop(true);
 
                 };
                 var brandSort;
                 $scope.displaybrands = function(href, brand) {
-                        $scope.change = brand;
+                    $scope.change1 = brand;
+
                     $ionicScrollDelegate.scrollTop(true);
                     $timeout(function() {
                         $scope.filter.hide();
-//                        $scope.change = '';
+                        $scope.change = '';
                         $ionicLoading.show({
                             templateUrl: 'partials/modals/productPage/loading.html',
                             scope: $scope
@@ -449,10 +451,10 @@
 
 
                 $scope.displayrange = function(href, low, high, range) {
-                    $scope.change = range;
+                    $scope.change2 = range;
                     $timeout(function() {
                         $scope.filter.hide();
-//                        $scope.change = '';
+                        $scope.change = '';
                         $ionicLoading.show({
                             templateUrl: 'partials/modals/productPage/loading.html',
                             scope: $scope
@@ -516,7 +518,7 @@
                     $ionicScrollDelegate.scrollTop(true);
                     $scope.change = name;
                     $timeout(function() {
-//                        $scope.change = '';
+                        $scope.change = '';
                         // $scope.data = false;
                         $scope.data2 = true;
                         $scope.f = 1;
@@ -574,9 +576,9 @@
                     $scope.filter = modal;
                 });
                 $scope.bg = 3;
-
+var a;
                 $scope.show = function(key, bgcolor) {
- $scope.abcd = true;
+                    $scope.abcd = true;
                     $scope.bg = bgcolor;
                     if ($scope.filterhide == true) {
                         console.log("filter hide");
@@ -608,6 +610,7 @@
                     $scope.fade = {
                         'color': 'black'
                     };
+                    $scope.change2 = false;
                     $scope.sorthide = false;
                     $scope.filterhide = false;
                     $scope.f = 1;
@@ -627,6 +630,7 @@
                         "margin": "40px 0px 0px 0px"
                     };
                     $scope.change = '';
+                    $scope.change1 = false;
 //       $scope.clearf = {
 //            "background-color": "#fff",
 //              'color': '#808080'

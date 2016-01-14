@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="topitemcontent" style="margin-top:10px;">
+            <div class="topitemcontent col123" style="margin-top:10px;">
                 <div class="row" style="width:100%;">
                     <div class="col123">
                         <ion-item ng-repeat="mainRes in mainData.result track by $index" class="myItem " ng-if="mainRes" style="width:100%;">
@@ -83,7 +83,7 @@
                 </div>
             </div>
         </ion-item>
-        <div class="topitemcontent" ng-if="chart" style="margin-top:10px;">
+        <div class="topitemcontent col123" ng-if="chart" style="margin-top:10px;">
             <div  class="chartitem">
                 <div class=" mytab">
                     <p class="chartheading">Price History</p>
@@ -130,8 +130,7 @@
                     </div>
                 </div>-->
 
-        <div class="topitemcontent" ng-if= style="margin-top:10px;">
-
+        <div class="pconent" >
             <ion-item ng-repeat="extraData in extra track by $index"  class="che" ng-if="extraData.length">
 
                 <div ng-init="i = $index">
@@ -164,7 +163,7 @@
                                         </div>
                                     </div> 
                                 </ion-scroll>-->
-                </div>
+                <div  >
                     <div  style="padding:0px;" ng-init="j = 0">
 
                         <ion-item class="all_data1 productitem item" ng-repeat="item in extraData track by $index">
@@ -226,4 +225,5 @@
                 <div class="tbName" ng-class="{'ic':cl == 6}">More</div>
             </button>  
         </div>
+    </ion-footer-bar>
 </ion-view>

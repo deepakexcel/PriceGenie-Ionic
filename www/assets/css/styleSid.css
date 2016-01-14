@@ -596,7 +596,7 @@ ion-item :hover .filterS1.item{
 }
 .te {
     padding-left: 10px;
-    color: #636363;
+    /*color: #636363;*/
     font-size: 13px;
 }
 .register.scroll-content.ionic-scroll.overflow-scroll.has-header {
@@ -1503,8 +1503,8 @@ ion-item.fil1.li.item.ng-binding {
     color: #02C39A !important;
 }
 .backclass1{
-    background-color: rgb(155, 152, 152) !important;
-    color:black !important;
+    /*background-color: rgb(155, 152, 152) !important;*/
+    color: #02C39A !important;
 }
 @media (min-width:900px) and (max-width:1400px){
     .m1 {
@@ -1816,4 +1816,8 @@ ion-item.fil1.li.item {
     margin: -6px 0 0 0;
     margin-right: 14px;
     padding: 2px 0 0 0;
+}
+.mytick {
+    margin-left: 10px;
+    font-size: 20px;
 }

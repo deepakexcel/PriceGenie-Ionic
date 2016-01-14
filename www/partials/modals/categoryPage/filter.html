@@ -13,8 +13,8 @@
                     <div ng-if="brand12" >
 
                         <div id="filter_options" class="filter_options"  style="overflow:hidden" >
-                            <div class="sortModal"  ng-class="{'backclass1':change == brand.name}"  ng-repeat="brand in response.brands track by $index"   on-tap="displaybrands(brand.href, brand.name)" >
-                                <i class="mytick"></i> <i ng-model="choice.A" class="te" ng-value="'A'">{{brand.name}}</i>
+                            <div class="sortModal"  ng-class="{'backclass1':change1 == brand.name}"  ng-repeat="brand in response.brands track by $index"   on-tap="displaybrands(brand.href, brand.name)" >
+                                <i class="ion-ios-circle-filled mytick"></i> <i ng-model="choice.A" class="te" ng-value="'A'">{{brand.name}}</i>
                             </div>
                         </div>
                     </div>
@@ -22,8 +22,8 @@
                     <div ng-if="priceRange" >
 
                         <div id="filter_options" class="filter_options" style="overflow:hidden">
-                            <div class="sortModal" ng-style="clearf" ng-class="{'backclass1':change == range }" ng-repeat="range in response.ranges track by $index"   on-tap="displayrange(range.href, range.low, range.high,range)"  >
-                                <i class=" mytick"></i>   <i  ng-model="choice.A" class="te" ng-value="'A'">Rs.{{range.low}}-Rs.{{range.high}}</i>
+                            <div class="sortModal" ng-style="clearf" ng-class="{'backclass1':change2 == range }" ng-repeat="range in response.ranges track by $index"   on-tap="displayrange(range.href, range.low, range.high,range)"  >
+                                <i class="ion-ios-circle-filled  mytick"></i>   <i  ng-model="choice.A" class="te" ng-value="'A'">Rs.{{range.low}}-Rs.{{range.high}}</i>
                             </div>
                         </div>
 
@@ -31,7 +31,7 @@
                     <div ng-if="filterShow" >
                         <div id="filter_options" class="filter_options" style="overflow:hidden">
                             <div class="sortModal"  ng-style="clearf" ng-class="{'backclass1':change == fil.text}"  ng-repeat="fil in ccc track by $index"  on-tap="displayfilters(fil.url, fil.text)">
-                                <i class=" mytick"></i> <i   icon="ion-android-done" class="te" ng-model="choice.A" ng-value="'A'">{{fil.text}}</i>
+                                <i class="ion-ios-circle-filled  mytick"></i> <i   icon="ion-android-done" class="te" ng-model="choice.A" ng-value="'A'">{{fil.text}}</i>
                             </div>
                         </div>
                     </div>
