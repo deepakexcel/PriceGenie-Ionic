@@ -1,7 +1,4 @@
 <ion-view view-title="" cache-view="false" style="background-color: #fff" can-swipe-back="false">
-    <ion-nav-title >
-        <i class="iostitle" ng-if="footer_ios"> YOUR ALERTS</i>
-    </ion-nav-title>
     <ion-content overflow-scroll="true">
 <!--        <div class="upper">
 
@@ -28,18 +25,18 @@
                             {{res.data[0].done_time}}
                         </div>
 
-                        <div class='img13'>
+                        <div class='img13' >
                             {{res.data[0].current_price}}
                         </div>
                         <div style='clear:both'></div>
                     </div>
-                  
-                    <div class="priceHistory" ng-repeat="da in response1.history track by $index">
+                  <div class="abcd" ng-show="x==$index">
+                    <div class="priceHistory"  ng-repeat="da in response1.history track by $index">
                        <div class="daterate"> 
                         <div class="date1">{{da.date}}</div>
                         <div class="rate">{{da.price}}</div>
                        </div>
-                    </div>
+                    </div></div>
                     <div class="cat" >
                         <span ng-hide="res.type == 'price_watch_start'"> Category(s):<i id="b1">{{res.data[0].cat}}</i></span>
                     </div>
@@ -48,8 +45,8 @@
                     <div class="cat2">
 
                         <div class="sub1">
-                            <button class="button  buttonDeal" ng-click="price(res.id)">Price History</button>   
-                            <span id="stp" ng-show="res.stopped == 1">Stopped!</span>
+                            <button class="button  buttonDeal" ng-click="price(res.id,$index)">Price History</button>   
+                            <span id="stp" ng-if="res.stopped == 1">Stopped!</span>
                         </div>
                         <div class="sub123" ng-show="res.type == 'price_watch_start'">
                             <button class="button  buttonDeal1" ng-click='open(res.link)' >Buy Now</button>   

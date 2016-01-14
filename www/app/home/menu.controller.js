@@ -348,7 +348,7 @@
                     if ($scope.phoneName === "iOS") {
                         console.log('iPhone');
                         AppRate.preferences.customLocale = customLocale;
-                        AppRate.preferences.storeAppURL.ios = '511364723';
+                        AppRate.preferences.storeAppURL.ios = '1040471671';
                         AppRate.promptForRating(true);
 
                     } else if ($scope.phoneName === "Android") {

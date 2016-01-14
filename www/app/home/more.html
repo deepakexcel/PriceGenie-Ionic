@@ -2,17 +2,37 @@
     <ion-nav-title>
         <i class="iostitle" ng-if="footer_ios" >More </i>
     </ion-nav-title>
-   
+
     <ion-content class='has-header' overflow-scroll="true">
         <div class="more_page">
             <div class="account-setting-list1">
 
                 <ul class="logout_ui" style="margin-top: 0px;margin-bottom: 0px">
-                    <li ui-sref="menu.recentSearches"><i class="icon ion-document-text my_icon_more1"></i>MY RECENT SEARCHES</li>
-                    <li ng-click="feedback()"><i class="icon ion-chatbox my_icon_more"></i>FEEDBACK</li>
-                    <li ng-click="rateApp()"><i class="icon ion-ios-star-outline my_icon_more"></i>APP</li>
-                    <li ng-click="share()"><i class="icon ion-android-share-alt my_icon_more"></i>SHARE</li>
-                    <li  ng-show="show1" ng-click="logout()"><i class="icon ion-log-out my_icon_more"></i>Logout</li>
+                    <li ui-sref="menu.recentSearches" href="#/priceGenie/recent">
+                        <div class="mymore">
+                            <div class="icon ion-document-text my_icon_more1"></div>
+                            <i class="mytxt">MY RECENT SEARCHES</i>
+                        </div>
+                    </li>
+                    <li ng-click="feedback()">
+                        <div class="mymore">
+                            <i class="icon ion-chatbox my_icon_more1"></i>FEEDBACK
+                        </div>
+                    </li>
+                    <li ng-click="rateApp()">
+                        <div class="mymore">
+                            <i class="icon ion-ios-star-outline my_icon_more1"></i>APP
+                        </div>
+                    </li>
+                    <li ng-click="share()">
+                        <div class="mymore">
+                            <i class="icon ion-android-share-alt my_icon_more1"></i>SHARE
+                        </div></li>
+                    <li  ng-show="show1" ng-click="logout()">
+                        <div class="mymore">
+                            <i class="icon ion-log-out my_icon_more1"></i>Logout
+                        </div>
+                    </li>
                 </ul>
 
             </div>

@@ -503,7 +503,7 @@
                     $scope.priceRange = false;
                     $scope.brand12 = false;
 //        filterKey = button;
-                    $ionicScrollDelegate.scrollTop(true);
+//                    $ionicScrollDelegate.scrollTop(true);
                     $scope.color = button;
 
 

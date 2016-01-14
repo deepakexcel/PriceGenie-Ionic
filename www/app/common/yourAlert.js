@@ -128,11 +128,18 @@
         }
     };
 
-    $scope.price = function(id) {
+    $scope.price = function(id,j) {
+         $ionicLoading.show({
+            templateUrl: 'partials/modals/productPage/loading.html',
+            scope: $scope
+
+        });
+        $scope.x=j;
         var api = 'mobile_api/api.php?action=notify&type=watch_history&id=' + id + '&device_id=' + $scope.uuid + '&user_id=' + userid + '&email=' + email;
         var promise = ajaxRequest.send(api);
         promise.then(function(data) {
             $scope.response1 = data;
+            $ionicLoading.hide();
             console.log(data);
         });
     };

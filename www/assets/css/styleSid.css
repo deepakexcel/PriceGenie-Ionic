@@ -535,8 +535,6 @@ ion-item :hover .filterS1.item{
 
 }
 .modalsort{
-
-
     padding-top: 10px;
     position: relative;
     width: 96%;
@@ -544,6 +542,7 @@ ion-item :hover .filterS1.item{
 }
 .myhashead{
     top:48px !important;
+    /*border:0px;*/
 }
 .sortModal{
 
@@ -553,7 +552,7 @@ ion-item :hover .filterS1.item{
     font-size: 0.98em;
     height: 42px;
     line-height: 37px;
-    border-bottom: 1px solid #CBD0D7;
+    border-bottom: 2px solid #e8e8e8;
 }
 #filtertitle{
     margin-top:10px
@@ -584,7 +583,7 @@ ion-item :hover .filterS1.item{
 }
 .filter_options {
     background-color: #fff;
-    box-shadow: 0 1px 0 #ccc;
+    /*box-shadow: 0 1px 0 #ccc;*/
     color: #808080;
     font-size: 0.98em;
     /* margin: 10px auto 0; */
@@ -595,8 +594,10 @@ ion-item :hover .filterS1.item{
     float: right;
     /*margin: 9px 0 0 0;*/
 }
-.te{
-    padding-left:10px;
+.te {
+    padding-left: 10px;
+    color: #636363;
+    font-size: 13px;
 }
 .register.scroll-content.ionic-scroll.overflow-scroll.has-header {
     margin: 0 !important;
@@ -1427,25 +1428,27 @@ a {
 
     float: left;
 }
-.menu{
+.menu {
     z-index: 11 !important;
-    width:150px !important;
+    width: 124px !important;
+    background-color:#e8e8e8;
 }
-.fil1.li {
+/*.fil1.li {
     padding: 9px 6px 6px 7px;
-    border-right: 2px solid #292727;
-    color: #5E6265;
-    /* border-color: #202429; */
+     border-right: 2px solid #292727; 
+    color: #fff;
+     border-color: #202429; 
     text-transform: uppercase;
     font-size: 0.9em;
-    background-color:#E0E1E2;
+    background-color: #4F5D75;
     height: 43px;
     line-height: 2;
     font-size: 12px;
-    border: 0px;
-    /*text-align: center;*/
-}
-
+     text-align: center; 
+    border-bottom: 2px solid;
+    border-color: #2D3142;
+    font-weight:600;
+}*/
 .sidemenu {
     background-color: #3e454d;
 
@@ -1464,13 +1467,13 @@ i.ion-ios-checkmark-empty.mytick1 {
     right: 6px;
     top: -18px;
     bottom: 0;
-    color: #085394;
+    color: #BFC0C0;;
 }
 .showData {
     width: 100%;
     /* float: right; */
     background-color: #fff !important;
-    margin-left: 150px;
+    margin-left: 124px;
 }
 .mycss{
     height:1px;
@@ -1478,7 +1481,7 @@ i.ion-ios-checkmark-empty.mytick1 {
     background-color:#fff;
 }
 ion-item.fil1.li.activated{
-    background-color: #CDCED0 !important;
+    background-color: #fff !important;
     color:#fff;
 }
 i.ion-ios-checkmark-empty.mytick {
@@ -1489,15 +1492,15 @@ i.ion-ios-checkmark-empty.mytick {
 }
 .scroll-bar-indicator
 {
-	display: none;
+    display: none;
 }
 ion-item.fil1.li.item.ng-binding {
     /*border-color: #202429;*/
     border-left: 1px solid #fff;
 }
 .backclass {
-    background-color: #B7B7B7 !important;
-    color: #fff !important;
+    background-color: #ffffff !important;
+    color: #02C39A !important;
 }
 .backclass1{
     background-color: rgb(155, 152, 152) !important;
@@ -1654,12 +1657,12 @@ i.icon.ion-document-text.my_icon_more1 {
     color: #707070;
     font-size: 100%;
     list-style: none outside none;
-    padding: 5px 0 8px 0;
+    padding: 8px 0 8px 0;
 }
 .tbName {
     font-size: 11px;
     margin: -17px 0 0 0;
-    color: #2D2C2C;
+    color:#AFAFAF;
 
 }
 ion-footer-bar.bar.bar-footer.myfoot {
@@ -1786,4 +1789,31 @@ a.button.sortbt1.activated{
 }*/
 .myfhas{
     top:64px !important;
+    /*border:0px;*/
+}
+.myhead1{
+    border:0px !important;
+}
+.myf {
+    width: 82%;
+    margin: 0 auto;
+    white-space: pre-wrap;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.89em;
+    text-transform: capitalize;
+}
+ion-item.fil1.li.item {
+    color: #727272;
+    background-color:#e8e8e8;
+    border: 0;
+}
+.icon.my_icon_more1 {
+    float: left;
+    width: 30px;
+    text-align: center;
+    font-size: 27px;
+    margin: -6px 0 0 0;
+    margin-right: 14px;
+    padding: 2px 0 0 0;
 }
