@@ -1,67 +1,75 @@
 <!--filter model template-->
-<ion-modal-view class="modalbackground" style="background-color: #3e454d;">
-    <ion-header-bar  class=" fl" ng-class={'search-bar1':iostr==true}>
+<ion-modal-view class="modalbackground"  style="background-color: #fff;">
+    <ion-side-menus>
 
-        <div class="buttonsS  "  ng-click="closeModal()">
-            <i class="ion-chevron-left backB" ng-class={'backB1':iostr==true}></i>
+        <ion-side-menu-content>
+            <ion-header-bar class="mainHeader">
 
-            <img src="assets/img/genie-logo-g.png" ng-if="head" alt="Side Navigation">
-  
-        </div>
-        <div class="side-right">
-            FILTER
-        </div>
+                <h1 class="side-right">Filter</h1>
+            </ion-header-bar>
+            <ion-content  class="has-header myhashead" >
+                <div class="showData" ng-class="{'mycss':abcd == true}">
 
-    </ion-header-bar>
+                    <div ng-if="brand12" >
 
-    <div class="sidemenu" ng-class={'sidemenu1':iostr==true}>
-        <ul class="fil ul">
-                <ion-item class="fil1 li"  ng-class="{'backclass':color == 'brand'}"  ng-click="brandModal('brand')">
-                Brands
-            </ion-item >
-            <ion-item  class="fil1 li"  ng-class="{'backclass':color == 'price'}"  ng-click="priceModal('price')">
-                Price Range
-            </ion-item>
-            <ion-item class="fil1 li"  ng-class="{'backclass':color == key}"  ng-repeat='(key,data) in response.filters track by $index'ng-click="filterModal(key)">
-                {{key1(key)}}
-            </ion-item>
-            <div class="clearfix"></div>
-        </ul>
-        <div class="clearfix"></div>
-
-    </div>  
-    <ion-content has-bouncing="false" >
-
-
-        <div class="showData" ng-style="abcd">
-
-            <div ng-show="brand12" >
-
-                <div id="filter_options" class="filter_options"  style="overflow:hidden" >
-                    <div class="sortModal"  ng-class="{'backclass1':change == brand.name}"  ng-repeat="brand in response.brands track by $index"   on-tap="displaybrands(brand.href, brand.name)" >
-                        <i ng-model="choice.A" class="te" ng-value="'A'">{{brand.name}}</i>
+                        <div id="filter_options" class="filter_options"  style="overflow:hidden" >
+                            <div class="sortModal"  ng-class="{'backclass1':change == brand.name}"  ng-repeat="brand in response.brands track by $index"   on-tap="displaybrands(brand.href, brand.name)" >
+                                <i class="ion-ios-checkmark-empty mytick"></i> <i ng-model="choice.A" class="te" ng-value="'A'">{{brand.name}}</i>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div ng-show="priceRange" >
+                    <div ng-if="priceRange" >
 
-                <div id="filter_options" class="filter_options" style="overflow:hidden">
-                    <div class="sortModal" ng-style="clearf" ng-class="{'backclass1':change == range }" ng-repeat="range in response.ranges track by $index"   on-tap="displayrange(range.href, range.low, range.high,range)"  >
-                        <i  ng-model="choice.A" class="te" ng-value="'A'">Rs.{{range.low}}-Rs.{{range.high}}</i>
+                        <div id="filter_options" class="filter_options" style="overflow:hidden">
+                            <div class="sortModal" ng-style="clearf" ng-class="{'backclass1':change == range }" ng-repeat="range in response.ranges track by $index"   on-tap="displayrange(range.href, range.low, range.high,range)"  >
+                                <i class="ion-ios-checkmark-empty mytick"></i>   <i  ng-model="choice.A" class="te" ng-value="'A'">Rs.{{range.low}}-Rs.{{range.high}}</i>
+                            </div>
+                        </div>
+
                     </div>
+                    <div ng-if="filterShow" >
+                        <div id="filter_options" class="filter_options" style="overflow:hidden">
+                            <div class="sortModal"  ng-style="clearf" ng-class="{'backclass1':change == fil.text}"  ng-repeat="fil in ccc track by $index"  on-tap="displayfilters(fil.url, fil.text)">
+                                <i class="ion-ios-checkmark-empty mytick"></i> <i   icon="ion-android-done" class="te" ng-model="choice.A" ng-value="'A'">{{fil.text}}</i>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-            </div>
-            <div ng-show="filterShow" >
-                <div id="filter_options" class="filter_options" style="overflow:hidden">
-                    <div class="sortModal"  ng-style="clearf" ng-class="{'backclass1':change == fil.text}"  ng-repeat="fil in ccc track by $index"  on-tap="displayfilters(fil.url, fil.text)">
-                        <i   icon="ion-android-done" class="te" ng-model="choice.A" ng-value="'A'">{{fil.text}}</i>
-                    </div>
+            </ion-content>
+        </ion-side-menu-content>
+
+        <ion-side-menu>
+            <ion-header-bar class="mainHeader">
+                <div class="buttonsS  "  ng-click="closeModal()">
+                    <i class="ion-chevron-left backB" ng-class="{'backB1':iostr == true}"></i>
+
+                    <img src="assets/img/genie-logo-g.png" ng-if="head" alt="Side Navigation">
+
                 </div>
-            </div>
+            </ion-header-bar>
+            <ion-content class="has-header myhashead">
+                <div  ng-class="{'sidemenu1':iostr == true}">
+                    <ul class="fil ul">
+                        <ion-item class="fil1 li"  ng-class="{'backclass':color == 'brand'}"  ng-click="brandModal('brand')">
+                            <div class="myf"> <b>Brands</b><i class="ion-ios-checkmark-empty mytick1" ng-if="color == 'brand'"></i> </div>
+                        </ion-item >
+                        <ion-item  class="fil1 li"  ng-class="{'backclass':color == 'price'}"  ng-click="priceModal('price')">
+                            <div class="myf"> <b>Price Range</b><i class="ion-ios-checkmark-empty mytick1" ng-if="color == 'price'"></i> </div>
+                        </ion-item>
+                        <ion-item class="fil1 li"  ng-class="{'backclass':color == key}"  ng-repeat='(key,data) in response.filters track by $index'ng-click="filterModal(key)">
+                           <div class="myf"> <b>{{key1(key)}}</b><i class="ion-ios-checkmark-empty mytick1" ng-if="color == key"></i> </div>
+                        </ion-item>
+                        <div class="clearfix"></div>
+                    </ul>
+                    <div class="clearfix"></div>
 
-        </div>
+                </div>  
+            </ion-content>
+        </ion-side-menu>
 
-    </ion-content>
+    </ion-side-menus>
+
 </ion-modal-view>

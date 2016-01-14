@@ -8,10 +8,10 @@
             login_pwd: ''
         };
 
-        $ionicHistory.nextViewOptions({
-            historyRoot: true,
-            disableBack: true
-        });
+//        $ionicHistory.nextViewOptions({
+//            historyRoot: true,
+//            disableBack: true
+//        });
         $scope.goback = function() {
             $ionicHistory.goBack();
         };
@@ -59,6 +59,10 @@
 
                         timeStorage.set(name, data, 168);
                         urlHelper.openHome();
+                        $ionicHistory.nextViewOptions({
+                            historyRoot: true,
+                            disableBack: true
+                        });
                         window.plugins.toast.showShortTop('Hi ' + data.firstname);
                         //   self.caller();
                     }
@@ -96,6 +100,10 @@
                         var name = 'googleLogin';
                         timeStorage.set(name, data, 168);
                         urlHelper.openHome();
+                        $ionicHistory.nextViewOptions({
+                            historyRoot: true,
+                            disableBack: true
+                        });
                         window.plugins.toast.showShortTop('Hi ' + data.firstname);
                         $ionicLoading.hide();
                     });
@@ -155,7 +163,7 @@
                 window.plugins.toast.showShortTop("please enter email");
             }
             else {
-               var api = 'facebook.php?task=resetpwd&fpwd_email=' + $scope.femail;
+                var api = 'facebook.php?task=resetpwd&fpwd_email=' + $scope.femail;
                 var promise = ajaxRequest.send(api);
                 promise.then(function(data) {
                     $scope.response = data;
@@ -172,6 +180,7 @@
 
         $scope.facebookLogin = function() {
             loginService.facebookLogin();
+            
         };
     });
 })();

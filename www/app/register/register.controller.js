@@ -9,9 +9,9 @@
             reg_con_pwd: '',
             check: ''
         };
-        $ionicHistory.nextViewOptions({
-            historyRoot: true
-        });
+//        $ionicHistory.nextViewOptions({
+//            historyRoot: true
+//        });
         $scope.goback = function() {
             $ionicHistory.goBack();
         };

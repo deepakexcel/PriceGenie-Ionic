@@ -68,9 +68,9 @@
 //            }
 
                         $scope.cat_name = $scope.response.crums[2].name;
-
+                        var a;
                         if ($scope.response.display_data.length == 8) {
-                            var a = true;
+                            a = true;
 
                         }
 
@@ -148,22 +148,22 @@
                 {
                     email = timeStorage.get('login').email;
                     userid = timeStorage.get('login').userid;
-                    $scope.val=false;
+                    $scope.val = false;
                 }
                 else if (timeStorage.get('googleLogin'))
                 {
                     email = timeStorage.get('googleLogin').email;
                     userid = timeStorage.get('googleLogin').userid;
-                    $scope.val=false;
+                    $scope.val = false;
                 }
                 else if (timeStorage.get('fbLogin'))
                 {
                     email = timeStorage.get('fbLogin').email;
                     userid = timeStorage.get('fbLogin').userid;
-                    $scope.val=false;
+                    $scope.val = false;
                 }
-                else{
-                       $scope.val=true;
+                else {
+                    $scope.val = true;
                 }
 
                 var m = 0;
@@ -271,7 +271,7 @@
 //
 //                };
                 $scope.sortclose = function(val, type) {
-                    $scope.bg=val;
+                    $scope.bg = val;
                     if (val == 1) {
                         sort = "pricelth";
                     } else if (val == 2) {
@@ -282,7 +282,7 @@
                     var href;
                     var sorturl = $scope.response.sort_by;
                     for (var i = 0; i < sorturl.length; i++) {
-                       
+
                         if (type == sorturl[i].name) {
                             href = sorturl[i].url;
 
@@ -364,7 +364,7 @@
                 $scope.closeModal = function() {
                     $scope.filter.hide();
                     $scope.choice.A = null;
-                    $scope.bg=false;
+                    $scope.bg = false;
                 };
                 $scope.closeModal1 = function() {
 
@@ -388,11 +388,11 @@
                 };
                 var brandSort;
                 $scope.displaybrands = function(href, brand) {
-                    $scope.change = brand;
+                        $scope.change = brand;
                     $ionicScrollDelegate.scrollTop(true);
                     $timeout(function() {
                         $scope.filter.hide();
-                        $scope.change = '';
+//                        $scope.change = '';
                         $ionicLoading.show({
                             templateUrl: 'partials/modals/productPage/loading.html',
                             scope: $scope
@@ -452,7 +452,7 @@
                     $scope.change = range;
                     $timeout(function() {
                         $scope.filter.hide();
-                        $scope.change = '';
+//                        $scope.change = '';
                         $ionicLoading.show({
                             templateUrl: 'partials/modals/productPage/loading.html',
                             scope: $scope
@@ -516,7 +516,7 @@
                     $ionicScrollDelegate.scrollTop(true);
                     $scope.change = name;
                     $timeout(function() {
-                        $scope.change = '';
+//                        $scope.change = '';
                         // $scope.data = false;
                         $scope.data2 = true;
                         $scope.f = 1;
@@ -573,21 +573,25 @@
                 }).then(function(modal) {
                     $scope.filter = modal;
                 });
-               $scope.bg=false;
+                $scope.bg = 3;
+
                 $scope.show = function(key, bgcolor) {
+ $scope.abcd = true;
                     $scope.bg = bgcolor;
                     if ($scope.filterhide == true) {
                         console.log("filter hide");
                     } else {
-                        $timeout(function() {
-                            $scope.abcd = {'height': '1000px'};
-                        }, 500);
+                        $ionicScrollDelegate.scrollTop(true);
+
                         $scope.filter.show();
-                        $scope.brand12 = true;
+                        $timeout(function() {
+                            $scope.abcd = false;
+                            $scope.brand12 = true;
+                        }, 100);
                         $scope.color = key;
                         $scope.priceRange = false;
                         $scope.filterShow = false;
-                        var a = false;
+                        a = false;
                     }
                 };
 
