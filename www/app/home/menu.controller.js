@@ -28,134 +28,62 @@
                     catch (e) {
                         console.log(e);
                     }
-                    //     var push = PushNotification.init({ 
-                    //         "android": {"senderID": "117380048302"}
-                    //     });
-                    //    push.on('registration', function(data) {
-                    //     console.log(data);
-                    //     var x=data.registrationId;
-                    //     timeStorage.set("Noti_reg_id", x, 100);
-                    //     var action = "add_mobile";
-                    //     var params = 'device_id=' + encodeURIComponent(device.uuid) + '&user_key=' + '' + '&gcm_reg_id=' + encodeURIComponent(x);
-                    //     var api = 'mobile_api/api.php?action=' + action + '&' + params;
-                    //     console.log(api);
-                    //     var promise = ajaxRequest.send(api);
-                    //     promise.then(function(data) {
-                    //     console.log(data);
-                    //         });
-                    // });
-                    //  push.on('notification', function(data) {
-                    //      console.log(data.message);
-                    //     // data.message,
-                    //     // data.title,
-                    //     // data.count,
-                    //     // data.sound,
-                    //     // data.image,
-                    //     // data.additionalData
-                    // });
 
-                    // push.on('error', function(e) {
-                    //     console.log(e.message);
-                    //     // e.message
-                    // });
+
+                });
+
+
+                document.addEventListener("deviceready", function() {
+               
+                    var push = PushNotification.init({
+                        "android": {"senderID": "117380048302"},
+                        "ios": {"alert": "true", "badge": "true", "sound": "true"},
+                        "windows": {}}
+                    );
+
+                    push.on('registration', function(data) {
+                        console.log('data2=' + data);
+                        var x = data.registrationId;
+                        timeStorage.set("Noti_reg_id", x, 100);
+                        var action = "add_mobile";
+                        var params = 'device_id=' + encodeURIComponent(device.uuid) + '&user_key=' + '' + '&gcm_reg_id=' + encodeURIComponent(x);
+                        var api = 'mobile_api/api.php?action=' + action + '&' + params;
+                        console.log(api);
+                        var promise = ajaxRequest.send(api);
+                        promise.then(function(data) {
+                            console.log('data1=' + data);
+                        });
+                    });
+
+                    push.on('notification', function(data) {
+                        console.log(data);
+                        alert(data.message);
+                        data.message,
+                                data.title,
+                                data.count,
+                                data.sound,
+                                data.image,
+                                data.additionalData
+                    });
+
+                    push.on('error', function(e) {
+                        console.log("error");
+                        console.log(e.message);
+                        // e.message
+                    });
+
+// function push_msg_buy(){
+//     window.open('https://google.com', '_system', 'location=yes');
+//    };
+// function push_msg_stop(){
+//    urlHelper.openProduct();
+//    };
+
 
                 });
 
 
 
-
-
-                var data = {
-                    title: "AUX Scrum",
-                    message: "Scrum: Daily touchbase @ 10am Please be on time so we can cover everything on the agenda.",
-                    actions: [
-                        {icon: "emailGuests", title: "EMAIL GUESTS", callback: "app.emailGuests"},
-                        {icon: "snooze", title: "SNOOZE", callback: "app.snooze"}
-                    ]
-                }
-//    document.addEventListener("deviceready", function() {
-//        var pushNotification = window.plugins.pushNotification;
-//        console.log('push=' + pushNotification);
-//        if (device.platform == 'Android')
-//        {
-//            pushNotification.register(
-//                    successHandler,
-//                    errorHandler,
-//                    {
-//                        'senderID': '117380048302',
-//                        'ecb': "window.onNotification" // callback function
-//                    }
-//            );
-//        }
-//        function errorHandler(error) {
-//            console.log('Error: ' + error);
-//        }
-//        function successHandler(result) {
-//            console.log('Success: ' + result);
-//        }
-//
-//
-//        window.onNotification = function(e) {
-//            console.log("i am in notification function");
-//            switch (e.event) {
-//                case 'registered':
-//                    if (e.regid.length > 0) {
-//                        //  deviceRegistered(e.regid);
-//                        var x = e.regid;
-//                        console.log(x);
-//                        timeStorage.set("Noti_reg_id", x, 100);
-//                        var action = "add_mobile";
-//                        var params = 'device_id=' + encodeURIComponent(device.uuid) + '&user_key=' + '' + '&gcm_reg_id=' + encodeURIComponent(x);
-//
-//                        var api = 'mobile_api/api.php?action=' + action + '&' + params;
-//                        console.log(api);
-//                        var promise = ajaxRequest.send(api);
-//                        promise.then(function(data) {
-//                            console.log(data);
-//                        });
-//                    }
-//                    break;
-//
-//                case 'message':
-//                    if (e.foreground) {
-//                        // When the app is running foreground. 
-//                        console.log('foreground');
-//                        alert(e.payload.message);
-//
-//                    }
-//                    else if (e.background)
-//                    {
-//
-//                        console.log('--INLINE NOTIFICATION--' + '');
-//
-//                    }
-//                    else
-//                    {
-//                        // otherwise we were launched because the user touched a notification in the notification tray.
-//                        if (e.coldstart)
-//                            console.log('--COLDSTART NOTIFICATION--' + '');
-//                        else
-//                            console.log('--BACKGROUND NOTIFICATION--' + '');
-//                        // direct user here:
-//                    }
-//
-//                    break;
-//
-//                case 'error':
-//                    console.log('Error: ' + e.msg);
-//                    break;
-//
-//                default:
-//                    console.log('An unknown event was received');
-//                    break;
-//            }
-//            $scope.showMenu = function() {
-//                console.log("yes i am ready");
-//                $scope.showMenu1 = true;
-//
-//            };
-//        };
-//    });
                 var self = this;
                 $rootScope.iconColor = function(val) {
                     $scope.cl = val;
