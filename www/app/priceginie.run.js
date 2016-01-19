@@ -22,8 +22,8 @@
                     $rootScope.head = false;
                 }
                 else {
-                    $rootScope.head = false;
-                    $rootScope.footer_ios = true;
+                    $rootScope.head = true;
+                    $rootScope.footer_ios = false;
                     console.log('not ios' + $rootScope.head);
 
                 }

@@ -5,6 +5,11 @@
     .controller('YourAlertCtrl', function($scope, ajaxRequest, timeStorage,urlHelper,$ionicLoading) {
     var self = this;
     self.AllData = function(api) {
+        $ionicLoading.show({
+            templateUrl: 'partials/modals/productPage/loading.html',
+            scope: $scope
+
+        });
         var promise = ajaxRequest.send(api);
         promise.then(function(data) {
             $scope.response = data;
@@ -89,11 +94,7 @@
         $ionicLoading.hide();
     };
     self.main = function() {
-        $ionicLoading.show({
-            templateUrl: 'partials/modals/productPage/loading.html',
-            scope: $scope
-
-        });
+        
         var api = 'mobile_api/api.php?action=notify&type=account&device_id=' + $scope.uuid + '&user_id=' + userid + '&email=' + email;
         self.AllData(api);
     };
@@ -109,6 +110,7 @@
                 $scope.response = data;
 
                 if (data.message = "Watch Removed") {
+                    window.plugins.toast.showShortTop(data.message);
                     var api = 'mobile_api/api.php?action=notify&type=account&device_id=' + $scope.uuid + '&user_id=' + userid + '&email=' + email;
                     self.AllData(api);
                 }
@@ -121,6 +123,7 @@
                 $scope.response = data;
 
                 if (data.status == 1) {
+                    
                     var api = 'mobile_api/api.php?action=notify&type=account&device_id=' + $scope.uuid + '&user_id=' + userid + '&email=' + email;
                     self.AllData(api);
                 }

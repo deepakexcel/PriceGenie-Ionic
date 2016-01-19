@@ -1,4 +1,24 @@
 {
+    "org.apache.cordova.dialogs": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.dialogs"
+        }
+    },
+    "org.apache.cordova.globalization": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.globalization"
+        }
+    },
+    "org.apache.cordova.inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.inappbrowser"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
     "cordova-plugin-console": {
         "source": {
             "type": "registry",
@@ -52,74 +72,47 @@
             "type": "git",
             "url": "https://github.com/katzer/cordova-plugin-email-composer.git",
             "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
+        }
     },
     "cordova-plugin-x-socialsharing": {
         "source": {
             "type": "git",
             "url": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
             "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-x-toast": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "org.apache.cordova.dialogs": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.dialogs"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "org.apache.cordova.globalization": {
-        "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.globalization"
-        },
-        "is_top_level": true,
-        "variables": {}
+        }
     },
     "org.pushandplay.cordova.apprate": {
         "source": {
             "type": "git",
             "url": "https://github.com/pushandplay/cordova-plugin-apprate.git",
             "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
+        }
     },
-    "org.apache.cordova.inappbrowser": {
+    "uk.co.whiteoctober.cordova.appversion": {
         "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.inappbrowser"
-        },
-        "is_top_level": false,
-        "variables": {}
+            "type": "git",
+            "url": "https://github.com/whiteoctober/cordova-plugin-app-version.git",
+            "subdir": "."
+        }
+    },
+    "com.phonegap.plugins.facebookconnect": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Wizcorp/phonegap-facebook-plugin.git",
+            "subdir": "."
+        }
+    },
+    "cordova-plugin-x-toast": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git",
+            "subdir": "."
+        }
     },
     "cordova-plugin-statusbar": {
         "source": {
             "type": "git",
             "url": "https://github.com/apache/cordova-plugin-statusbar.git",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-app-version": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/whiteoctober/cordova-plugin-app-version.git",
             "subdir": "."
         },
         "is_top_level": true,
@@ -133,16 +126,5 @@
         },
         "is_top_level": true,
         "variables": {}
-    },
-    "cordova-plugin-facebook4": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-facebook4"
-        },
-        "is_top_level": true,
-        "variables": {
-            "APP_ID": "467986553238213",
-            "APP_NAME": "PriceGenie"
-        }
     }
 }

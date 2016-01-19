@@ -204,72 +204,7 @@
 
 
                 var s = 0;
-//                $scope.sortclose = function(href, val) {
-//                    for (var i = 0; i <= $scope.response.sort_by.length; i++) {
-//
-//                    }
-//                    $scope.filter.hide();
-//                    $ionicLoading.show({
-//                        templateUrl: 'partials/modals/productPage/loading.html',
-//                        scope: $scope
-//
-//                    });
-//                    br = 0;
-//                    console.log(val);
-//                    if (val == 0) {
-//                        sort = "pricelth";
-//                    } else if (val == 1) {
-//                        sort = "pricehtl";
-//                    } else {
-//                        sort = "popularity";
-//                    }
-//                    popup.close();
-//
-//                    $scope.f = 1;
-//                    if ($scope.data2 == true) {
-//                        $scope.myStyle = {
-//                            "margin": "10px 0px 0px 0px"
-//                        };
-//                    }
-//                    else {
-//                        $scope.myStyle = {
-//                            "margin": "45px 0px 0px 0px"
-//                        };
-//                    }
-//                    var url = href;
-//                    console.log(url);
-//                    var mainUrl = url.substr(62, url.length);
-//
-//                    console.log(mainUrl);
-//                    var action = 'all_products';
-//
-//                    if (s == 1) {
-//                        var api = 'mobile_api/api.php?action=' + brandSort + '&sort=' + sort + '&page=0';
-//                        bigdata = [];
-//
-//                        self.AllData(api);
-//                        $scope.page = 1;
-//
-//                        $scope.url = 'mobile_api/api.php?action=' + brandSort + '&sort=' + sort + '&page=';
-//                    }
-//
-//
-//                    else {
-//                        var api = 'mobile_api/api.php?action=' + action + '&actual_link=' + mainUrl + '&page=0';
-//                        bigdata = [];
-//
-//                        self.AllData(api);
-//                        $scope.page = 1;
-//                        action = action + '&' + mainUrl + '&page=';
-//                        $scope.url = 'mobile_api/api.php?action=' + action;
-//
-//                    }
-//
-//                    $scope.$broadcast('scroll.infiniteScrollComplete');
-//                    //  console.log(url);
-//                    $scope.choice.A = null;
-//
-//                };
+
                 $scope.sortclose = function(val, type) {
                     $scope.bg = val;
                     if (val == 1) {
@@ -588,8 +523,9 @@ var a;
                         $scope.filter.show();
                         $timeout(function() {
                             $scope.abcd = false;
-                            $scope.brand12 = true;
+                            
                         }, 100);
+                        $scope.brand12 = true;
                         $scope.color = key;
                         $scope.priceRange = false;
                         $scope.filterShow = false;

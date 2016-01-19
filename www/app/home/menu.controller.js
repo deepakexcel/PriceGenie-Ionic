@@ -1,12 +1,9 @@
 (function() {
     'use strict';
-
     angular.module('starter')
             .controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope, $ionicLoading, $ionicPlatform, $ionicHistory, urlHelper, timeStorage) {
 
                 var count = 0;
-
-
                 $scope.closePodcastsLoader = function() {
                     $ionicLoading.hide();
                 };
@@ -17,7 +14,7 @@
                         $scope.isMobile = true;
                     }
                     try {
-                        $scope.uuid = device.uuid;   //getting device id
+                        $scope.uuid = device.uuid; //getting device id
                         console.log($scope.uuid);
                         $scope.phoneName = device.platform;
                         console.log($scope.phoneName);
@@ -31,18 +28,15 @@
 
 
                 });
-
-
                 document.addEventListener("deviceready", function() {
-               
+
                     var push = PushNotification.init({
                         "android": {"senderID": "117380048302"},
                         "ios": {"alert": "true", "badge": "true", "sound": "true"},
                         "windows": {}}
                     );
-
                     push.on('registration', function(data) {
-                        console.log('data2=' + data);
+                        console.log(data);
                         var x = data.registrationId;
                         timeStorage.set("Noti_reg_id", x, 100);
                         var action = "add_mobile";
@@ -51,21 +45,24 @@
                         console.log(api);
                         var promise = ajaxRequest.send(api);
                         promise.then(function(data) {
-                            console.log('data1=' + data);
+                            console.log(data);
                         });
                     });
-
                     push.on('notification', function(data) {
                         console.log(data);
-                        alert(data.message);
-                        data.message,
-                                data.title,
-                                data.count,
-                                data.sound,
-                                data.image,
-                                data.additionalData
-                    });
 
+                        if (data.additionalData.foreground) {
+                            alert(data.message);
+//                            console.log(data);
+                        } else {
+                            data.message,
+                                    data.title,
+                                    data.count,
+                                    data.sound,
+                                    data.image,
+                                    data.additionalData
+                        }
+                    });
                     push.on('error', function(e) {
                         console.log("error");
                         console.log(e.message);
@@ -81,9 +78,6 @@
 
 
                 });
-
-
-
                 var self = this;
                 $rootScope.iconColor = function(val) {
                     $scope.cl = val;
@@ -116,7 +110,6 @@
                         $scope.showMenu1 = false;
                     }
                 };
-
                 self.caller = function() {
                     if (!timeStorage.get("login") && !timeStorage.get("googleLogin") && !timeStorage.get("fbLogin")) {
                         console.log("show");
@@ -151,12 +144,10 @@
                         $rootScope.show = false;
                     }
                 };
-
                 $ionicPlatform.registerBackButtonAction(function() {
 //        event.preventDefault();
 //        event.stopPropagation();
                     $ionicLoading.hide();
-
                     var view = $ionicHistory.currentView();
                     console.log(view.stateId);
                     if (view.stateId == 'menu.home' && count == 0 || view.stateId == 'menu.offline' && count == 0)
@@ -164,7 +155,6 @@
                         $ionicLoading.hide();
                         window.plugins.toast.showShortBottom('Press Back Button Again To Exit The App!');
                         count++;
-
                         $timeout(function() {
                             count = 0;
                         }, 3000);
@@ -189,11 +179,6 @@
                         var name1 = name.substr(0, 30);
                     return name1;
                 };
-
-
-
-
-
                 //This is for share app
                 $scope.share = function() {
                     console.log('share me');
@@ -207,11 +192,9 @@
                         console.log("false");
                     }
                 };
-
                 //this is for feedback 
 
                 $scope.Email = false;
-
                 if (window.cordova && window.cordova.plugins && window.cordova.plugins.email) {
                     cordova.plugins.email.isAvailable(function(isAvailable) {
                         $scope.Email = isAvailable;
@@ -231,7 +214,6 @@
                         isHtml: true,
                         attachments: ['base64:device.json//' + btoa(JSON.stringify($scope.device))]
                     });
-
 //                    } else {
 //                        console.log("false");
 //                        urlHelper.openFeedback();
@@ -268,29 +250,32 @@
                     $scope.showMenu1 = false;
                     menushow = 0;
                     var customLocale = {};
-                    customLocale.title = "Rate PriceGenie";
-                    customLocale.message = "If you enjoy using PriceGenie, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!";
-                    customLocale.cancelButtonLabel = "No, Thanks";
-                    customLocale.laterButtonLabel = "Remind Me Later";
-                    customLocale.rateButtonLabel = "Rate It Now";
+
                     if ($scope.phoneName === "iOS") {
                         console.log('iPhone');
+                        customLocale.title = "Rate PriceGenie";
+                        customLocale.message = "If you enjoy using PriceGenie, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!";
+                        customLocale.cancelButtonLabel = "No, Thanks";
+                        customLocale.laterButtonLabel = "Remind Me Later";
+                        customLocale.rateButtonLabel = "Rate It Now";
                         AppRate.preferences.customLocale = customLocale;
                         AppRate.preferences.storeAppURL.ios = '1040471671';
                         AppRate.promptForRating(true);
-
                     } else if ($scope.phoneName === "Android") {
                         console.log('Android');
+                        customLocale.title = "Rate PriceGenie";
+                        customLocale.message = "If you enjoy using PriceGenie, would you mind taking a moment to rate it? It won’t take more than a minute. Thanks for your support!";
+                        customLocale.cancelButtonLabel = "";
+                        customLocale.laterButtonLabel = "Remind Me Later";
+                        customLocale.rateButtonLabel = "Rate It Now";
                         AppRate.preferences.customLocale = customLocale;
                         AppRate.preferences.storeAppURL.android = 'market://details?id=com.excellence.PriceGenie';
                         AppRate.promptForRating(true);
-
                     } else if ($scope.phoneName === "BlackBerry") {
                         console.log('BlackBerry');
                         AppRate.preferences.customLocale = customLocale;
                         AppRate.preferences.storeAppURL.blackberry = 'http://appworld.blackberry.com/webstore/content/<applicationid>';
                         AppRate.promptForRating(true);
-
                     }
                     else {
                         console.log('nothing');
@@ -302,13 +287,11 @@
 
                 $scope.product = function(product) {
                     urlHelper.openProduct({name: product.full_name, query_id: product.query_id});
-
                     var data = {
                         query_id: product.query_id,
                         query_date: new Date(),
                         query: product.full_name
                     };
-
                     if (!timeStorage.get('myRecentSearch'))
                     {
                         recent.push(data);
@@ -339,7 +322,6 @@
                         timeStorage.set('myRecentSearch', recent, 120);
                     }
                     console.log(recent);
-
                 };
                 var y = timeStorage.get("login")
 
@@ -387,7 +369,6 @@
                                     });
                                 }
                             });
-
                         }
                     }
                     catch (e) {
@@ -396,7 +377,6 @@
 
 
                 };
-
             }).directive('closeSubmenu', function($window, $ionicHistory, $localStorage) {
         return {
             scope: {
@@ -432,18 +412,14 @@
 
                         } else {
                             x = 0;
-
                             var ele = document.getElementById("mypopover");
                             ele.setAttribute("class", "ng-hide");
-
                         }
 
                     } else {
                         x = 0;
-
                         var ele = document.getElementById("mypopover");
                         ele.setAttribute("class", "ng-hide");
-
                     }
 
 //                    }

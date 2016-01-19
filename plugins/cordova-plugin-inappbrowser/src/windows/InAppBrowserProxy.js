@@ -1,4 +1,4 @@
-﻿/*
+/*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -247,8 +247,7 @@ var IAB = {
         if (isWebViewAvailable && browserWrap && popup) {
             var op = popup.invokeScriptAsync("eval", code);
             op.oncomplete = function (e) {
-                // return null if event target is unavailable by some reason
-                var result = (e && e.target) ? [e.target.result] : [null];
+                var result = [e.target.result];
                 hasCallback && win(result);
             };
             op.onerror = function () { };

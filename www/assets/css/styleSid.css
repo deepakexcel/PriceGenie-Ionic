@@ -992,6 +992,9 @@ p {
 .buttons.buttons-left.header-item {
     margin-left: 5%;
 }
+.btnimg{
+ margin-left:5% !important;   
+}
 .buttons.buttons-right.header-item {
     /*margin-right: 5%;*/
     /*     right: 0px !important;*/
@@ -1820,4 +1823,12 @@ ion-item.fil1.li.item {
 .mytick {
     margin-left: 10px;
     font-size: 20px;
+}
+.buttonsS1 {
+    padding: 0 0 0 5px;
+    width: 5px;
+    margin-left: 28px;
+}
+.col.msgcol.ng-binding {
+    text-transform: capitalize;
 }

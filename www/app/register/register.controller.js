@@ -71,8 +71,10 @@
                         $scope.response = data;
                         console.log(data.registration);
                         if (data.registration == true) {
+                             $scope.msg = data.register_status;
                             $ionicLoading.hide();
                             urlHelper.openLogin();
+                            window.plugins.toast.showShortTop($scope.msg);
                         } else {
                             $scope.msg = data.register_status;
                             $ionicLoading.hide();
@@ -89,7 +91,7 @@
         $scope.terms = function() {
                 console.log("terms")
                 window.open('http://pricegenie.co/blog/terms-and-conditions/', '_system', 'location=yes');
-            }
+            };
             //google+ login 
         var opt = registerService.option();
         $scope.gogleLogin = function() {
@@ -158,7 +160,7 @@
                 $scope.$apply(function() {
                     $scope.fb_data = data;
                 });
-                api1 = 'facebook.php?type=mobile_facebook&id=' + data.id + '&name=' + data.name + '&email=' + data.email + '&gender=' + data.gender + '&device_id=' + $scope.uuid;
+               var api1 = 'facebook.php?type=mobile_facebook&id=' + data.id + '&name=' + data.name + '&email=' + data.email + '&gender=' + data.gender + '&device_id=' + $scope.uuid;
                 var promise = ajaxRequest.send(api1);
                 promise.then(function(data1) {
                     $scope.response = data;

@@ -5,7 +5,7 @@
             <div class="buttonsS col-10" ng-click="subCatModalClose()">
                 <!--                <i class="ion-arrow-left-c backB backme"></i>-->
                 <i ng-if="footer_ios"class="icon ion-chevron-left backB backme back" ng-class="{'backB2':iostr == true}"></i>
-               
+
                 <img style="height: 38px;" ng-if="head" class=" backB backme back" ng-class="{'backB2':iostr == true}" src="assets/img/genie-logo-g.png" alt="Side Navigation">
 
             </div>
@@ -41,7 +41,7 @@
 <ion-modal-view class="modalbackground" style="background-color: #3e454d;">
     <ion-header-bar  class=" fl" ng-class="{'search-bar1':iostr == true}">
 
-               <div class="buttonsS  "  ng-click="closeModal()">
+        <div class="buttonsS  "  ng-click="closeModal()">
             <i class="ion-chevron-left backB" ng-class="{'backB1':iostr == true}"></i>
 
             <img src="assets/img/genie-logo-g.png" ng-if="head" alt="Side Navigation">
@@ -54,7 +54,7 @@
     </ion-header-bar>
 
     <div class="sidemenu" ng-class="{'sidemenu1':iostr == true}">
-         <ul class="fil ul">
+        <ul class="fil ul">
             <ion-item class="fil1 li"  ng-class="{'backclass':color == 'brand'}"  ng-click="brandModal('brand')">
                 Brands
             </ion-item >

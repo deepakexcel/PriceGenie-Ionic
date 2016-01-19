@@ -4,11 +4,13 @@
     angular.module('starter')
             .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
                 $ionicConfigProvider.backButton.previousTitleText(false).text(' ');
+                $ionicConfigProvider.navBar.alignTitle('center');
+                
 // if (ionic.Platform.isAndroid()) {
 //      $ionicConfigProvider.scrolling.jsScrolling(false);
 //    }
 //    $ionicConfigProvider.platform.android.scrolling.jsScrolling(false);
-                $stateProvider
+                        $stateProvider
 //    .state('frontPage', {
 //        url: '/frontPage',
 //        templateUrl: 'partials/frontPage.html',
