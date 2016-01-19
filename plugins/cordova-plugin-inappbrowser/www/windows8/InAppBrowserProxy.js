@@ -17,10 +17,11 @@
  * specific language governing permissions and limitations
  * under the License.
  *
- */
+*/
 
 /*jslint sloppy:true */
 /*global Windows:true, require, document, setTimeout, window, module */
+
 
 
 var cordova = require('cordova'),
@@ -38,9 +39,9 @@ var IAB = {
     },
     show: function (win, lose) {
         /* empty block, ran out of bacon?
-         if (browserWrap) {
+        if (browserWrap) {
 
-         }*/
+        }*/
     },
     open: function (win, lose, args) {
         var strUrl = args[0],
@@ -61,7 +62,6 @@ var IAB = {
                 browserWrap.style.borderWidth = "40px";
                 browserWrap.style.borderStyle = "solid";
                 browserWrap.style.borderColor = "rgba(0,0,0,0.25)";
-                browserWrap.style.zIndex = "9999999";
 
                 browserWrap.onclick = function () {
                     setTimeout(function () {
@@ -71,38 +71,20 @@ var IAB = {
 
                 document.body.appendChild(browserWrap);
             }
-            var localFile = (strUrl.indexOf('ms-appdata:///') > -1);
-            if (localFile) {
-                elem = document.createElement("x-ms-webview");
-                elem.style.width = (window.innerWidth - 80) + "px";
-                elem.style.height = (window.innerHeight - 80) + "px";
-                elem.style.borderWidth = "0px";
-                elem.name = "targetFrame";
-                elem.src = strUrl;
 
-                window.addEventListener("resize", function () {
-                    if (browserWrap && elem) {
-                        elem.style.width = (window.innerWidth - 80) + "px";
-                        elem.style.height = (window.innerHeight - 80) + "px";
-                    }
-                });
+            elem = document.createElement("iframe");
+            elem.style.width = (window.innerWidth - 80) + "px";
+            elem.style.height = (window.innerHeight - 80) + "px";
+            elem.style.borderWidth = "0px";
+            elem.name = "targetFrame";
+            elem.src = strUrl;
 
-            } else {
-                elem = document.createElement("iframe");
-                elem.style.width = (window.innerWidth - 80) + "px";
-                elem.style.height = (window.innerHeight - 80) + "px";
-                elem.style.borderWidth = "0px";
-                elem.name = "targetFrame";
-                elem.src = strUrl;
-
-
-                window.addEventListener("resize", function () {
-                    if (browserWrap && elem) {
-                        elem.style.width = (window.innerWidth - 80) + "px";
-                        elem.style.height = (window.innerHeight - 80) + "px";
-                    }
-                });
-            }
+            window.addEventListener("resize", function () {
+                if (browserWrap && elem) {
+                    elem.style.width = (window.innerWidth - 80) + "px";
+                    elem.style.height = (window.innerHeight - 80) + "px";
+                }
+            });
 
             browserWrap.appendChild(elem);
         } else {

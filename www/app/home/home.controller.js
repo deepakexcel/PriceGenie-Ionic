@@ -2,13 +2,16 @@
     'use strict';
 
     angular.module('starter')
-            .controller('homeCtrl', function($ionicHistory, $timeout, $rootScope,$state, $ionicModal, $scope, ajaxRequest, urlHelper, timeStorage, $interval, $ionicLoading, $ionicScrollDelegate, userData, homeService) {
+            .controller('homeCtrl', function($ionicHistory, $ionicNavBarDelegate, $timeout, $rootScope, $state, $ionicModal, $scope, ajaxRequest, urlHelper, timeStorage, $interval, $ionicLoading, $ionicScrollDelegate, userData, homeService) {
                 $ionicHistory.clearHistory();    //clearing history of app to disable back views
                 console.log("kush");
                 var self = this;
                 $rootScope.home_page = true;
-
-
+//                $ionicHistory.nextViewOptions({
+//                    disableAnimate: true,
+//                    disableBack: true
+//                });
+                $ionicNavBarDelegate.showBackButton(true);
                 var email = userData.userEmail();
                 var userid = userData.userId();
 //getting device id
@@ -89,13 +92,13 @@
                 $scope.loadLatest = function(cat) {
                     console.log("product");
                     $scope.homeCat = cat;
-                   
+
                     $timeout(function() {
                         $scope.homeCat = '';
                         $scope.catItems1 = '';
                         category = cat;
-                        
-                       // $scope.subCatModal.show();
+
+                        // $scope.subCatModal.show();
                         $ionicLoading.show({
                             templateUrl: 'partials/modals/productPage/loading.html',
                             scope: $scope
@@ -124,7 +127,7 @@
                         {
                             // self.ajax1();   
                         }
-                         $state.go('menu.subcat',{cat:cat,catitems:$scope.catItems1});
+                        $state.go('menu.subcat', {cat: cat, catitems: $scope.catItems1});
                         console.log($scope.catItems1);
                     }, 100);
                 };

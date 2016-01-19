@@ -566,7 +566,7 @@
                 //function to fill price field in product trend and full chart
                 $scope.Price = function(head, index) {
                     var ret;
-                    for (key in $scope.tableDataFull[index])
+                    for (var key in $scope.tableDataFull[index])
                     {
                         if (key == head)
                             ret = $scope.tableDataFull[index][key];

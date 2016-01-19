@@ -41,7 +41,7 @@
             scope: $rootScope,
             noBackdrop: false
         });
-        facebookConnectPlugin.login(['email','public_profile'], function(data) {
+        facebookConnectPlugin.login(['public_profile'], function(data) {
             $log.info(data);
             service.getData();
         }, function(data) {
@@ -52,11 +52,11 @@
         service.getData = function() {
         facebookConnectPlugin.api('/me', ['public_profile'], function(data) {
             $log.info(data);
-            console.log('data'+JSON.stringify(data));
+      
             $rootScope.$apply(function() {
                 $rootScope.fb_data = data;
             });
-            var api1 = 'facebook.php?type=mobile_facebook&id=' + data.id + '&name=' + data.name + '&email=' + data.email + '&gender=' + data.gender + '&device_id=' + $rootScope.uuid;
+            var api1 = 'facebook.php?type=mobile_facebook&id=' + data.id + '&name=' + data.name + '&email=' + data.email + '&gender=' + data.gender + '&device_id=' + device.uuid;
             var promise = ajaxRequest.send(api1);
             promise.then(function(data1) {
                 $rootScope.response = data;

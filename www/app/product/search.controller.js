@@ -19,7 +19,7 @@
                     }
                     $scope.response1 = local3;
 
-                    for (key in local)
+                    for (var key in local)
                         previous.push(local[key]);
                 }
                 try {

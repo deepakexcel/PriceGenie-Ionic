@@ -128,7 +128,7 @@
                 window.plugins.toast.showShortTop("please enter email");
             }
             else {
-                api = 'facebook.php?task=resendconflink&resendconf_email=' + $scope.femail;
+              var api = 'facebook.php?task=resendconflink&resendconf_email=' + $scope.femail;
                 var promise = ajaxRequest.send(api);
                 promise.then(function(data) {
                     $scope.response = data;
