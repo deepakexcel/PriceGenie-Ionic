@@ -36,7 +36,7 @@
 
 
 // Put your device token here (without spaces):
-$deviceToken = '5ec87c6acdec933ee14616c41bd3ca3c9b8187da1ac8eb2be90976cd0731f28b';
+$deviceToken = 'd22b3cac264c09c4df70b2d23240c4e21ee04b0df508c23ee9c6539fa52181de';
 echo $deviceToken.'<br>';
 // Put your private key's passphrase here:
 $passphrase = 'java@123';

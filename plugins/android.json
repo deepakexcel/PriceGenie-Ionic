@@ -87,6 +87,10 @@
                         {
                             "xml": "<feature name=\"PushNotification\"><param name=\"android-package\" value=\"com.adobe.phonegap.push.PushPlugin\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"LaunchMyApp\"><param name=\"android-package\" value=\"nl.xservices.plugins.LaunchMyApp\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -154,6 +158,12 @@
                         },
                         {
                             "xml": "<activity android:label=\"@string/fb_app_name\" android:name=\"com.facebook.LoginActivity\" android:theme=\"@android:style/Theme.Translucent.NoTitleBar\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest/application/activity": [
+                        {
+                            "xml": "<intent-filter><data android:scheme=\"priceginie\" /><action android:name=\"android.intent.action.VIEW\" /><category android:name=\"android.intent.category.DEFAULT\" /><category android:name=\"android.intent.category.BROWSABLE\" /></intent-filter>",
                             "count": 1
                         }
                     ]
@@ -224,6 +234,10 @@
             "PACKAGE_NAME": "com.ionicframework.pricegenie508011"
         },
         "phonegap-plugin-push": {
+            "PACKAGE_NAME": "com.excellence.PriceGenie"
+        },
+        "cordova-plugin-customurlscheme": {
+            "URL_SCHEME": "priceginie",
             "PACKAGE_NAME": "com.excellence.PriceGenie"
         }
     },

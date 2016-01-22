@@ -7,10 +7,7 @@
                 console.log("kush");
                 var self = this;
                 $rootScope.home_page = true;
-//                $ionicHistory.nextViewOptions({
-//                    disableAnimate: true,
-//                    disableBack: true
-//                });
+
                 $ionicNavBarDelegate.showBackButton(true);
                 var email = userData.userEmail();
                 var userid = userData.userId();

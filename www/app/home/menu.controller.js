@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular.module('starter')
-            .controller('menuCtrl', function($scope, ajaxRequest, $timeout, $rootScope, $ionicLoading, $ionicPlatform, $ionicHistory, urlHelper, timeStorage) {
+            .controller('menuCtrl', function($scope, ajaxRequest, $ionicPopup, $timeout, pushStop, $state, $rootScope, $ionicLoading, $ionicPlatform, $ionicHistory, urlHelper, timeStorage) {
 
                 var count = 0;
                 $scope.closePodcastsLoader = function() {
@@ -28,56 +28,10 @@
 
 
                 });
-                document.addEventListener("deviceready", function() {
+               
+             
+              
 
-                    var push = PushNotification.init({
-                        "android": {"senderID": "117380048302"},
-                        "ios": {"alert": "true", "badge": "true", "sound": "true"},
-                        "windows": {}}
-                    );
-                    push.on('registration', function(data) {
-                        console.log(data);
-                        var x = data.registrationId;
-                        timeStorage.set("Noti_reg_id", x, 100);
-                        var action = "add_mobile";
-                        var params = 'device_id=' + encodeURIComponent(device.uuid) + '&user_key=' + '' + '&gcm_reg_id=' + encodeURIComponent(x);
-                        var api = 'mobile_api/api.php?action=' + action + '&' + params;
-                        console.log(api);
-                        var promise = ajaxRequest.send(api);
-                        promise.then(function(data) {
-                            console.log(data);
-                        });
-                    });
-                    push.on('notification', function(data) {
-                        console.log(data);
-
-                        if (data.additionalData.foreground) {
-                            alert(data.message);
-//                            console.log(data);
-                        } else {
-                            data.message,
-                                    data.title,
-                                    data.count,
-                                    data.sound,
-                                    data.image,
-                                    data.additionalData
-                        }
-                    });
-                    push.on('error', function(e) {
-                        console.log("error");
-                        console.log(e.message);
-                        // e.message
-                    });
-
-// function push_msg_buy(){
-//     window.open('https://google.com', '_system', 'location=yes');
-//    };
-// function push_msg_stop(){
-//    urlHelper.openProduct();
-//    };
-
-
-                });
                 var self = this;
                 $rootScope.iconColor = function(val) {
                     $scope.cl = val;
@@ -376,8 +330,10 @@
                     }
 
 
-                };
-            }).directive('closeSubmenu', function($window, $ionicHistory, $localStorage) {
+                }
+                ;
+            }
+            ).directive('closeSubmenu', function($window, $ionicHistory, $localStorage) {
         return {
             scope: {
                 closeSubmenu: '&'

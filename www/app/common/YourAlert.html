@@ -6,7 +6,7 @@
 
         </div>-->
         <div class="lower">
-            <div class="box" ng-repeat="res in response.data track by $index">
+            <div class="box" ng-repeat="res in response track by $index">
                 <div class="box1" ng-init="kk = break(res.data[0].website)">
                     <div class='box12'>
                         <p id="a1"> {{res.short}}</p>

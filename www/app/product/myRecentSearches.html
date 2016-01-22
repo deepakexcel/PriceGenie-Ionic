@@ -1,5 +1,8 @@
 <ion-view cache-view="false" can-swipe-back="false">
     <ion-content overflow-scroll="true">
+        <ion-nav-title>
+            <i class="iostitle" ng-if="footer_ios"> My Recent Searches</i>
+        </ion-nav-title>
         <div class="mainrecent">
             <div class="titler">
                 <span>Your Recently Viewed Products</span>
@@ -45,27 +48,27 @@
     </ion-content>
     <ion-footer-bar class="myfoot" ng-if="footer_ios" >
         <div class="ios_footer">
-           
-                <button  class="button button-clear button-large iosbt1 " ng-hide="home_page"  ui-sref="menu.home" ng-click="iconColor('2')" ng-class="{'iosbt11':lo!=true}"> 
+
+            <button  class="button button-clear button-large iosbt1 " ng-hide="home_page"  ui-sref="menu.home" ng-click="iconColor('2')" ng-class="{'iosbt11':lo != true}"> 
                 <i class='icon ion-ios-home color_ch' ng-class="{'ic':cl == 2}"></i>
                 <div class="tbName" ng-class="{'ic':cl == 2}">Home</div>
             </button> 
-            <button  ng-show="lo" class="button button-clear button-large iosbtiosbtvie5" ui-sref="menu.login" ng-click="iconColor('1')" ng-class="{'iosbtlogin':lo!= true }">
+            <button  ng-show="lo" class="button button-clear button-large iosbtiosbtvie5" ui-sref="menu.login" ng-click="iconColor('1')" ng-class="{'iosbtlogin':lo != true }">
                 <i class='icon ion-person color_ch' ng-class="{'ic':cl == 1}"></i>
                 <div class="tbName" ng-class="{'ic':cl == 1}"> Login</div>
             </button>  
-        
-            <button  class="button button-clear button-large  iosbtiosbtvie2" ng-click="iconColor('3')" ng-class="{'iosbt212':lo!= true}"  ui-sref="menu.YourAlert">
+
+            <button  class="button button-clear button-large  iosbtiosbtvie2" ng-click="iconColor('3')" ng-class="{'iosbt212':lo != true}"  ui-sref="menu.YourAlert">
                 <i class='icon ion-ios-bell color_ch' ng-class="{'ic':cl == 3}"></i>
                 <div class="tbName" ng-class="{'ic':cl == 3}">Alert</div>
 
             </button>  
-<!--            <button ng-controller="productCtrl" class="button button-clear button-large  iosbt2" ng-class="{'login_user':login == true,'iosbt21':login != true && home_page1 == true,'ic':cl == 4}" ng-click="follow(0, 0, qid);iconColor('4')" ng-if="heart" > 
-                <i class='icon ion-ios-heart color_ch' ng-class="{'ic':cl == 4}"></i>
-                <div class="tbName" ng-class="{'ic':cl == 4}">Follow</div>
-
-            </button> -->
-            <button  class="button button-clear button-large iosbtvie" ng-class="{'iosbt31':lo!= true}"  ng-click="iconColor('5')"ui-sref="menu.search"> 
+            <!--            <button ng-controller="productCtrl" class="button button-clear button-large  iosbt2" ng-class="{'login_user':login == true,'iosbt21':login != true && home_page1 == true,'ic':cl == 4}" ng-click="follow(0, 0, qid);iconColor('4')" ng-if="heart" > 
+                            <i class='icon ion-ios-heart color_ch' ng-class="{'ic':cl == 4}"></i>
+                            <div class="tbName" ng-class="{'ic':cl == 4}">Follow</div>
+            
+                        </button> -->
+            <button  class="button button-clear button-large iosbtvie" ng-class="{'iosbt31':lo != true}"  ng-click="iconColor('5')"ui-sref="menu.search"> 
                 <i class='icon ion-ios-search-strong color_ch' ng-class="{'ic':cl == 5}"></i>
                 <div class="tbName" ng-class="{'ic':cl == 5}">Search</div>
             </button> 

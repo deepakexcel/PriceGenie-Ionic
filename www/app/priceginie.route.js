@@ -116,7 +116,7 @@
                                 }}
                         })
                         .state('menu.YourAlert', {
-                            url: '/YourAlert',
+                            url: '/YourAlert/:wid',
                             views: {'mainView': {
                                     templateUrl: 'app/common/YourAlert.html',
                                     controller: 'YourAlertCtrl'

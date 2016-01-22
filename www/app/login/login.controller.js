@@ -15,7 +15,7 @@
         $scope.goback = function() {
             $ionicHistory.goBack();
         };
-        $scope.closePodcastsLoader = function() {
+        $rootScope.closePodcastsLoader = function() {
             $ionicLoading.hide();
         };
 

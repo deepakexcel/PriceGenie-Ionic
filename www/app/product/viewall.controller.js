@@ -68,12 +68,17 @@
 //            }
 
                         $scope.cat_name = $scope.response.crums[2].name;
-                    
-                        if ($scope.response.display_data.length == 8) {
+
+                        if ($scope.response.display_data.length >= 1) {
                             a = true;
 
                         }
 
+
+                        if ($scope.main.display_data) {
+                            console.log('main data');
+                            console.log($scope.main.display_data.length);
+                        }
                         if ($scope.response.display_data[0] == undefined && a != true) {
                             console.log("no");
                             $scope.data3 = false;
@@ -511,7 +516,7 @@
                     $scope.filter = modal;
                 });
                 $scope.bg = 3;
-var a;
+                var a;
                 $scope.show = function(key, bgcolor) {
                     $scope.abcd = true;
                     $scope.bg = bgcolor;
@@ -523,7 +528,7 @@ var a;
                         $scope.filter.show();
                         $timeout(function() {
                             $scope.abcd = false;
-                            
+
                         }, 100);
                         $scope.brand12 = true;
                         $scope.color = key;
@@ -549,6 +554,7 @@ var a;
                     $scope.change2 = false;
                     $scope.sorthide = false;
                     $scope.filterhide = false;
+                    $scope.bg = 3;
                     $scope.f = 1;
                     m = 0;
                     brandFsearch = '';

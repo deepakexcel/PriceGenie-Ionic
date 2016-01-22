@@ -42,8 +42,8 @@
     goview.openContactus = function() {
         $state.go('menu.Contactus');
     };
-    goview.openYouralert = function() {
-        $state.go('menu.YourAlert');
+    goview.openYouralert = function(data) {
+        $state.go('menu.YourAlert',data);
     };
     goview.openWebsite = function() {
         $state.go('menu.website');
