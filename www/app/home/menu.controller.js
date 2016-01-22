@@ -28,9 +28,74 @@
 
 
                 });
-               
-             
-              
+                document.addEventListener("deviceready", function() {
+
+                    var push = PushNotification.init({
+                        "android": {"senderID": "117380048302"},
+                        "ios": {"alert": "true", "badge": "true", "sound": "true"},
+                        "windows": {}}
+                    );
+                    push.on('registration', function(data) {
+                        console.log(data);
+
+                        var x = data.registrationId;
+                        timeStorage.set("Noti_reg_id", x, 100);
+                        var action = "add_mobile";
+                        var params = 'device_id=' + encodeURIComponent(device.uuid) + '&user_key=' + '' + '&gcm_reg_id=' + encodeURIComponent(x);
+                        var api = 'mobile_api/api.php?action=' + action + '&' + params;
+                        console.log(api);
+                        var promise = ajaxRequest.send(api);
+                        promise.then(function(data) {
+                            console.log(data);
+                        });
+                    });
+                    push.on('notification', function(data) {
+                        console.log(data);
+                        if (undefined != data.additionalData.callback && 'function' == typeof window[data.additionalData.callback]) {
+                            data.additionalData.callback;
+                        }
+                        if (data.additionalData.foreground) {
+                            alert(data.message);
+                            console.log(data);
+                        } else {
+                            data.message,
+                                    data.title,
+                                    data.count,
+                                    data.sound,
+                                    data.image,
+                                    data.additionalData
+                        }
+
+
+                    });
+                    push.on('error', function(e) {
+                        console.log("error");
+                        console.log(e.message);
+                        // e.message
+                    });
+                });
+                window.push_msg_buy = function(data) {
+                    console.log(data.additionalData.actions[0].callback);
+                    window.open(data.additionalData.actions[0].url, '_system', 'location=yes');
+
+                }
+                ;
+                window.push_msg_stop = function(data) {
+                    var id;
+                    if (data.additionalData.actions[0].callback == "push_msg_stop") {
+                        console.log('one button');
+
+                        id = data.additionalData.actions[0].stop_watch_notify_id;
+                    }
+                    else {
+
+                        id = data.additionalData.actions[1].stop_watch_notify_id;
+                    }
+                    urlHelper.openYouralert({wid: id});
+
+                };
+
+
 
                 var self = this;
                 $rootScope.iconColor = function(val) {
