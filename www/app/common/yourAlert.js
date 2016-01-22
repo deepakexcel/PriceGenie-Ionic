@@ -101,7 +101,78 @@
                     var api = 'mobile_api/api.php?action=notify&type=account&device_id=' + $scope.uuid + '&user_id=' + userid + '&email=' + email;
                     self.AllData(api);
                 };
-              
+                if ($stateParams.wid) {
+                    $ionicLoading.show({
+                        templateUrl: 'partials/modals/productPage/loading.html',
+                        scope: $scope
+
+                    });
+                    var api = 'mobile_api/api.php?action=notify&type=account&device_id=' + $scope.uuid + '&user_id=' + userid + '&email=' + email;
+                    var promise = ajaxRequest.send(api);
+                    promise.then(function(data) {
+                        $scope.response1 = data;
+                        console.log($scope.response1);
+                        $ionicLoading.hide();
+                        if (data.data == '') {
+                            $scope.yes = true;
+
+                        } else {
+                            $scope.yes = false;
+                            for (var key in $scope.response1.data) {
+
+                                if (key == $stateParams.wid) {
+
+                                    var obj = $scope.response1.data[key];
+                                    var myobj = {key: obj};
+                                    console.log(obj);
+                                    $scope.response = myobj;
+                                }
+                            }
+
+                        }
+
+                    });
+                    console.log('push stop');
+                    var myPopup = $ionicPopup.show({
+                        template: '<div class="mypop"><div class="mylogo"><img class="mimsize" src="assets/img/homlogo.png">' +
+                                '</div></div><div class="popupct">DO YOU WANT TO STOP<br>Alert !!!!</div>',
+                        title: '',
+                        subTitle: '',
+                        scope: $scope,
+                        buttons: [
+                            {text: 'Yes',
+                                type: 'button-positive',
+                                onTap: function(e) {
+                                    var id = $stateParams.wid;
+                                    console.log('price alert stop push' + id);
+                                    var api = 'mobile_api/api.php?action=watch&watch_notify_id=' + id + '&device_id=' + device.uuid;
+                                    var promise = ajaxRequest.send(api);
+                                    promise.then(function(data) {
+                                        $scope.response = data.data;
+
+                                        if (data.message = "Watch Removed") {
+                                            window.plugins.toast.showShortTop(data.message);
+                                            var api = 'mobile_api/api.php?action=notify&type=account&device_id=' + $scope.uuid + '&user_id=' + userid + '&email=' + email;
+                                            self.AllData(api);
+                                        }
+                                    });
+                                }
+                            },
+                            {
+                                text: '<b>No</b>',
+                                onTap: function(e) {
+                                    self.main();
+                                    myPopup.close();
+                                }
+                            }
+                        ]
+                    });
+
+                } else {
+
+                    self.main();
+                }
+
                 $scope.stoped = function(id, type) {
                     console.log(id);
 

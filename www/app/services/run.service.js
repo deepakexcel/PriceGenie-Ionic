@@ -33,6 +33,13 @@
 
 
             }
+            if (localStorage.getItem('external_load')) {
+                urlHelper.openProduct();
+                console.log('Product');
+            } else {
+                console.log('home');
+                urlHelper.openHome();
+            }
 
         };
         this.networkCheker = function() {
